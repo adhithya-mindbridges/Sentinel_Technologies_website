@@ -3,7 +3,6 @@ import { ArrowRight, Camera, Lock, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-building.jpg";
-import sentinelLogo from "@/assets/sentinel-logo.png";
 
 const container = {
   hidden: {},
@@ -28,7 +27,7 @@ const HeroSection = () => {
             animate="visible"
           >
             <motion.div variants={item} className="flex items-center space-x-3 mb-6">
-              <img src={sentinelLogo} alt="" className="w-8 h-8" />
+              <img src={"src/assets/sentinel-logo-transparent.png"} alt="" className="w-8 h-8" />
               <span className="text-lg font-semibold text-primary">Sentinel Technologies</span>
             </motion.div>
 
