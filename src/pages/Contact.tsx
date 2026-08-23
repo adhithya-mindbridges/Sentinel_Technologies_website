@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, ShieldCheck, MessageSquare, CalendarCheck, ArrowRight } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  MessageSquare,
+  CalendarCheck,
+  ArrowRight,
+  Award,
+  Boxes,
+  Handshake,
+  BrainCircuit,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/ContactForm";
@@ -53,6 +66,15 @@ const process = [
   { icon: MessageSquare, step: "01", title: "You share your needs", desc: "Fill out the form with your requirements, or call us directly." },
   { icon: ShieldCheck, step: "02", title: "We assess your site", desc: "Our specialists review your facility, risks and compliance needs." },
   { icon: CalendarCheck, step: "03", title: "We propose a solution", desc: "You get a tailored proposal within 24 hours - no obligation." },
+];
+
+const whyChooseUs = [
+  { icon: Award, title: "10+ Years of Experience", desc: "A decade engineering security, ELV and automation solutions across 500+ projects." },
+  { icon: Boxes, title: "Vendor-Neutral, Best-Fit Technology", desc: "We recommend the right technology ecosystem for your requirement, not a single brand." },
+  { icon: Handshake, title: "End-to-End Lifecycle Partner", desc: "From consultation and design through implementation, commissioning and long-term support." },
+  { icon: BrainCircuit, title: "AI-Driven & Future-Ready", desc: "Continuously investing in AI, computer vision and intelligent automation." },
+  { icon: Clock, title: "24/7 Emergency Support", desc: "Round-the-clock support so critical issues get a rapid response." },
+  { icon: ShieldCheck, title: "ISO Certified Quality", desc: "Engineering and delivery held to certified quality standards." },
 ];
 
 const trustStats = [
@@ -127,6 +149,41 @@ const Contact = () => {
               </a>
             </Button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Sentinel Technologies */}
+      <section className="py-20 bg-security-light">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center max-w-2xl mx-auto mb-14"
+          >
+            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Why Choose Us</p>
+            <h2 className="text-3xl font-bold text-security-dark text-balance">Why Choose Sentinel Technologies</h2>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseUs.map(({ icon: Icon, title, desc }, i) => (
+              <motion.div
+                key={title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="p-6 rounded-2xl bg-white border border-border hover:border-primary/40 hover:shadow-card-custom transition-all duration-300"
+              >
+                <div className="p-3 rounded-xl bg-primary/10 w-fit mb-4">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-security-dark mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -4,7 +4,6 @@ import AboutSection from "@/components/AboutSection";
 import SolutionsSection from "@/components/SolutionsSection";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import CustomerLogos from "@/components/CustomerLogos";
-import ContactSection from "@/components/ContactSection";
 import SEO, { SITE_URL } from "@/components/SEO";
 
 const Index = () => {
@@ -21,7 +20,6 @@ const Index = () => {
       <SolutionsSection />
       <CaseStudiesPreview />
       <CustomerLogos />
-      <ContactSection />
     </main>
   );
 };

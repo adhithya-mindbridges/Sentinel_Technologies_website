@@ -1,11 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 import sentinelLogo from "@/assets/sentinel-logo.png";
 import { solutions } from "@/data/solutions";
 import { industries } from "@/data/industries";
 import { cn } from "@/lib/utils";
 
-const companyLinks: { label: string; sectionId?: string; path?: string }[] = [
+const companyLinks = [
   { label: "About Us", path: "/about" },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Partners", path: "/partners" },
@@ -26,17 +26,6 @@ const FooterLink = ({ children, className, ...props }: React.ComponentProps<type
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const scrollToSection = (id: string) => {
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 100);
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <footer className="bg-security-dark text-white">
@@ -94,16 +83,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  {link.path ? (
-                    <FooterLink to={link.path}>{link.label}</FooterLink>
-                  ) : (
-                    <button
-                      onClick={() => scrollToSection(link.sectionId!)}
-                      className="text-sm text-white/65 hover:text-white transition-colors text-left"
-                    >
-                      {link.label}
-                    </button>
-                  )}
+                  <FooterLink to={link.path}>{link.label}</FooterLink>
                 </li>
               ))}
             </ul>
