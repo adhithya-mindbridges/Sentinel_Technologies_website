@@ -1,24 +1,27 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Settings, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { solutions } from "@/data/solutions";
+import { fadeUp, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] },
-  }),
-};
+const approach = [
+  { title: "Flexible Integration", desc: "Standalone or fully integrated systems tailored to your needs" },
+  { title: "Remote Management", desc: "Both remote and on-site management capabilities" },
+  { title: "Cost-Effective", desc: "Scalable and customizable solutions that grow with you" },
+];
 
 const SolutionsSection = () => {
   return (
     <section id="solutions" className="py-20 bg-security-light">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealOnce}
+          variants={fadeUp}
+          className="text-center mb-16"
+        >
           <div className="flex justify-center mb-6">
             <div className="p-3 rounded-full bg-primary/10">
               <Shield className="w-12 h-12 text-primary" />
@@ -36,9 +39,9 @@ const SolutionsSection = () => {
           >
             View All 14 Solution Categories <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {solutions.map((solution, index) => {
             const IconComponent = solution.icon;
             return (
@@ -48,48 +51,48 @@ const SolutionsSection = () => {
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={revealOnceTight}
+                whileHover={{ y: -4 }}
               >
-              <Card
-                className="h-full hover:shadow-security transition-all duration-300 hover:scale-105 bg-white"
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4 mb-3">
-                    <div className="p-3 rounded-lg bg-primary/10">
-                      <IconComponent className="w-8 h-8 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl text-security-dark">
-                      {solution.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {solution.description}
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    {solution.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild className="w-full group">
-                    <Link to={solution.path}>
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                <Link to={solution.path} className="block h-full">
+                  <Card className="group relative h-full overflow-hidden transition-shadow duration-300 hover:shadow-security bg-white">
+                    <span className="pointer-events-none absolute top-2 right-4 text-5xl font-bold text-primary/5 group-hover:text-primary/10 transition-colors duration-300 select-none">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <CardContent className="p-6 relative">
+                      <motion.div
+                        className="inline-flex p-3 rounded-lg bg-primary/10 mb-4"
+                        whileHover={{ scale: 1.12, rotate: 6 }}
+                        transition={iconSpring}
+                      >
+                        <IconComponent className="w-7 h-7 text-primary" />
+                      </motion.div>
+                      <h3 className="text-lg font-semibold text-security-dark mb-2">
+                        {solution.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        {solution.description}
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                        Learn more
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
               </motion.div>
             );
           })}
         </div>
 
         {/* Approach Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-card-custom">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealOnce}
+          variants={fadeUp}
+          className="bg-white rounded-2xl p-8 shadow-card-custom"
+        >
           <div className="flex items-center justify-center mb-6">
             <div className="p-3 rounded-full bg-primary/10">
               <Settings className="w-10 h-10 text-primary" />
@@ -99,20 +102,14 @@ const SolutionsSection = () => {
             Our Approach
           </h3>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h4 className="text-lg font-semibold text-security-dark mb-2">Flexible Integration</h4>
-              <p className="text-muted-foreground">Standalone or fully integrated systems tailored to your needs</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-security-dark mb-2">Remote Management</h4>
-              <p className="text-muted-foreground">Both remote and on-site management capabilities</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-security-dark mb-2">Cost-Effective</h4>
-              <p className="text-muted-foreground">Scalable and customizable solutions that grow with you</p>
-            </div>
+            {approach.map((a, i) => (
+              <motion.div key={a.title} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={revealOnce}>
+                <h4 className="text-lg font-semibold text-security-dark mb-2">{a.title}</h4>
+                <p className="text-muted-foreground">{a.desc}</p>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,20 +1,19 @@
 import { Card } from "@/components/ui/card";
 
+interface Partner {
+  name: string;
+  description?: string;
+  logo?: string;
+}
+
 interface PartnerLogosProps {
   title?: string;
-  partners?: Array<{ name: string; description?: string }>;
+  partners?: Partner[];
 }
 
 const PartnerLogos = ({
   title = "Our Technology Partners",
-  partners = [
-    { name: "Hikvision", description: "Leading video surveillance technology" },
-    { name: "Dahua", description: "Advanced security solutions" },
-    { name: "Honeywell", description: "Fire safety and automation" },
-    { name: "Bosch", description: "Professional security systems" },
-    { name: "Axis", description: "Network video solutions" },
-    { name: "Schneider", description: "Building automation systems" },
-  ],
+  partners = [],
 }: PartnerLogosProps) => {
   return (
     <section className="py-12 bg-white">
@@ -32,16 +31,23 @@ const PartnerLogos = ({
           {partners.map((partner, index) => (
             <Card
               key={index}
-              className="p-4 text-center hover:shadow-md transition-all duration-300 hover:scale-105"
+              className="p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-all duration-300 hover:scale-105 min-h-[100px]"
             >
-              <div className="h-8 w-full flex items-center justify-center border border-dashed border-border rounded mb-2 px-1">
-                <span className="text-[9px] font-medium text-muted-foreground leading-tight">
-                  Logo needed
+              {partner.logo ? (
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-10 max-w-[120px] w-auto h-auto object-contain mb-2"
+                />
+              ) : (
+                <span className="text-sm font-semibold text-security-dark mb-2 leading-tight">
+                  {partner.name}
                 </span>
-              </div>
-              <h4 className="text-sm font-medium text-security-dark">{partner.name}</h4>
+              )}
               {partner.description && (
-                <p className="text-xs text-muted-foreground mt-1">{partner.description}</p>
+                <p className="text-xs text-muted-foreground leading-tight">
+                  {partner.description}
+                </p>
               )}
             </Card>
           ))}
@@ -52,3 +58,4 @@ const PartnerLogos = ({
 };
 
 export default PartnerLogos;
+

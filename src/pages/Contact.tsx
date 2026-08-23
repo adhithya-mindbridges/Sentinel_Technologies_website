@@ -32,10 +32,10 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 95660 40007", "24/7 Emergency Support"],
+    details: ["+91 98409 06522", "24/7 Emergency Support"],
     color: "text-primary",
     bg: "bg-primary/10",
-    href: "tel:+919566040007",
+    href: "tel:+919840906522",
   },
   {
     icon: Mail,
@@ -69,18 +69,18 @@ const process = [
 ];
 
 const whyChooseUs = [
-  { icon: Award, title: "10+ Years of Experience", desc: "A decade engineering security, ELV and automation solutions across 500+ projects." },
+  { icon: Award, title: "14+ Years of Experience", desc: "Over 14 years engineering security, ELV and automation solutions across 500+ projects." },
   { icon: Boxes, title: "Vendor-Neutral, Best-Fit Technology", desc: "We recommend the right technology ecosystem for your requirement, not a single brand." },
   { icon: Handshake, title: "End-to-End Lifecycle Partner", desc: "From consultation and design through implementation, commissioning and long-term support." },
   { icon: BrainCircuit, title: "AI-Driven & Future-Ready", desc: "Continuously investing in AI, computer vision and intelligent automation." },
   { icon: Clock, title: "24/7 Emergency Support", desc: "Round-the-clock support so critical issues get a rapid response." },
-  { icon: ShieldCheck, title: "ISO Certified Quality", desc: "Engineering and delivery held to certified quality standards." },
+  { icon: ShieldCheck, title: "Triple ISO Certified", desc: "ISO 9001:2015 · ISO/IEC 27001:2022 · ISO/IEC 42001:2023 — certified for quality, information security and AI management." },
 ];
 
 const trustStats = [
   { value: "24/7", label: "Emergency Support", color: "text-primary" },
-  { value: "ISO", label: "Certified Quality", color: "text-security-accent" },
-  { value: "10+", label: "Years Experience", color: "text-primary" },
+  { value: "3×", label: "ISO Certifications", color: "text-security-accent" },
+  { value: "14+", label: "Years Experience", color: "text-primary" },
   { value: "500+", label: "Projects Completed", color: "text-security-accent" },
 ];
 
@@ -132,9 +132,9 @@ const Contact = () => {
             className="flex flex-wrap justify-center gap-3"
           >
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
-              <a href="tel:+919566040007">
+              <a href="tel:+919840906522">
                 <Phone className="w-4 h-4 mr-2" />
-                Call +91 95660 40007
+                Call +91 98409 06522
               </a>
             </Button>
             <Button

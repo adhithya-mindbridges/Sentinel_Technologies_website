@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { fadeUp, iconSpring } from "@/lib/motion";
 import {
   Camera,
   BrainCircuit,
@@ -26,15 +27,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { industries } from "@/data/industries";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
 
 interface SolutionCategory {
   number: string;
@@ -493,7 +485,7 @@ const CategoryCard = ({ category, index }: { category: SolutionCategory; index: 
             <motion.div
               className="p-3 rounded-xl bg-primary/10 flex-shrink-0"
               whileHover={{ scale: 1.12, rotate: 6 }}
-              transition={{ type: "spring", stiffness: 300, damping: 12 }}
+              transition={iconSpring}
             >
               <Icon className="w-6 h-6 text-primary" />
             </motion.div>
@@ -693,7 +685,7 @@ const SolutionsPage = () => {
                 <motion.div
                   className="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center mb-4"
                   whileHover={{ scale: 1.12, rotate: 6 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                  transition={iconSpring}
                 >
                   <Icon className="w-7 h-7 text-primary" />
                 </motion.div>

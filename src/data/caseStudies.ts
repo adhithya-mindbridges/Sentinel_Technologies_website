@@ -78,8 +78,8 @@ export const caseStudies: CaseStudy[] = [
     industry: "Electronics Manufacturing",
     image: networkServerCabling,
     imageAlt: "Structured network cabling and switches in a server rack (representative image)",
-    scale: "1,500+ Cameras | 10+ Lakh Metres of CAT6 Cabling",
-    highlights: ["1,500+ CCTV Cameras", "10+ Lakh Metres of CAT6 Cable"],
+    scale: "1,500+ Cameras | 10M+ Metres of CAT6 Cabling",
+    highlights: ["1,500+ CCTV Cameras", "10M+ Metres of CAT6 Cable"],
     solutionTags: ["CCTV", "Data Centre", "Structured Cabling", "Network Infrastructure"],
     relatedSolutionSlugs: ["cctv", "it-infrastructure"],
     summary:
@@ -235,7 +235,7 @@ export const getCaseStudyBySlug = (slug: string) => caseStudies.find((c) => c.sl
 
 export const enterpriseScaleStats = [
   { value: "4,800+", label: "Cameras Across Featured Deployments" },
-  { value: "10+ Lakh", label: "Metres of CAT6 Infrastructure" },
+  { value: "10M+", label: "Metres of CAT6 Infrastructure" },
   { value: "8", label: "Enterprise-Scale Projects Featured" },
 ];
 

@@ -4,6 +4,7 @@ import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { motion } from "framer-motion";
 import { useCountUp } from "@/hooks/use-count-up";
+import { fadeUp, scaleIn, iconSpring } from "@/lib/motion";
 import {
   Building2,
   Wrench,
@@ -36,24 +37,6 @@ import sagtaur from "@/assets/customers/logos/sagtaur.png";
 import cisb from "@/assets/customers/logos/cisb.png";
 import kcic from "@/assets/customers/logos/kcic.png";
 import firstman from "@/assets/customers/logos/firstman.png";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.92 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
 
 const coreCapabilities = [
   {
@@ -322,7 +305,7 @@ const BuildingAutomationPage = () => {
                         <motion.div
                           className="p-3 rounded-lg bg-primary/10"
                           whileHover={{ scale: 1.12, rotate: 6 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                          transition={iconSpring}
                         >
                           <IconComponent className="w-8 h-8 text-primary" />
                         </motion.div>
@@ -445,7 +428,7 @@ const BuildingAutomationPage = () => {
                   <motion.div
                     className="flex justify-center mb-4"
                     whileHover={{ scale: 1.1, y: -4 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                    transition={iconSpring}
                   >
                     <div className="p-4 rounded-full bg-primary/10">
                       <IconComponent className="w-8 h-8 text-primary" />
@@ -514,7 +497,7 @@ const BuildingAutomationPage = () => {
                   <motion.div
                     className="flex justify-center mb-3"
                     whileHover={{ scale: 1.12, rotate: -4 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                    transition={iconSpring}
                   >
                     <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
                       <IconComponent className="w-7 h-7 text-primary" />

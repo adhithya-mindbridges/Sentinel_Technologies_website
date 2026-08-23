@@ -45,7 +45,13 @@ const milestones = [
   { year: "2022", title: "Screening & ICCC Capabilities" },
   { year: "2023", title: "Hybrid Access Capabilities" },
   { year: "2024", title: "Identity Detection Capabilities" },
+  { year: "2024", title: "AI Implementation Solution" },
   { year: "2025", title: "AI & Drone Capabilities" },
+  {
+    year: "2026-2027",
+    title: "Global Expansion",
+    desc: "Scaling across global markets with deployments in 11+ industries and 5+ countries, including UAE.",
+  },
 ];
 
 const journeySteps = [
@@ -83,8 +89,8 @@ const whySentinel = [
 ];
 
 const ecosystem = [
-  { icon: Eye, name: "Mirador A.I", tagline: "Insights Beyond Vision", desc: "AI-powered Computer Vision, Video Analytics, Facial Recognition, ANPR, Intelligent Video Management and industry-specific analytics that transform surveillance video into actionable intelligence." },
-  { icon: Activity, name: "TraqOPS", tagline: "Intelligent Building & Operations Management", desc: "A unified approach to building intelligence, IoT integration, energy monitoring, asset management and maintenance-workflow digitization." },
+  { icon: Eye, name: "Artificial Intelligence", tagline: "Insights Beyond Vision", desc: "AI-powered Computer Vision, Video Analytics, Facial Recognition, ANPR, Intelligent Video Management and industry-specific analytics that transform surveillance video into actionable intelligence." },
+  { icon: Activity, name: "TraqOPS - iBMS", tagline: "Intelligent Building & Operations Management", desc: "A unified approach to building intelligence, IoT integration, energy monitoring, asset management and maintenance-workflow digitization." },
   { icon: Rocket, name: "Sentinel X-Labs", tagline: "Engineering the Technologies of Tomorrow", desc: "Our innovation and R&D initiative exploring autonomous systems, drones, robotics, AI and intelligent sensing." },
 ];
 
@@ -406,14 +412,62 @@ const About = () => {
       </section>
 
       {/* Our Journey */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Journey</p>
-            <h2 className="text-3xl font-bold text-security-dark text-balance">
-              Since 2012, one fundamental objective
-            </h2>
-          </motion.div>
+      <section className="relative py-24 md:py-32 bg-background overflow-hidden">
+        {/* Oversized background year - brand anchor, echoes the ghost-numeral
+            treatment already used on Solutions/TraqOPS cards */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center"
+        >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display font-extrabold leading-none text-primary/[0.06] tabular-nums whitespace-nowrap"
+            style={{ fontSize: "clamp(6rem, 24vw, 22rem)" }}
+          >
+            2012
+          </motion.span>
+        </div>
+
+        <div className="container relative mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="flex items-center justify-center gap-3 mb-6"
+            >
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-security-dark/70">
+                Since
+              </span>
+              <motion.span
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="h-px w-8 bg-primary origin-left"
+              />
+              <span className="text-sm font-bold tracking-[0.15em] text-primary tabular-nums">
+                2012
+              </span>
+            </motion.div>
+
+            <motion.h2
+              custom={1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-security-dark leading-[1.08] tracking-tight text-balance"
+            >
+              One Fundamental
+              <br />
+              Objective
+            </motion.h2>
+          </div>
 
           {/* Timeline */}
           <div className="max-w-3xl mx-auto mb-16">
@@ -423,7 +477,7 @@ const About = () => {
               <div className="space-y-8">
                 {milestones.map((m, i) => (
                   <motion.div
-                    key={m.year}
+                    key={`${m.year}-${m.title}`}
                     custom={i}
                     initial="hidden"
                     whileInView="visible"
@@ -437,6 +491,9 @@ const About = () => {
                     <div className={`sm:w-1/2 ${i % 2 === 0 ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:text-left"}`}>
                       <span className="text-xs font-mono font-bold text-primary">{m.year}</span>
                       <p className="font-semibold text-security-dark leading-snug">{m.title}</p>
+                      {m.desc && (
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1">{m.desc}</p>
+                      )}
                     </div>
                     <div className="hidden sm:block sm:w-1/2" />
                   </motion.div>
@@ -464,6 +521,68 @@ const About = () => {
               understanding what is happening - and enabling action before it becomes a problem.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+
+      {/* Certifications */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center mb-12"
+          >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">
+              Quality &amp; Compliance
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-security-dark mb-3">
+              ISO Certified
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Sentinel Technologies holds internationally recognised certifications that reflect our commitment to quality, information security and responsible AI management.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                code: "ISO 9001:2015",
+                title: "Quality Management System",
+                desc: "Defines our framework for consistent engineering quality, customer focus and continual improvement across all projects and services.",
+              },
+              {
+                code: "ISO/IEC 27001:2022",
+                title: "Information Security Management",
+                desc: "Demonstrates our systematic approach to managing sensitive information, data security risks and cybersecurity across operations.",
+              },
+              {
+                code: "ISO/IEC 42001:2023",
+                title: "AI Management System",
+                desc: "Recognises our responsible development and deployment of Artificial Intelligence technologies with governance, transparency and accountability.",
+              },
+            ].map((cert, i) => (
+              <motion.div
+                key={cert.code}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+              >
+                <div className="h-full border border-border rounded-xl p-6 bg-security-light hover:shadow-security transition-shadow duration-300">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 mb-4">
+                    <ShieldCheck className="w-5 h-5 text-primary" />
+                  </div>
+                  <p className="text-xs font-bold font-mono tracking-wider text-primary mb-1 uppercase">{cert.code}</p>
+                  <h3 className="text-lg font-bold text-security-dark mb-2 leading-snug">{cert.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{cert.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

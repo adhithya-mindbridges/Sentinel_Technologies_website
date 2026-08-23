@@ -51,7 +51,7 @@ const ecosystem: EcosystemCategory[] = [
     icon: Camera,
     title: "Video Surveillance & Security",
     intro: "Sentinel works with leading global surveillance technology providers to deliver solutions ranging from individual facilities to enterprise-scale, multi-site deployments.",
-    brands: ["Bosch / Keenfinity", "Hanwha Vision", "Axis Communications", "i-PRO", "Pelco", "Honeywell", "Johnson Controls / Tyco", "Hikvision", "Dahua Technology", "Milestone Systems", "Network Optix", "FLIR", "BriefCam", "Vivotek", "Mirador A.I"],
+    brands: ["Bosch / Keenfinity", "Hanwha Vision", "Axis Communications", "i-PRO", "Pelco", "Honeywell", "Johnson Controls / Tyco", "Hikvision", "Dahua Technology", "Milestone Systems", "Network Optix", "FLIR", "BriefCam", "Vivotek"],
     solutions: ["IP Cameras", "PTZ & Long-Range Cameras", "Thermal Imaging", "Specialized Industrial Cameras", "Network Video Recorders", "Enterprise Storage", "Video Management Systems", "Perimeter Surveillance", "Video Analytics"],
   },
   {

@@ -9,50 +9,55 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
+    --foreground: 40 8% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card-foreground: 40 8% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover-foreground: 40 8% 7%;
 
-    /* Professional security blue */
-    --primary: 214 84% 56%;
+    /* Sentinel red - derived from the logo mark (#B0161A) */
+    --primary: 358 78% 39%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 214 84% 46%;
+    --primary-dark: 358 79% 32%;
 
-    /* Professional gray */
-    --secondary: 210 6% 93%;
-    --secondary-foreground: 210 11% 15%;
+    /* Warm neutral (graphite), not blue-gray */
+    --secondary: 40 19% 94%;
+    --secondary-foreground: 40 8% 7%;
 
-    --muted: 210 6% 96%;
-    --muted-foreground: 210 6% 46%;
+    --muted: 40 19% 96%;
+    --muted-foreground: 42 8% 40%;
 
-    --accent: 214 84% 56%;
-    --accent-foreground: 0 0% 100%;
+    /* Soft neutral hover/focus surface for UI primitives (menus, calendar) */
+    --accent: 40 14% 92%;
+    --accent-foreground: 40 8% 10%;
 
-    --destructive: 0 84% 60%;
+    /* Shifted off the primary hue so destructive states read as "wrong", not "brand" */
+    --destructive: 5 62% 47%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 6% 90%;
-    --input: 210 6% 96%;
-    --ring: 214 84% 56%;
+    --border: 38 19% 88%;
+    --input: 40 19% 94%;
+    --ring: 358 78% 39%;
 
-  /* Enhanced professional security theme colors */
-  --security-blue: 217 91% 60%;
-  --security-dark: 217 32% 17%;
-  --security-light: 217 50% 98%;
-  --security-accent: 25 95% 53%;
-    
+  /* Sentinel brand theme colors - derived from the logo (red + near-black) */
+  --security-blue: 358 78% 39%;
+  --security-dark: 40 8% 7%;
+  --security-light: 40 20% 97%;
+  --security-accent: 30 65% 48%;
+
+    /* True logo red - reserved for brand-adjacent moments (large numerals, logo lockups, motif) */
+    --primary-deep: 360 97% 28%;
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 46%));
-    --gradient-hero: linear-gradient(135deg, hsl(210 22% 20%) 0%, hsl(214 84% 56% / 0.9) 100%);
-    
+    --gradient-primary: linear-gradient(135deg, hsl(358 78% 39%), hsl(358 79% 32%));
+    --gradient-hero: linear-gradient(135deg, hsl(40 8% 7%) 0%, hsl(358 60% 22% / 0.92) 100%);
+
     /* Shadows */
-    --shadow-security: 0 10px 30px -10px hsl(214 84% 56% / 0.3);
-    --shadow-card: 0 4px 12px -2px hsl(210 11% 15% / 0.08);
-    
+    --shadow-security: 0 10px 30px -10px hsl(358 78% 39% / 0.3);
+    --shadow-card: 0 4px 12px -2px hsl(40 8% 7% / 0.08);
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,47 +82,48 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 210 22% 11%;
-    --foreground: 0 0% 95%;
+    --background: 40 8% 8%;
+    --foreground: 60 10% 95%;
 
-    --card: 210 22% 15%;
-    --card-foreground: 0 0% 95%;
+    --card: 40 8% 11%;
+    --card-foreground: 60 10% 95%;
 
-    --popover: 210 22% 15%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 40 8% 11%;
+    --popover-foreground: 60 10% 95%;
 
-    --primary: 214 84% 56%;
+    --primary: 358 70% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 214 84% 46%;
+    --primary-dark: 358 78% 39%;
 
-    --secondary: 210 22% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 40 8% 18%;
+    --secondary-foreground: 60 10% 95%;
 
-    --muted: 210 22% 20%;
-    --muted-foreground: 210 6% 65%;
+    --muted: 40 8% 18%;
+    --muted-foreground: 40 8% 65%;
 
-    --accent: 214 84% 56%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 40 8% 20%;
+    --accent-foreground: 60 10% 95%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 5 55% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 22% 20%;
-    --input: 210 22% 20%;
-    --ring: 214 84% 56%;
+    --border: 40 8% 20%;
+    --input: 40 8% 20%;
+    --ring: 358 70% 55%;
 
-    /* Security theme colors - dark mode */
-    --security-blue: 214 84% 56%;
-    --security-dark: 210 22% 8%;
-    --security-light: 210 22% 25%;
-    --security-accent: 45 93% 47%;
-    
+    /* Sentinel brand theme colors - dark mode */
+    --security-blue: 358 70% 55%;
+    --security-dark: 40 8% 5%;
+    --security-light: 40 8% 22%;
+    --security-accent: 35 70% 55%;
+    --primary-deep: 360 90% 45%;
+
     /* Gradients - dark mode */
-    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 46%));
-    --gradient-hero: linear-gradient(135deg, hsl(210 22% 8%) 0%, hsl(214 84% 56% / 0.9) 100%);
-    
+    --gradient-primary: linear-gradient(135deg, hsl(358 70% 55%), hsl(358 78% 39%));
+    --gradient-hero: linear-gradient(135deg, hsl(40 8% 5%) 0%, hsl(358 55% 20% / 0.92) 100%);
+
     /* Shadows - dark mode */
-    --shadow-security: 0 10px 30px -10px hsl(214 84% 56% / 0.4);
+    --shadow-security: 0 10px 30px -10px hsl(358 70% 55% / 0.4);
     --shadow-card: 0 4px 12px -2px hsl(0 0% 0% / 0.25);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
