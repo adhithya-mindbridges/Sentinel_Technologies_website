@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import SEO, { SITE_URL } from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Lock, Fingerprint, Smartphone, Users, Clock, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,16 +43,36 @@ const AccessControlPage = () => {
   ];
 
   const accessPartners = [
-    { name: "HID Global", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=HID+Global", description: "Secure identity solutions" },
-    { name: "ZKTeco", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=ZKTeco", description: "Biometric access control" },
-    { name: "Honeywell", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Honeywell", description: "Access control systems" },
-    { name: "Bosch", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Bosch", description: "Professional security" },
-    { name: "Suprema", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Suprema", description: "Biometric technology" },
-    { name: "Salto", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Salto", description: "Smart access solutions" },
+    { name: "HID Global", description: "Secure identity solutions" },
+    { name: "ZKTeco", description: "Biometric access control" },
+    { name: "Honeywell", description: "Access control systems" },
+    { name: "Bosch", description: "Professional security" },
+    { name: "Suprema", description: "Biometric technology" },
+    { name: "Salto", description: "Smart access solutions" },
   ];
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Access Control Systems | Sentinel Technologies"
+        description="Biometric, card-reader and mobile access control with audit trails and role-based permissions. Sentinel designs identity management systems for offices, campuses and facilities."
+        canonical={`${SITE_URL}/solutions/access-control`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Access Control Systems",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "IN",
+            description: "Biometric access, card readers, mobile credentials and audit-trail access control for employees, visitors, contractors and vehicles.",
+          },
+        ]}
+        breadcrumbs={[
+          { name: "Solutions", url: `${SITE_URL}/#solutions` },
+          { name: "Access Control", url: `${SITE_URL}/solutions/access-control` },
+        ]}
+      />
+      <Breadcrumbs items={[{ name: "Solutions" }, { name: "Access Control" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 text-white">
         <div className="container mx-auto px-4">
@@ -126,10 +149,9 @@ const AccessControlPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=600&h=400&fit=crop" 
-                alt="Modern access control system"
-                className="rounded-lg shadow-security w-full h-80 object-cover"
+              <ImagePlaceholder
+                label="Photo of a Sentinel-installed access control system (reader/biometric device in use)"
+                className="rounded-lg shadow-security w-full h-80"
               />
             </div>
             <div className="space-y-6">

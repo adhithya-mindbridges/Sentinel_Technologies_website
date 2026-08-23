@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import SEO, { SITE_URL } from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Camera, Eye, Shield, Smartphone, Monitor, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,16 +43,36 @@ const CCTVPage = () => {
   ];
 
   const cctvPartners = [
-    { name: "Hikvision", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Hikvision", description: "World's leading video surveillance brand" },
-    { name: "Dahua", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Dahua", description: "Innovative video surveillance solutions" },
-    { name: "Axis", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Axis", description: "Network video pioneer" },
-    { name: "Bosch", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Bosch", description: "Professional security technology" },
-    { name: "Hanwha", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Hanwha", description: "Advanced imaging technology" },
-    { name: "Uniview", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Uniview", description: "IP video surveillance solutions" },
+    { name: "Hikvision", description: "World's leading video surveillance brand" },
+    { name: "Dahua", description: "Innovative video surveillance solutions" },
+    { name: "Axis", description: "Network video pioneer" },
+    { name: "Bosch", description: "Professional security technology" },
+    { name: "Hanwha", description: "Advanced imaging technology" },
+    { name: "Uniview", description: "IP video surveillance solutions" },
   ];
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Video Surveillance & CCTV Systems | Sentinel Technologies"
+        description="HD/4K CCTV cameras with night vision, motion detection, remote monitoring and video analytics. Sentinel designs and installs indoor and outdoor surveillance systems across India."
+        canonical={`${SITE_URL}/solutions/cctv`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Video Surveillance (CCTV) Systems",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "IN",
+            description: "HD/4K CCTV camera systems with night vision, motion detection, remote access and video analytics for commercial, residential, industrial and government facilities.",
+          },
+        ]}
+        breadcrumbs={[
+          { name: "Solutions", url: `${SITE_URL}/#solutions` },
+          { name: "CCTV", url: `${SITE_URL}/solutions/cctv` },
+        ]}
+      />
+      <Breadcrumbs items={[{ name: "Solutions" }, { name: "CCTV Surveillance" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 text-white">
         <div className="container mx-auto px-4">
@@ -126,10 +149,9 @@ const CCTVPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" 
-                alt="Modern CCTV surveillance setup"
-                className="rounded-lg shadow-security w-full h-80 object-cover"
+              <ImagePlaceholder
+                label="Photo of a Sentinel-installed CCTV/surveillance setup"
+                className="rounded-lg shadow-security w-full h-80"
               />
             </div>
             <div className="space-y-6">

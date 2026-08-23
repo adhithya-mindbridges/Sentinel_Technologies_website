@@ -1,66 +1,22 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Camera, 
-  Lock, 
-  Flame, 
-  Volume2, 
-  Building, 
-  Network,
-  Shield,
-  Settings,
-  ArrowRight
-} from "lucide-react";
+import { Shield, Settings, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { solutions } from "@/data/solutions";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
 
 const SolutionsSection = () => {
-  const solutions = [
-    {
-      icon: Camera,
-      title: "Video Surveillance (CCTV)",
-      description: "Advanced camera systems with high-definition recording, real-time monitoring, and intelligent analytics for comprehensive security coverage.",
-      features: ["HD/4K Recording", "Night Vision", "Motion Detection", "Remote Access"],
-      path: "/solutions/cctv"
-    },
-    {
-      icon: Lock,
-      title: "Access Control Systems",
-      description: "Sophisticated entry management solutions including card readers, biometric systems, and mobile access control.",
-      features: ["Biometric Access", "Card Readers", "Mobile Integration", "Audit Trails"],
-      path: "/solutions/access-control"
-    },
-    {
-      icon: Flame,
-      title: "Fire Alarm Systems",
-      description: "Comprehensive fire detection and notification systems designed to protect lives and property with early warning capabilities.",
-      features: ["Smoke Detection", "Heat Sensors", "Emergency Alerts", "Central Monitoring"],
-      path: "/solutions/fire-alarm"
-    },
-    {
-      icon: Volume2,
-      title: "Public Address Systems",
-      description: "Clear communication solutions for emergency announcements, background music, and general facility-wide communications.",
-      features: ["Zone Control", "Emergency Override", "Background Music", "Clear Audio"],
-      path: "/solutions/public-address"
-    },
-    {
-      icon: Building,
-      title: "Building Automation",
-      description: "Intelligent building management systems that optimize energy efficiency, comfort, and operational performance.",
-      features: ["HVAC Control", "Lighting Automation", "Energy Management", "Remote Monitoring"],
-      path: "/solutions/building-automation"
-    },
-    {
-      icon: Network,
-      title: "IT Infrastructure",
-      description: "Structured cabling, network infrastructure, and IT solutions that form the backbone of modern security systems.",
-      features: ["Structured Cabling", "Network Setup", "Server Installation", "Data Centers"],
-      path: "/solutions/it-infrastructure"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-security-light">
+    <section id="solutions" className="py-20 bg-security-light">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
@@ -71,17 +27,30 @@ const SolutionsSection = () => {
           <h2 className="text-4xl font-bold text-security-dark mb-4">
             Comprehensive ELV &amp; Security Solutions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
             From standalone systems to fully integrated solutions, we provide scalable, customizable, and cost-effective security and automation technologies.
           </p>
+          <Link
+            to="/solutions"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
+          >
+            View All 14 Solution Categories <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution, index) => {
             const IconComponent = solution.icon;
             return (
-              <Card 
-                key={index} 
+              <motion.div
+                key={solution.slug}
+                custom={index}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+              <Card
                 className="h-full hover:shadow-security transition-all duration-300 hover:scale-105 bg-white"
               >
                 <CardHeader className="pb-4">
@@ -114,6 +83,7 @@ const SolutionsSection = () => {
                   </Button>
                 </CardContent>
               </Card>
+              </motion.div>
             );
           })}
         </div>

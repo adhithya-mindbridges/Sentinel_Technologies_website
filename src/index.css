@@ -55,6 +55,7 @@ All colors MUST be HSL.
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 
     --radius: 0.5rem;
 
@@ -139,10 +140,23 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -158,5 +172,28 @@ All colors MUST be HSL.
   
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-dark;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

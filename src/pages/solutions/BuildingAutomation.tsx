@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import SEO, { SITE_URL } from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Building, Thermometer, Lightbulb, Gauge, Smartphone, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,16 +43,36 @@ const BuildingAutomationPage = () => {
   ];
 
   const baPartners = [
-    { name: "Schneider Electric", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Schneider", description: "Building automation solutions" },
-    { name: "Johnson Controls", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Johnson", description: "Smart building technology" },
-    { name: "Siemens", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Siemens", description: "Building management systems" },
-    { name: "Honeywell", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Honeywell", description: "Building automation platforms" },
-    { name: "Trane", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Trane", description: "HVAC control systems" },
-    { name: "ABB", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=ABB", description: "Electrical automation" },
+    { name: "Schneider Electric", description: "Building automation solutions" },
+    { name: "Johnson Controls", description: "Smart building technology" },
+    { name: "Siemens", description: "Building management systems" },
+    { name: "Honeywell", description: "Building automation platforms" },
+    { name: "Trane", description: "HVAC control systems" },
+    { name: "ABB", description: "Electrical automation" },
   ];
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Building Automation & BMS Systems | Sentinel Technologies"
+        description="HVAC control, lighting automation and energy management. Sentinel designs building management systems that improve efficiency, comfort and operational performance."
+        canonical={`${SITE_URL}/solutions/building-automation`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Building Automation Systems",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "IN",
+            description: "HVAC control, lighting automation, energy management and remote monitoring for intelligent building operations.",
+          },
+        ]}
+        breadcrumbs={[
+          { name: "Solutions", url: `${SITE_URL}/#solutions` },
+          { name: "Building Automation", url: `${SITE_URL}/solutions/building-automation` },
+        ]}
+      />
+      <Breadcrumbs items={[{ name: "Solutions" }, { name: "Building Automation" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 text-white">
         <div className="container mx-auto px-4">
@@ -126,10 +149,9 @@ const BuildingAutomationPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" 
-                alt="Smart building control system"
-                className="rounded-lg shadow-security w-full h-80 object-cover"
+              <ImagePlaceholder
+                label="Photo of a Sentinel building-automation/BMS control interface"
+                className="rounded-lg shadow-security w-full h-80"
               />
             </div>
             <div className="space-y-6">

@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import SEO, { SITE_URL } from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Volume2, Mic, Radio, Speaker, Settings, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,16 +43,36 @@ const PublicAddressPage = () => {
   ];
 
   const paPartners = [
-    { name: "Bosch", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Bosch", description: "Professional audio systems" },
-    { name: "TOA", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=TOA", description: "Public address solutions" },
-    { name: "Bose", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Bose", description: "Commercial audio systems" },
-    { name: "JBL", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=JBL", description: "Professional loudspeakers" },
-    { name: "Honeywell", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Honeywell", description: "Voice evacuation systems" },
-    { name: "Yamaha", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Yamaha", description: "Commercial audio equipment" },
+    { name: "Bosch", description: "Professional audio systems" },
+    { name: "TOA", description: "Public address solutions" },
+    { name: "Bose", description: "Commercial audio systems" },
+    { name: "JBL", description: "Professional loudspeakers" },
+    { name: "Honeywell", description: "Voice evacuation systems" },
+    { name: "Yamaha", description: "Commercial audio equipment" },
   ];
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Public Address & Voice Alarm Systems | Sentinel Technologies"
+        description="Zone-controlled public address systems for emergency announcements, evacuation and facility-wide communication across factories, campuses and commercial buildings."
+        canonical={`${SITE_URL}/solutions/public-address`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Public Address & Voice Alarm Systems",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "IN",
+            description: "Zone-controlled public address and voice alarm systems for emergency announcements and facility-wide communication.",
+          },
+        ]}
+        breadcrumbs={[
+          { name: "Solutions", url: `${SITE_URL}/#solutions` },
+          { name: "Public Address", url: `${SITE_URL}/solutions/public-address` },
+        ]}
+      />
+      <Breadcrumbs items={[{ name: "Solutions" }, { name: "Public Address Systems" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 text-white">
         <div className="container mx-auto px-4">
@@ -126,10 +149,9 @@ const PublicAddressPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&h=400&fit=crop" 
-                alt="Professional audio mixing console"
-                className="rounded-lg shadow-security w-full h-80 object-cover"
+              <ImagePlaceholder
+                label="Photo of a Sentinel-installed public address / voice alarm system"
+                className="rounded-lg shadow-security w-full h-80"
               />
             </div>
             <div className="space-y-6">

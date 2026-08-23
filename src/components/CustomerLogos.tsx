@@ -2,16 +2,16 @@ import { Card } from "@/components/ui/card";
 
 const CustomerLogos = () => {
   const customers = [
-    { name: "Infosys", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=150&h=80&fit=crop&crop=center" },
-    { name: "TCS", logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=80&fit=crop&crop=center" },
-    { name: "Wipro", logo: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=150&h=80&fit=crop&crop=center" },
-    { name: "HCL", logo: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=150&h=80&fit=crop&crop=center" },
-    { name: "Tech Mahindra", logo: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=150&h=80&fit=crop&crop=center" },
-    { name: "Cognizant", logo: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=150&h=80&fit=crop&crop=center" },
-    { name: "Accenture", logo: "https://images.unsplash.com/photo-1560472355-536de3962603?w=150&h=80&fit=crop&crop=center" },
-    { name: "IBM", logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=80&fit=crop&crop=center" },
-    { name: "Microsoft", logo: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=150&h=80&fit=crop&crop=center" },
-    { name: "Amazon", logo: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=150&h=80&fit=crop&crop=center" },
+    { name: "Infosys" },
+    { name: "TCS" },
+    { name: "Wipro" },
+    { name: "HCL" },
+    { name: "Tech Mahindra" },
+    { name: "Cognizant" },
+    { name: "Accenture" },
+    { name: "IBM" },
+    { name: "Microsoft" },
+    { name: "Amazon" },
   ];
 
   return (
@@ -30,15 +30,15 @@ const CustomerLogos = () => {
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll">
             {[...customers, ...customers].map((customer, index) => (
-              <Card 
+              <Card
                 key={`${customer.name}-${index}`}
                 className="flex-shrink-0 mx-4 p-6 bg-white hover:shadow-md transition-shadow duration-300"
               >
-                <img 
-                  src={customer.logo}
-                  alt={`${customer.name} logo`}
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                />
+                <div className="h-12 w-32 flex items-center justify-center border border-dashed border-border rounded text-center px-2">
+                  <span className="text-[10px] font-medium text-muted-foreground leading-tight">
+                    Logo needed: {customer.name}
+                  </span>
+                </div>
               </Card>
             ))}
           </div>

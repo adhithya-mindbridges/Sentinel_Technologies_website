@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import SEO, { SITE_URL } from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Flame, AlertTriangle, Bell, Shield, Radio, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,16 +43,36 @@ const FireAlarmPage = () => {
   ];
 
   const firePartners = [
-    { name: "Honeywell", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Honeywell", description: "Fire safety solutions" },
-    { name: "Bosch", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Bosch", description: "Fire detection systems" },
-    { name: "Siemens", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Siemens", description: "Building safety technology" },
-    { name: "Johnson Controls", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Johnson", description: "Fire protection systems" },
-    { name: "Notifier", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Notifier", description: "Fire alarm control panels" },
-    { name: "Edwards", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Edwards", description: "Fire safety devices" },
+    { name: "Honeywell", description: "Fire safety solutions" },
+    { name: "Bosch", description: "Fire detection systems" },
+    { name: "Siemens", description: "Building safety technology" },
+    { name: "Johnson Controls", description: "Fire protection systems" },
+    { name: "Notifier", description: "Fire alarm control panels" },
+    { name: "Edwards", description: "Fire safety devices" },
   ];
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Fire Alarm & Life Safety Systems | Sentinel Technologies"
+        description="Smoke detection, heat sensors, emergency alerts and central monitoring. Sentinel designs and installs fire alarm systems for commercial, industrial and residential buildings."
+        canonical={`${SITE_URL}/solutions/fire-alarm`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Fire Alarm Systems",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "IN",
+            description: "Smoke detection, heat sensors, emergency alerts and central fire-alarm monitoring for commercial, industrial and residential facilities.",
+          },
+        ]}
+        breadcrumbs={[
+          { name: "Solutions", url: `${SITE_URL}/#solutions` },
+          { name: "Fire Alarm", url: `${SITE_URL}/solutions/fire-alarm` },
+        ]}
+      />
+      <Breadcrumbs items={[{ name: "Solutions" }, { name: "Fire Alarm Systems" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 text-white">
         <div className="container mx-auto px-4">
@@ -126,10 +149,9 @@ const FireAlarmPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=600&h=400&fit=crop" 
-                alt="Fire alarm control panel"
-                className="rounded-lg shadow-security w-full h-80 object-cover"
+              <ImagePlaceholder
+                label="Photo of a Sentinel-installed fire alarm control panel or detector"
+                className="rounded-lg shadow-security w-full h-80"
               />
             </div>
             <div className="space-y-6">

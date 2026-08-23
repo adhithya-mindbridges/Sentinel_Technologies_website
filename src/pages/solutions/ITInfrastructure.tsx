@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import SEO, { SITE_URL } from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Network, Server, Cable, Shield, Database, Router } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,16 +43,36 @@ const ITInfrastructurePage = () => {
   ];
 
   const itPartners = [
-    { name: "Cisco", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Cisco", description: "Network infrastructure solutions" },
-    { name: "HPE", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=HPE", description: "Enterprise server solutions" },
-    { name: "Dell", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Dell", description: "IT infrastructure hardware" },
-    { name: "Juniper", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Juniper", description: "Network security solutions" },
-    { name: "Panduit", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Panduit", description: "Network cabling solutions" },
-    { name: "Ubiquiti", logo: "https://via.placeholder.com/120x60/f8f9fa/6c757d?text=Ubiquiti", description: "Enterprise wireless systems" },
+    { name: "Cisco", description: "Network infrastructure solutions" },
+    { name: "HPE", description: "Enterprise server solutions" },
+    { name: "Dell", description: "IT infrastructure hardware" },
+    { name: "Juniper", description: "Network security solutions" },
+    { name: "Panduit", description: "Network cabling solutions" },
+    { name: "Ubiquiti", description: "Enterprise wireless systems" },
   ];
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="IT & Network Infrastructure Solutions | Sentinel Technologies"
+        description="Structured cabling, network setup, server installation and data-centre infrastructure - the IT backbone that supports modern security and automation systems."
+        canonical={`${SITE_URL}/solutions/it-infrastructure`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "IT & Network Infrastructure",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "IN",
+            description: "Structured cabling, network infrastructure, server installation and data-centre infrastructure supporting enterprise security systems.",
+          },
+        ]}
+        breadcrumbs={[
+          { name: "Solutions", url: `${SITE_URL}/#solutions` },
+          { name: "IT Infrastructure", url: `${SITE_URL}/solutions/it-infrastructure` },
+        ]}
+      />
+      <Breadcrumbs items={[{ name: "Solutions" }, { name: "IT Infrastructure" }]} />
       {/* Hero Section */}
       <section className="bg-gradient-hero py-20 text-white">
         <div className="container mx-auto px-4">
@@ -126,10 +149,9 @@ const ITInfrastructurePage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop" 
-                alt="Data center server room"
-                className="rounded-lg shadow-security w-full h-80 object-cover"
+              <ImagePlaceholder
+                label="Photo of a Sentinel-installed server room / structured cabling"
+                className="rounded-lg shadow-security w-full h-80"
               />
             </div>
             <div className="space-y-6">

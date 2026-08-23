@@ -1,21 +1,59 @@
-import { useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
+import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Shield, Phone } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
+import { Menu, Phone, ChevronDown } from "lucide-react";
+import sentinelLogo from "@/assets/sentinel-logo.png";
+import { solutions } from "@/data/solutions";
+import { industries } from "@/data/industries";
+
+const SolutionsMegaMenu = lazy(() => import("@/components/MegaMenu/SolutionsMegaMenu"));
+const IndustriesMegaMenu = lazy(() => import("@/components/MegaMenu/IndustriesMegaMenu"));
+
+type MenuId = "solutions" | "industries" | null;
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<MenuId>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const openMenu = useCallback((id: MenuId) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(id);
+  }, []);
+
+  const scheduleClose = useCallback(() => {
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 120);
+  }, []);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
+
+  const closeAll = useCallback(() => setActiveMenu(null), []);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -34,91 +72,134 @@ const Header = () => {
     }
   };
 
-  const solutions = [
-    { title: "Video Surveillance (CCTV)", path: "/solutions/cctv" },
-    { title: "Access Control Systems", path: "/solutions/access-control" },
-    { title: "Fire Alarm Systems", path: "/solutions/fire-alarm" },
-    { title: "Public Address Systems", path: "/solutions/public-address" },
-    { title: "Building Automation", path: "/solutions/building-automation" },
-    { title: "IT Infrastructure", path: "/solutions/it-infrastructure" },
-  ];
-
   const isActive = (path: string) => location.pathname === path;
 
+  const megaNavItems: { id: MenuId; label: string }[] = [
+    { id: "solutions", label: "Solutions" },
+    { id: "industries", label: "Industries" },
+  ];
+
   return (
-    <header className="bg-white shadow-security sticky top-0 z-50 border-b border-border/40">
+    <header
+      className={`bg-white sticky top-0 z-50 border-b transition-shadow duration-300 ${
+        scrolled ? "shadow-security border-border/60" : "shadow-none border-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <Shield className="w-6 h-6 text-primary" />
-            </div>
-            <span className="text-xl font-bold text-security-dark">
+          <Link to="/" className="flex items-center space-x-3">
+            <img src={sentinelLogo} alt="Sentinel Technologies" className="h-9 w-9" />
+            <span className="text-xl font-display font-bold text-security-dark tracking-tight">
               Sentinel Technologies
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link 
-                  to="/" 
-                  className={`${navigationMenuTriggerStyle()} ${
-                    isActive("/") ? "bg-accent text-accent-foreground" : ""
+          <div className="hidden lg:flex items-center">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link
+                    to="/"
+                    className={`${navigationMenuTriggerStyle()} ${
+                      isActive("/") ? "bg-accent text-accent-foreground" : ""
+                    }`}
+                  >
+                    Home
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* Solutions / Industries mega menus (custom, hover-driven) */}
+            {megaNavItems.map(({ id, label }) => (
+              <div
+                key={id}
+                className="relative"
+                onMouseEnter={() => openMenu(id)}
+                onMouseLeave={scheduleClose}
+              >
+                <button
+                  aria-expanded={activeMenu === id}
+                  aria-haspopup="true"
+                  onClick={() => (activeMenu === id ? setActiveMenu(null) : openMenu(id))}
+                  className={`inline-flex items-center gap-1 h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    activeMenu === id ? "bg-accent text-accent-foreground" : "hover:bg-accent/50"
                   }`}
                 >
-                  Home
-                </Link>
-              </NavigationMenuItem>
-              
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:bg-accent/50">
-                  Solutions
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid w-[500px] gap-3 p-4">
-                    {solutions.map((solution) => (
-                      <Link
-                        key={solution.path}
-                        to={solution.path}
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="text-sm font-medium leading-none">
-                          {solution.title}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className={navigationMenuTriggerStyle()}
-                >
-                  About
+                  {label}
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeMenu === id ? "rotate-180" : ""}`} />
                 </button>
-              </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className={navigationMenuTriggerStyle()}
-                >
-                  Contact
-                </button>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+                <AnimatePresence>
+                  {activeMenu === id && (
+                    <div
+                      onMouseEnter={cancelClose}
+                      onMouseLeave={scheduleClose}
+                      className="fixed left-0 right-0 z-50"
+                      style={{ top: 64 }}
+                    >
+                      <Suspense fallback={null}>
+                        {id === "solutions" && <SolutionsMegaMenu onClose={closeAll} />}
+                        {id === "industries" && <IndustriesMegaMenu onClose={closeAll} />}
+                      </Suspense>
+                    </div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link
+                    to="/case-studies"
+                    className={`${navigationMenuTriggerStyle()} ${
+                      isActive("/case-studies") ? "bg-accent text-accent-foreground" : ""
+                    }`}
+                  >
+                    Case Studies
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
+                    to="/partners"
+                    className={`${navigationMenuTriggerStyle()} ${isActive("/partners") ? "bg-accent text-accent-foreground" : ""}`}
+                  >
+                    Partners
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
+                    to="/about"
+                    className={`${navigationMenuTriggerStyle()} ${isActive("/about") ? "bg-accent text-accent-foreground" : ""}`}
+                  >
+                    About
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
+                    to="/contact"
+                    className={`${navigationMenuTriggerStyle()} ${isActive("/contact") ? "bg-accent text-accent-foreground" : ""}`}
+                  >
+                    Contact
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
 
           {/* Contact Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <Button onClick={() => scrollToSection('contact')} className="hidden md:flex">
-              <Phone className="w-4 h-4 mr-2" />
-              Get Quote
+            <Button asChild className="hidden md:flex">
+              <Link to="/contact">
+                <Phone className="w-4 h-4 mr-2" />
+                Get Quote
+              </Link>
             </Button>
 
             {/* Mobile Menu */}
@@ -128,16 +209,16 @@ const Header = () => {
                   <Menu className="w-4 h-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
+              <SheetContent side="right" className="w-80 overflow-y-auto">
                 <div className="flex flex-col space-y-4 mt-8">
-                  <Link 
-                    to="/" 
+                  <Link
+                    to="/"
                     className="text-lg font-medium hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     Home
                   </Link>
-                  
+
                   <div>
                     <h3 className="text-lg font-medium mb-2">Solutions</h3>
                     <div className="pl-4 space-y-2">
@@ -151,38 +232,80 @@ const Header = () => {
                           {solution.title}
                         </Link>
                       ))}
+                      <Link
+                        to="/solutions"
+                        className="block font-semibold text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        View All Products &amp; Solutions →
+                      </Link>
                     </div>
                   </div>
 
-                  <button 
-                    onClick={() => {
-                      setIsOpen(false);
-                      scrollToSection('about');
-                    }}
-                    className="text-lg font-medium hover:text-primary transition-colors text-left"
+                  <div>
+                    <h3 className="text-lg font-medium mb-2">Industries</h3>
+                    <div className="pl-4 space-y-2">
+                      {industries.slice(0, 6).map((industry) => (
+                        <Link
+                          key={industry.slug}
+                          to={`/industries/${industry.slug}`}
+                          className="block text-muted-foreground hover:text-primary transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {industry.name}
+                        </Link>
+                      ))}
+                      <Link
+                        to="/industries"
+                        className="block font-semibold text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        View All Industries →
+                      </Link>
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/case-studies"
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Case Studies
+                  </Link>
+
+                  <Link
+                    to="/partners"
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Partners
+                  </Link>
+
+                  <Link
+                    to="/about"
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
                   >
                     About
-                  </button>
-                  
-                  <button 
-                    onClick={() => {
-                      setIsOpen(false);
-                      scrollToSection('contact');
-                    }}
+                  </Link>
+
+                  <Link
+                    to="/contact"
                     className="text-lg font-medium hover:text-primary transition-colors text-left"
+                    onClick={() => setIsOpen(false)}
                   >
                     Contact
-                  </button>
-
-                  <Button 
-                    onClick={() => {
-                      setIsOpen(false);
-                      scrollToSection('contact');
-                    }}
+                  </Link>
+                  
+                  <Button
+                    asChild
+                    onClick={() => setIsOpen(false)}
                     className="mt-4"
                   >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Get Quote
+                    <Link to="/contact">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Get Quote
+                    </Link>
                   </Button>
                 </div>
               </SheetContent>
