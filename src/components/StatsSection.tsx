@@ -1,15 +1,14 @@
-import { Users, Building, Handshake, Wrench, MapPin, GraduationCap } from "lucide-react";
+import { Users, Building, Handshake, Wrench, MapPin, UsersRound } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCountUp } from "@/hooks/use-count-up";
 
 const stats = [
   { icon: Users, value: "70+", label: "Clients", color: "text-primary" },
-  { icon: Building, value: "3,500+", label: "Engagements", color: "text-security-accent" },
-  { icon: Handshake, value: "60+", label: "Partners", color: "text-primary" },
   { icon: Wrench, value: "20+", label: "Solutions", color: "text-security-accent" },
-  { icon: Users, value: "65+", label: "Associates", color: "text-primary" },
-  { icon: GraduationCap, value: "100%", label: "Trained Team", color: "text-security-accent" },
+  { icon: Handshake, value: "60+", label: "Partners", color: "text-primary" },
+  { icon: UsersRound, value: "100+", label: "Associates", color: "text-security-accent" },
   { icon: MapPin, value: "50+", label: "Delivery Locations", color: "text-primary" },
+  { icon: Building, value: "3,500+", label: "Engagements", color: "text-security-accent" },
 ];
 
 const StatCard = ({ stat, index }: { stat: (typeof stats)[number]; index: number }) => {
@@ -57,7 +56,7 @@ const StatsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {stats.map((stat, index) => (
             <StatCard key={stat.label} stat={stat} index={index} />
           ))}

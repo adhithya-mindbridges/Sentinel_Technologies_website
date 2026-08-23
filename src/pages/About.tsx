@@ -34,6 +34,20 @@ const fadeUp = {
   }),
 };
 
+const milestones = [
+  { year: "2012", title: "Inception with CCTV Solutions" },
+  { year: "2015", title: "Access Control Capabilities" },
+  { year: "2016", title: "IT Capabilities" },
+  { year: "2017", title: "Network Capabilities" },
+  { year: "2018", title: "IT Infrastructure Capabilities" },
+  { year: "2019", title: "Analytics Capabilities" },
+  { year: "2021", title: "Physical Security Capabilities" },
+  { year: "2022", title: "Screening & ICCC Capabilities" },
+  { year: "2023", title: "Hybrid Access Capabilities" },
+  { year: "2024", title: "Identity Detection Capabilities" },
+  { year: "2025", title: "AI & Drone Capabilities" },
+];
+
 const journeySteps = [
   { icon: ShieldCheck, title: "Secure", desc: "We design and integrate comprehensive physical security and ELV infrastructure to protect people, property and critical assets." },
   { icon: Network, title: "Connect", desc: "We integrate cameras, access control, fire and life-safety systems, networks, sensors, IoT devices and enterprise platforms into unified environments." },
@@ -393,12 +407,45 @@ const About = () => {
 
       {/* Our Journey */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <div className="container mx-auto px-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Journey</p>
-            <h2 className="text-3xl font-bold text-security-dark mb-6 text-balance">
+            <h2 className="text-3xl font-bold text-security-dark text-balance">
               Since 2012, one fundamental objective
             </h2>
+          </motion.div>
+
+          {/* Timeline */}
+          <div className="max-w-3xl mx-auto mb-16">
+            <div className="relative pl-8 sm:pl-0">
+              {/* vertical line */}
+              <div className="absolute left-[7px] sm:left-1/2 top-0 bottom-0 w-px bg-border sm:-translate-x-1/2" />
+              <div className="space-y-8">
+                {milestones.map((m, i) => (
+                  <motion.div
+                    key={m.year}
+                    custom={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    className={`relative flex sm:items-center gap-4 sm:gap-0 ${
+                      i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+                    }`}
+                  >
+                    <div className="absolute left-0 sm:left-1/2 top-1 sm:top-1/2 w-3.5 h-3.5 rounded-full bg-primary border-4 border-background sm:-translate-x-1/2 sm:-translate-y-1/2 z-10" />
+                    <div className={`sm:w-1/2 ${i % 2 === 0 ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:text-left"}`}>
+                      <span className="text-xs font-mono font-bold text-primary">{m.year}</span>
+                      <p className="font-semibold text-security-dark leading-snug">{m.title}</p>
+                    </div>
+                    <div className="hidden sm:block sm:w-1/2" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               Using technology to make environments safer, smarter and more efficient. What began with
               security and ELV integration has progressively expanded into enterprise surveillance,

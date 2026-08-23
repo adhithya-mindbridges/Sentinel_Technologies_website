@@ -1,19 +1,35 @@
 import { Card } from "@/components/ui/card";
 
-const CustomerLogos = () => {
-  const customers = [
-    { name: "Infosys" },
-    { name: "TCS" },
-    { name: "Wipro" },
-    { name: "HCL" },
-    { name: "Tech Mahindra" },
-    { name: "Cognizant" },
-    { name: "Accenture" },
-    { name: "IBM" },
-    { name: "Microsoft" },
-    { name: "Amazon" },
-  ];
+const customers = [
+  { name: "KPL" },
+  { name: "Hero MotoCorp" },
+  { name: "Ashok Leyland" },
+  { name: "Pegatron" },
+  { name: "Daimler" },
+  { name: "Danfoss" },
+  { name: "TVS" },
+  { name: "Addison & Co" },
+  { name: "Foxconn / Hon Hai" },
+  { name: "Tata" },
+  { name: "Dixon" },
+  { name: "Flex" },
+  { name: "Motherson" },
+  { name: "Voltas" },
+  { name: "TVS Tyres" },
+  { name: "SagTaur" },
+  { name: "Keltron" },
+  { name: "First Solar" },
+  { name: "Chennai Metro Rail Limited" },
+  { name: "Bharat FIH" },
+  { name: "JK Tyre" },
+  { name: "Padget" },
+  { name: "KCIC" },
+  { name: "CISB" },
+  { name: "MRF" },
+  { name: "bvg" },
+];
 
+const CustomerLogos = () => {
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
