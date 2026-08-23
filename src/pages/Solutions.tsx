@@ -21,6 +21,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { industries } from "@/data/industries";
@@ -465,6 +467,11 @@ const lifecycle = [
 
 const CategoryCard = ({ category, index }: { category: SolutionCategory; index: number }) => {
   const Icon = category.icon;
+  const flatItems = category.items ?? category.groups?.flatMap((g) => g.items) ?? [];
+  const totalCount = flatItems.length;
+  const preview = flatItems.slice(0, 6);
+  const hiddenCount = totalCount - preview.length;
+
   return (
     <motion.div
       custom={index}
@@ -472,15 +479,24 @@ const CategoryCard = ({ category, index }: { category: SolutionCategory; index: 
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
       variants={fadeUp}
-      className="rounded-2xl bg-white border border-border overflow-hidden"
+      whileHover={{ y: -4 }}
+      className="group relative rounded-2xl bg-white border border-border overflow-hidden transition-shadow duration-300 hover:shadow-security scroll-mt-32"
       id={`solution-${category.number}`}
     >
-      <div className="p-6 md:p-8">
+      <span className="pointer-events-none absolute top-2 right-4 text-6xl font-bold text-primary/5 group-hover:text-primary/10 transition-colors duration-300 select-none">
+        {category.number}
+      </span>
+
+      <div className="p-6 md:p-8 relative">
         <div className="flex items-start justify-between gap-4 mb-5">
           <div className="flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
+            <motion.div
+              className="p-3 rounded-xl bg-primary/10 flex-shrink-0"
+              whileHover={{ scale: 1.12, rotate: 6 }}
+              transition={{ type: "spring", stiffness: 300, damping: 12 }}
+            >
               <Icon className="w-6 h-6 text-primary" />
-            </div>
+            </motion.div>
             <div>
               <span className="text-xs font-mono text-muted-foreground">{category.number}</span>
               <h3 className="text-xl font-bold text-security-dark leading-snug">{category.title}</h3>
@@ -489,33 +505,51 @@ const CategoryCard = ({ category, index }: { category: SolutionCategory; index: 
         </div>
 
         <p className="text-primary font-semibold mb-3">{category.tagline}</p>
-        <p className="text-muted-foreground leading-relaxed mb-6">{category.intro}</p>
+        <p className="text-muted-foreground leading-relaxed mb-5">{category.intro}</p>
 
-        {category.groups ? (
-          <div className="grid sm:grid-cols-2 gap-6 mb-6">
-            {category.groups.map((group) => (
-              <div key={group.label}>
-                <p className="text-xs font-bold uppercase tracking-wide text-security-dark mb-2">{group.label}</p>
-                <ul className="space-y-1.5">
-                  {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-6">
-            {category.items?.map((item) => (
-              <div key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                <span className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
-                {item}
-              </div>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2 mb-2">
+          {preview.map((item) => (
+            <Badge key={item} variant="secondary" className="font-normal text-xs px-2.5 py-1">
+              {item}
+            </Badge>
+          ))}
+        </div>
+
+        {(hiddenCount > 0 || category.groups) && (
+          <Accordion type="single" collapsible className="mb-2">
+            <AccordionItem value="details" className="border-none">
+              <AccordionTrigger className="py-2 text-sm font-semibold text-primary hover:no-underline justify-start gap-1.5 [&>svg]:ml-0">
+                {hiddenCount > 0 ? `+${hiddenCount} more capabilities` : "View full capability breakdown"}
+              </AccordionTrigger>
+              <AccordionContent>
+                {category.groups ? (
+                  <div className="grid sm:grid-cols-2 gap-6 pt-2">
+                    {category.groups.map((group) => (
+                      <div key={group.label}>
+                        <p className="text-xs font-bold uppercase tracking-wide text-security-dark mb-2">{group.label}</p>
+                        <ul className="space-y-1.5">
+                          {group.items.map((item) => (
+                            <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {flatItems.slice(6).map((item) => (
+                      <Badge key={item} variant="secondary" className="font-normal text-xs px-2.5 py-1">
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         )}
 
         {category.note && (
@@ -552,8 +586,19 @@ const SolutionsPage = () => {
       <Breadcrumbs items={[{ name: "Products & Solutions" }]} />
 
       {/* Hero */}
-      <section className="bg-gradient-hero py-20 lg:py-28 text-white">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
+      <section className="relative bg-gradient-hero py-20 lg:py-28 text-white overflow-hidden">
+        <motion.div
+          className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="pointer-events-none absolute -bottom-32 -right-16 w-[28rem] h-[28rem] rounded-full bg-security-accent/20 blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+
+        <div className="container relative mx-auto px-4 text-center max-w-3xl">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -574,7 +619,7 @@ const SolutionsPage = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg text-white/80 leading-relaxed"
+            className="text-lg text-white/80 leading-relaxed mb-8"
           >
             Sentinel Technologies delivers end-to-end Security, ELV, Artificial Intelligence, Building
             Intelligence, IT Infrastructure and Automation solutions for enterprise, industrial and
@@ -582,8 +627,42 @@ const SolutionsPage = () => {
             we bring together hardware, software, networks, AI and automation into unified technology
             ecosystems.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="flex flex-wrap items-center justify-center gap-3"
+          >
+            <span className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm">
+              <span className="font-bold">{categories.length}</span> Solution Categories
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm">
+              One Integrated Ecosystem
+            </span>
+          </motion.div>
         </div>
       </section>
+
+      {/* Quick navigation */}
+      <div className="sticky top-16 z-30 bg-white/95 backdrop-blur-sm border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-2 overflow-x-auto py-3 no-scrollbar">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <a
+                  key={category.number}
+                  href={`#solution-${category.number}`}
+                  className="flex items-center gap-1.5 flex-shrink-0 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-colors duration-200 whitespace-nowrap"
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {category.title.split(/[-–]/)[0].trim()}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
       {/* Category grid */}
       <section className="py-20 bg-security-light">
@@ -611,9 +690,13 @@ const SolutionsPage = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-6">
             {integrationSteps.map(({ icon: Icon, title, desc }, i) => (
               <motion.div key={title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center mb-4">
+                <motion.div
+                  className="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center mb-4"
+                  whileHover={{ scale: 1.12, rotate: 6 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                >
                   <Icon className="w-7 h-7 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="font-semibold mb-2">{title}</h3>
                 <p className="text-sm text-white/60 leading-relaxed">{desc}</p>
               </motion.div>
@@ -640,10 +723,13 @@ const SolutionsPage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="flex items-center justify-between gap-4 p-4 rounded-xl border border-border bg-white"
+                whileHover={{ x: 4 }}
+                className="flex items-center justify-between gap-4 p-4 rounded-xl border border-border bg-white transition-shadow duration-300 hover:shadow-security"
               >
                 <span className="font-medium text-muted-foreground">{t.from}</span>
-                <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                <motion.span whileHover={{ x: 3 }} className="flex-shrink-0">
+                  <ArrowRight className="w-4 h-4 text-primary" />
+                </motion.span>
                 <span className="font-semibold text-security-dark text-right">{t.to}</span>
               </motion.div>
             ))}
@@ -660,7 +746,19 @@ const SolutionsPage = () => {
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {lifecycle.map(({ step, desc }, i) => (
-              <motion.div key={step} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="p-5 rounded-xl bg-white border border-border">
+              <motion.div
+                key={step}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                whileHover={{ y: -4 }}
+                className="relative p-5 rounded-xl bg-white border border-border transition-shadow duration-300 hover:shadow-security"
+              >
+                <span className="absolute top-2 right-3 text-3xl font-bold text-primary/10 select-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <p className="text-xs font-bold uppercase tracking-wide text-primary mb-2">{step}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </motion.div>
@@ -683,9 +781,9 @@ const SolutionsPage = () => {
               <motion.div key={slug} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
                 <Link
                   to={`/industries/${slug}`}
-                  className="flex items-center gap-3 p-4 rounded-xl border border-border bg-white hover:border-primary/40 hover:shadow-security transition-all duration-300"
+                  className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-white hover:border-primary/40 hover:shadow-security transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
+                  <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <span className="text-sm font-medium text-security-dark">{name}</span>

@@ -26,10 +26,10 @@ const HeroSection = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={item} className="flex items-center space-x-3 mb-6">
+            {/* <motion.div variants={item} className="flex items-center space-x-3 mb-6">
               <img src={"src/assets/sentinel-logo-transparent.png"} alt="" className="w-8 h-8" />
               <span className="text-lg font-semibold text-primary">Sentinel Technologies</span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1 variants={item} className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-balance">
               Advanced Security &{" "}
@@ -77,7 +77,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-security-dark px-8 py-4 text-lg rounded-lg transition-all duration-300"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-security-dark px-8 py-4 text-lg rounded-lg transition-all duration-300"
                 onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
               >
                 View Our Solutions

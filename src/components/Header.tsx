@@ -5,7 +5,6 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { AnimatePresence } from "framer-motion";
@@ -84,8 +83,10 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/"
-                    className={`${navigationMenuTriggerStyle()} ${
-                      isActive("/") ? "bg-accent text-accent-foreground" : ""
+                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                      isActive("/")
+                        ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
+                        : "text-muted-foreground hover:text-primary"
                     }`}
                   >
                     Home
@@ -106,8 +107,10 @@ const Header = () => {
                   aria-expanded={activeMenu === id}
                   aria-haspopup="true"
                   onClick={() => (activeMenu === id ? setActiveMenu(null) : openMenu(id))}
-                  className={`inline-flex items-center gap-1 h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                    activeMenu === id ? "bg-accent text-accent-foreground" : "hover:bg-accent/50"
+                  className={`inline-flex items-center gap-1 h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors relative ${
+                    activeMenu === id
+                      ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
                 >
                   {label}
@@ -137,8 +140,10 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/case-studies"
-                    className={`${navigationMenuTriggerStyle()} ${
-                      isActive("/case-studies") ? "bg-accent text-accent-foreground" : ""
+                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                      isActive("/case-studies")
+                        ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
+                        : "text-muted-foreground hover:text-primary"
                     }`}
                   >
                     Case Studies
@@ -148,7 +153,11 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/partners"
-                    className={`${navigationMenuTriggerStyle()} ${isActive("/partners") ? "bg-accent text-accent-foreground" : ""}`}
+                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                      isActive("/partners")
+                        ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
                   >
                     Partners
                   </Link>
@@ -157,7 +166,11 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/about"
-                    className={`${navigationMenuTriggerStyle()} ${isActive("/about") ? "bg-accent text-accent-foreground" : ""}`}
+                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                      isActive("/about")
+                        ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
                   >
                     About
                   </Link>
@@ -166,7 +179,11 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/contact"
-                    className={`${navigationMenuTriggerStyle()} ${isActive("/contact") ? "bg-accent text-accent-foreground" : ""}`}
+                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                      isActive("/contact")
+                        ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
                   >
                     Contact
                   </Link>
