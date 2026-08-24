@@ -15,8 +15,8 @@ import {
   Layers,
   Server,
   Network,
-  Rocket,
 } from "lucide-react";
+import xlabsIcon from "@/assets/xlabs/xlabs-icon.png";
 import FeatureLink from "./FeatureLink";
 
 const menuVariants = {
@@ -82,7 +82,6 @@ const columns = [
     features: [
       { icon: Server, label: "Data Centre & IT Infrastructure", href: "/solutions/it-infrastructure" },
       { icon: Network, label: "Structured Cabling & Fibre", href: "/solutions#solution-12" },
-      { icon: Rocket, label: "Sentinel X-Labs", href: "/solutions#solution-14" },
     ],
   },
 ];
@@ -128,6 +127,27 @@ const SolutionsMegaMenu = ({ onClose }: SolutionsMegaMenuProps) => (
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Sentinel X-Labs - featured, not grouped under any category */}
+      <div className="border-t border-white/10 max-w-7xl mx-auto px-3.5 py-3">
+        <Link
+          to="/solutions/sentinel-x-labs"
+          onClick={onClose}
+          className="group relative flex items-center gap-4 rounded-xl overflow-hidden px-4 py-3 bg-gradient-to-r from-[#1a0808] via-[#2b0d0d] to-[#1a0808] border border-primary/30 hover:border-primary/60 transition-colors duration-200"
+        >
+          <img src={xlabsIcon} alt="" className="w-9 h-9 flex-shrink-0" />
+          <div className="min-w-0 flex-1">
+            <p className="text-white font-bold text-sm leading-tight">
+              Sentinel X-Labs
+              <span className="ml-2 text-[10px] font-semibold uppercase tracking-wider text-primary align-middle">
+                Innovation &amp; R&amp;D
+              </span>
+            </p>
+            <p className="text-white/60 text-xs truncate">Engineering autonomous intelligence - AI-powered drones, robotics &amp; underwater systems</p>
+          </div>
+          <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform flex-shrink-0" />
+        </Link>
+      </div>
 
       {/* Bottom CTA strip */}
       <div className="border-t border-white/10 bg-white/5">

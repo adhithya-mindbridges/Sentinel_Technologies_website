@@ -90,8 +90,8 @@ const whySentinel = [
 
 const ecosystem = [
   { icon: Eye, name: "Artificial Intelligence", tagline: "Insights Beyond Vision", desc: "AI-powered Computer Vision, Video Analytics, Facial Recognition, ANPR, Intelligent Video Management and industry-specific analytics that transform surveillance video into actionable intelligence." },
-  { icon: Activity, name: "TraqOPS - iBMS", tagline: "Intelligent Building & Operations Management", desc: "A unified approach to building intelligence, IoT integration, energy monitoring, asset management and maintenance-workflow digitization." },
-  { icon: Rocket, name: "Sentinel X-Labs", tagline: "Engineering the Technologies of Tomorrow", desc: "Our innovation and R&D initiative exploring autonomous systems, drones, robotics, AI and intelligent sensing." },
+  { icon: Activity, name: "TraqOPS - iBMS", tagline: "Intelligent Building & Operations Management", desc: "A unified approach to building intelligence, IoT integration, energy monitoring, asset management and maintenance-workflow digitization.", path: "/solutions/building-automation" },
+  { icon: Rocket, name: "Sentinel X-Labs", tagline: "Engineering Autonomous Intelligence", desc: "Our research and innovation division engineering AI-powered autonomous aerial, ground and underwater platforms.", path: "/solutions/sentinel-x-labs" },
 ];
 
 const About = () => {
@@ -397,7 +397,7 @@ const About = () => {
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-6">
-            {ecosystem.map(({ icon: Icon, name, tagline, desc }, i) => (
+            {ecosystem.map(({ icon: Icon, name, tagline, desc, path }, i) => (
               <motion.div key={name} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="p-7 rounded-2xl bg-white/5 border border-white/10">
                 <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-primary" />
@@ -405,6 +405,11 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-1">{name}</h3>
                 <p className="text-primary text-sm font-semibold mb-3">{tagline}</p>
                 <p className="text-white/60 text-sm leading-relaxed">{desc}</p>
+                {path && (
+                  <Link to={path} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all mt-4">
+                    Learn more <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>

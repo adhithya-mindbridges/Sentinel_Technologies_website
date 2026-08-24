@@ -16,6 +16,7 @@ const FireAlarmPage = lazy(() => import("./pages/solutions/FireAlarm"));
 const PublicAddressPage = lazy(() => import("./pages/solutions/PublicAddress"));
 const BuildingAutomationPage = lazy(() => import("./pages/solutions/BuildingAutomation"));
 const ITInfrastructurePage = lazy(() => import("./pages/solutions/ITInfrastructure"));
+const SentinelXLabsPage = lazy(() => import("./pages/solutions/SentinelXLabs"));
 const IndustriesPage = lazy(() => import("./pages/Industries"));
 const IndustryDetail = lazy(() => import("./pages/IndustryDetail"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudies"));
@@ -81,6 +82,7 @@ const App = () => (
             <Route path="/solutions/public-address" element={<PublicAddressPage />} />
             <Route path="/solutions/building-automation" element={<BuildingAutomationPage />} />
             <Route path="/solutions/it-infrastructure" element={<ITInfrastructurePage />} />
+            <Route path="/solutions/sentinel-x-labs" element={<SentinelXLabsPage />} />
             <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/industries" element={<IndustriesPage />} />
             <Route path="/industries/:slug" element={<IndustryDetail />} />
