@@ -601,7 +601,7 @@ const BuildingAutomationPage = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Schedule Assessment</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/solutions/it-infrastructure">View IT Infrastructure</Link>
             </Button>
           </motion.div>

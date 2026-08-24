@@ -144,7 +144,7 @@ const About = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Talk to Our Team</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/industries">Explore Industries</Link>
             </Button>
           </motion.div>

@@ -5,9 +5,9 @@ import PartnerLogos from "@/components/PartnerLogos";
 import boschLogo from "@/assets/partners/logos/bosch.png";
 import honeywellLogo from "@/assets/partners/logos/honeywell.png";
 import yamahaLogo from "@/assets/partners/logos/yamaha.png";
+import mAudioLogo from "@/assets/partners/logos/m-audio.png";
+import paSystemApplications from "@/assets/pa system applications.png";
 
-
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
@@ -57,6 +57,7 @@ const PublicAddressPage = () => {
     { name: "JBL", description: "Professional loudspeakers" },
     { name: "Honeywell", description: "Voice evacuation systems", logo: honeywellLogo },
     { name: "Yamaha", description: "Commercial audio equipment", logo: yamahaLogo },
+    { name: "M-Audio", description: "Professional audio interface & speakers", logo: mAudioLogo },
   ];
 
   return (
@@ -161,9 +162,11 @@ const PublicAddressPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <ImagePlaceholder
-                label="Photo of a Sentinel-installed public address / voice alarm system"
-                className="rounded-lg shadow-security w-full h-80"
+              <img
+                src={paSystemApplications}
+                alt="Sentinel Technologies public address / voice alarm system installation (representative image)"
+                className="rounded-lg shadow-security w-full h-80 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="space-y-6">
@@ -224,7 +227,7 @@ const PublicAddressPage = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/solutions/building-automation">View Building Automation</Link>
             </Button>
           </div>

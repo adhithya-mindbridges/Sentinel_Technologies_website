@@ -232,7 +232,7 @@ const VMSPage = () => {
               <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
                 <Link to="/contact">Schedule Consultation</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
                 <Link to="/solutions/cctv">View CCTV Solutions</Link>
               </Button>
             </div>

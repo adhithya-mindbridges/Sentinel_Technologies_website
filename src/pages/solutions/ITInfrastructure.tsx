@@ -6,7 +6,7 @@ import ciscoLogo from "@/assets/partners/logos/cisco.png";
 import dellLogo from "@/assets/partners/logos/dell.png";
 import juniperLogo from "@/assets/partners/logos/juniper.png";
 
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import serverRoomImg from "@/assets/server room.png";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
@@ -160,9 +160,11 @@ const ITInfrastructurePage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <ImagePlaceholder
-                label="Photo of a Sentinel-installed server room / structured cabling"
-                className="rounded-lg shadow-security w-full h-80"
+              <img
+                src={serverRoomImg}
+                alt="Sentinel Technologies server room and structured cabling installation (representative image)"
+                className="rounded-lg shadow-security w-full h-80 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="space-y-6">
@@ -223,7 +225,7 @@ const ITInfrastructurePage = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/solutions/cctv">View CCTV Solutions</Link>
             </Button>
           </div>

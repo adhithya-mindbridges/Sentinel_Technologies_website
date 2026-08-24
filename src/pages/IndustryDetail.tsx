@@ -204,7 +204,7 @@ const IndustryDetail = () => {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-security-dark"
+              className="border-white text-white hover:bg-white text-security-dark"
             >
               <Link to="/industries">Explore Other Industries</Link>
             </Button>

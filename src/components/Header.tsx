@@ -6,12 +6,10 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { AnimatePresence } from "framer-motion";
 import { Menu, Phone, ChevronDown } from "lucide-react";
 import sentinelLogo from "@/assets/sentinel-logo.png";
-import { solutions } from "@/data/solutions";
-import { industries } from "@/data/industries";
+import MobileMenu from "@/components/MobileMenu";
 
 const SolutionsMegaMenu = lazy(() => import("@/components/MegaMenu/SolutionsMegaMenu"));
 const IndustriesMegaMenu = lazy(() => import("@/components/MegaMenu/IndustriesMegaMenu"));
@@ -202,113 +200,18 @@ const Header = () => {
             </Button>
 
             {/* Mobile Menu */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild className="lg:hidden">
-                <Button variant="outline" size="icon">
-                  <Menu className="w-4 h-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-80 overflow-y-auto">
-                <div className="flex flex-col space-y-4 mt-8">
-                  <Link
-                    to="/"
-                    className="text-lg font-medium hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Home
-                  </Link>
-
-                  <div>
-                    <h3 className="text-lg font-medium mb-2">Solutions</h3>
-                    <div className="pl-4 space-y-2">
-                      {solutions.map((solution) => (
-                        <Link
-                          key={solution.path}
-                          to={solution.path}
-                          className="block text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {solution.title}
-                        </Link>
-                      ))}
-                      <Link
-                        to="/solutions"
-                        className="block font-semibold text-primary"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        View All Products &amp; Solutions →
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-medium mb-2">Industries</h3>
-                    <div className="pl-4 space-y-2">
-                      {industries.slice(0, 6).map((industry) => (
-                        <Link
-                          key={industry.slug}
-                          to={`/industries/${industry.slug}`}
-                          className="block text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {industry.name}
-                        </Link>
-                      ))}
-                      <Link
-                        to="/industries"
-                        className="block font-semibold text-primary"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        View All Industries →
-                      </Link>
-                    </div>
-                  </div>
-
-                  <Link
-                    to="/case-studies"
-                    className="text-lg font-medium hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Case Studies
-                  </Link>
-
-                  <Link
-                    to="/partners"
-                    className="text-lg font-medium hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Partners
-                  </Link>
-
-                  <Link
-                    to="/about"
-                    className="text-lg font-medium hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    About
-                  </Link>
-
-                  <Link
-                    to="/contact"
-                    className="text-lg font-medium hover:text-primary transition-colors text-left"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Contact
-                  </Link>
-                  
-                  <Button
-                    asChild
-                    onClick={() => setIsOpen(false)}
-                    className="mt-4"
-                  >
-                    <Link to="/contact">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Get Quote
-                    </Link>
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <Button
+              variant="outline"
+              size="icon"
+              className="lg:hidden"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setIsOpen((v) => !v)}
+            >
+              <Menu className="w-4 h-4" />
+            </Button>
+            <MobileMenu open={isOpen} onOpenChange={setIsOpen} />
           </div>
         </div>
       </div>

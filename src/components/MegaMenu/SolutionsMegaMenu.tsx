@@ -52,7 +52,7 @@ const columns = [
     banner: { gradient: "from-blue-600 via-blue-500 to-cyan-400", label: "Video & Intelligence", sublabel: "Surveillance built for scale" },
     features: [
       { icon: Camera, label: "CCTV & Video Surveillance", href: "/solutions/cctv" },
-      { icon: BrainCircuit, label: "A.I - Video Analytics", href: "/solutions#solution-02" },
+      { icon: BrainCircuit, label: "A.I - Video Analytics", href: "/solutions/ai-video-analytics" },
       { icon: Boxes, label: "VMS - Video Management", href: "/solutions/vms" },
     ],
   },

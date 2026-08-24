@@ -7,7 +7,6 @@ import dahuaLogo from "@/assets/partners/logos/dahua.png";
 import axisLogo from "@/assets/partners/logos/axis.png";
 import boschLogo from "@/assets/partners/logos/bosch.png";
 
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import heroSecurityImg from "@/assets/hero-security.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
@@ -227,7 +226,7 @@ const CCTVPage = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/solutions/access-control">View Access Control</Link>
             </Button>
           </div>

@@ -3,6 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
 import portContainerTerminal from "@/assets/case-studies/port-container-terminal.jpg";
+import dormakabaLogo from "@/assets/partners/logos/dormakaba.png";
+import smithsDetectionLogo from "@/assets/partners/logos/smiths detection.png";
+import gunneboLogo from "@/assets/partners/logos/gunnebo.png";
+import gallagherLogo from "@/assets/partners/logos/gallagher.png";
+import boonEdamLogo from "@/assets/partners/logos/boon edam.png";
+import nemtekLogo from "@/assets/partners/logos/nemtek.png";
+import parkZeusLogo from "@/assets/partners/logos/park zeus.png";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
@@ -55,14 +62,14 @@ const GateAutomationPage = () => {
   ];
 
   const gatePartners = [
-    { name: "dormakaba", description: "Automatic entrance systems" },
-    { name: "Smiths Detection", description: "Screening and detection technology" },
-    { name: "Gunnebo", description: "Entrance control and security" },
-    { name: "Gallagher", description: "Access and perimeter security" },
-    { name: "Boon Edam", description: "Security entrances and turnstiles" },
+    { name: "dormakaba", description: "Automatic entrance systems", logo: dormakabaLogo },
+    { name: "Smiths Detection", description: "Screening and detection technology", logo: smithsDetectionLogo },
+    { name: "Gunnebo", description: "Entrance control and security", logo: gunneboLogo },
+    { name: "Gallagher", description: "Access and perimeter security", logo: gallagherLogo },
+    { name: "Boon Edam", description: "Security entrances and turnstiles", logo: boonEdamLogo },
     { name: "Rapiscan Systems", description: "Vehicle and cargo screening" },
-    { name: "Nemtek", description: "Perimeter security systems" },
-    { name: "Park Zeus", description: "Parking and gate automation" },
+    { name: "Nemtek", description: "Perimeter security systems", logo: nemtekLogo },
+    { name: "Park Zeus", description: "Parking and gate automation", logo: parkZeusLogo },
   ];
 
   return (
@@ -245,7 +252,7 @@ const GateAutomationPage = () => {
               <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
                 <Link to="/contact">Schedule Consultation</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
                 <Link to="/solutions/access-control">View Access Control</Link>
               </Button>
             </div>

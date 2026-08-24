@@ -19,6 +19,7 @@ import ITInfrastructurePage from "./pages/solutions/ITInfrastructure";
 import SentinelXLabsPage from "./pages/solutions/SentinelXLabs";
 import VMSPage from "./pages/solutions/VMS";
 import GateAutomationPage from "./pages/solutions/GateAutomation";
+import AIVideoAnalyticsPage from "./pages/solutions/AIVideoAnalytics";
 import IndustriesPage from "./pages/Industries";
 import IndustryDetail from "./pages/IndustryDetail";
 import CaseStudiesPage from "./pages/CaseStudies";
@@ -88,6 +89,7 @@ const App = () => (
               <Route path="/solutions/sentinel-x-labs" element={<SentinelXLabsPage />} />
               <Route path="/solutions/vms" element={<VMSPage />} />
               <Route path="/solutions/gate-automation" element={<GateAutomationPage />} />
+              <Route path="/solutions/ai-video-analytics" element={<AIVideoAnalyticsPage />} />
               <Route path="/solutions" element={<SolutionsPage />} />
               <Route path="/industries" element={<IndustriesPage />} />
               <Route path="/industries/:slug" element={<IndustryDetail />} />

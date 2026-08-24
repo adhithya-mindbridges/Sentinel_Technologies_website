@@ -4,8 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
 import honeywellLogo from "@/assets/partners/logos/honeywell.png";
 import boschLogo from "@/assets/partners/logos/bosch.png";
+import siemensLogo from "@/assets/partners/logos/siemens.png";
+import johnsonControlsLogo from "@/assets/partners/logos/johnson controls.png";
+import notifierLogo from "@/assets/partners/logos/notifier.png";
+import edwardsLogo from "@/assets/partners/logos/edwards.png";
 
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import fireAlarmImg from "@/assets/fire alarm.png";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
@@ -51,10 +55,10 @@ const FireAlarmPage = () => {
   const firePartners = [
     { name: "Honeywell", description: "Fire safety solutions", logo: honeywellLogo },
     { name: "Bosch", description: "Fire detection systems", logo: boschLogo },
-    { name: "Siemens", description: "Building safety technology" },
-    { name: "Johnson Controls", description: "Fire protection systems" },
-    { name: "Notifier", description: "Fire alarm control panels" },
-    { name: "Edwards", description: "Fire safety devices" },
+    { name: "Siemens", description: "Building safety technology", logo: siemensLogo },
+    { name: "Johnson Controls", description: "Fire protection systems", logo: johnsonControlsLogo },
+    { name: "Notifier", description: "Fire alarm control panels", logo: notifierLogo },
+    { name: "Edwards", description: "Fire safety devices", logo: edwardsLogo },
   ];
 
   return (
@@ -159,9 +163,11 @@ const FireAlarmPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <ImagePlaceholder
-                label="Photo of a Sentinel-installed fire alarm control panel or detector"
-                className="rounded-lg shadow-security w-full h-80"
+              <img
+                src={fireAlarmImg}
+                alt="Sentinel Technologies fire alarm control panel installation (representative image)"
+                className="rounded-lg shadow-security w-full h-80 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="space-y-6">
@@ -222,7 +228,7 @@ const FireAlarmPage = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Schedule Assessment</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/solutions/public-address">View PA Systems</Link>
             </Button>
           </div>

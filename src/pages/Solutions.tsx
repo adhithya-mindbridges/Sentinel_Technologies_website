@@ -129,6 +129,7 @@ const categories: SolutionCategory[] = [
       },
     ],
     note: "A.I turns every camera into an intelligent sensor.",
+    path: "/solutions/ai-video-analytics",
   },
   {
     number: "03",

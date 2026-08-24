@@ -8,8 +8,8 @@ import hidGlobalLogo from "@/assets/partners/logos/hid Global.png";
 import supremaLogo from "@/assets/partners/logos/suprema.png";
 
 
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import controlRoomImg from "@/assets/control-room.jpg";
+import accessControl from "@/assets/access control.png";
 
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -165,7 +165,7 @@ const AccessControlPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <img
-                src={controlRoomImg}
+                src={accessControl}
                 alt="Sentinel Technologies access control system installation (representative image)"
                 className="rounded-lg shadow-security w-full h-80 object-cover"
               />
@@ -228,7 +228,7 @@ const AccessControlPage = () => {
             <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
               <Link to="/solutions/fire-alarm">View Fire Alarm Systems</Link>
             </Button>
           </div>

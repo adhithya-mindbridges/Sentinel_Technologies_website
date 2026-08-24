@@ -364,7 +364,7 @@ const SentinelXLabsPage = () => {
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-security-dark">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white text-security-dark">
                 <Link to="/contact">Request a Live Demonstration</Link>
               </Button>
             </motion.div>
@@ -618,7 +618,7 @@ const SentinelXLabsPage = () => {
                 >
                   <div className={reversed ? "lg:order-2" : ""}>
                     <div className="relative rounded-2xl overflow-hidden shadow-security">
-                      <img src={platform.image} alt={`${platform.name} - ${platform.model}`} className="w-full h-[420px] object-cover" loading="lazy" />
+                      <img src={platform.image} alt={`${platform.name} - ${platform.model}`} className="w-full h-[500px] object-cover" loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                         <Badge className="bg-primary text-white border-none">{platform.model}</Badge>

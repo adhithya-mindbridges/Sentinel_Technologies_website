@@ -27,6 +27,7 @@ import kcic from "@/assets/customers/logos/kcic.png";
 import cisb from "@/assets/customers/logos/cisb.png";
 import mrf from "@/assets/customers/logos/mrf.png";
 import bvg from "@/assets/customers/logos/bvg.png";
+import firstman from "@/assets/customers/logos/firstman.png";
 
 const customers = [
   { name: "KPL", logo: kpl },
@@ -56,6 +57,7 @@ const customers = [
   { name: "CISB", logo: cisb },
   { name: "MRF", logo: mrf },
   { name: "bvg", logo: bvg },
+  { name: "Firstman", logo: firstman },
 ];
 
 const CustomerLogos = () => {
