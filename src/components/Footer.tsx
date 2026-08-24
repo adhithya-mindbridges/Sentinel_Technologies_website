@@ -121,7 +121,7 @@ const Footer = () => {
             &copy; {year} Sentinel Technologies Pvt Ltd. All rights reserved.
           </p>
           <p className="text-xs text-white/50">
-            Mon - Fri, 8:00 AM - 6:00 PM &middot; 24/7 Operational Support
+            Mon - Fri, 9:00 AM - 7:00 PM &middot; 24/7 Operational Support
           </p>
         </div>
       </div>

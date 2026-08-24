@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from "react";
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,25 +8,25 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { initAnalytics, trackPageView } from "@/lib/analytics";
 
-const Index = lazy(() => import("./pages/Index"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const CCTVPage = lazy(() => import("./pages/solutions/CCTV"));
-const AccessControlPage = lazy(() => import("./pages/solutions/AccessControl"));
-const FireAlarmPage = lazy(() => import("./pages/solutions/FireAlarm"));
-const PublicAddressPage = lazy(() => import("./pages/solutions/PublicAddress"));
-const BuildingAutomationPage = lazy(() => import("./pages/solutions/BuildingAutomation"));
-const ITInfrastructurePage = lazy(() => import("./pages/solutions/ITInfrastructure"));
-const SentinelXLabsPage = lazy(() => import("./pages/solutions/SentinelXLabs"));
-const VMSPage = lazy(() => import("./pages/solutions/VMS"));
-const GateAutomationPage = lazy(() => import("./pages/solutions/GateAutomation"));
-const IndustriesPage = lazy(() => import("./pages/Industries"));
-const IndustryDetail = lazy(() => import("./pages/IndustryDetail"));
-const CaseStudiesPage = lazy(() => import("./pages/CaseStudies"));
-const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
-const AboutPage = lazy(() => import("./pages/About"));
-const SolutionsPage = lazy(() => import("./pages/Solutions"));
-const PartnersPage = lazy(() => import("./pages/Partners"));
-const ContactPage = lazy(() => import("./pages/Contact"));
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import CCTVPage from "./pages/solutions/CCTV";
+import AccessControlPage from "./pages/solutions/AccessControl";
+import FireAlarmPage from "./pages/solutions/FireAlarm";
+import PublicAddressPage from "./pages/solutions/PublicAddress";
+import BuildingAutomationPage from "./pages/solutions/BuildingAutomation";
+import ITInfrastructurePage from "./pages/solutions/ITInfrastructure";
+import SentinelXLabsPage from "./pages/solutions/SentinelXLabs";
+import VMSPage from "./pages/solutions/VMS";
+import GateAutomationPage from "./pages/solutions/GateAutomation";
+import IndustriesPage from "./pages/Industries";
+import IndustryDetail from "./pages/IndustryDetail";
+import CaseStudiesPage from "./pages/CaseStudies";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
+import AboutPage from "./pages/About";
+import SolutionsPage from "./pages/Solutions";
+import PartnersPage from "./pages/Partners";
+import ContactPage from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -74,32 +74,34 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <RouteTracker />
-        <Header />
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/solutions/cctv" element={<CCTVPage />} />
-            <Route path="/solutions/access-control" element={<AccessControlPage />} />
-            <Route path="/solutions/fire-alarm" element={<FireAlarmPage />} />
-            <Route path="/solutions/public-address" element={<PublicAddressPage />} />
-            <Route path="/solutions/building-automation" element={<BuildingAutomationPage />} />
-            <Route path="/solutions/it-infrastructure" element={<ITInfrastructurePage />} />
-            <Route path="/solutions/sentinel-x-labs" element={<SentinelXLabsPage />} />
-            <Route path="/solutions/vms" element={<VMSPage />} />
-            <Route path="/solutions/gate-automation" element={<GateAutomationPage />} />
-            <Route path="/solutions" element={<SolutionsPage />} />
-            <Route path="/industries" element={<IndustriesPage />} />
-            <Route path="/industries/:slug" element={<IndustryDetail />} />
-            <Route path="/case-studies" element={<CaseStudiesPage />} />
-            <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/partners" element={<PartnersPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/solutions/cctv" element={<CCTVPage />} />
+              <Route path="/solutions/access-control" element={<AccessControlPage />} />
+              <Route path="/solutions/fire-alarm" element={<FireAlarmPage />} />
+              <Route path="/solutions/public-address" element={<PublicAddressPage />} />
+              <Route path="/solutions/building-automation" element={<BuildingAutomationPage />} />
+              <Route path="/solutions/it-infrastructure" element={<ITInfrastructurePage />} />
+              <Route path="/solutions/sentinel-x-labs" element={<SentinelXLabsPage />} />
+              <Route path="/solutions/vms" element={<VMSPage />} />
+              <Route path="/solutions/gate-automation" element={<GateAutomationPage />} />
+              <Route path="/solutions" element={<SolutionsPage />} />
+              <Route path="/industries" element={<IndustriesPage />} />
+              <Route path="/industries/:slug" element={<IndustryDetail />} />
+              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/partners" element={<PartnersPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

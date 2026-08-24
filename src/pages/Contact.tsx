@@ -56,7 +56,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Business Hours",
-    details: ["Mon - Fri: 8:00 AM - 6:00 PM", "24/7 Operational Support"],
+    details: ["Mon - Fri: 9:00 AM - 7:00 PM", "24/7 Operational Support"],
     color: "text-security-accent",
     bg: "bg-security-accent/10",
   },
@@ -141,7 +141,7 @@ const Contact = () => {
               asChild
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white hover:text-security-dark"
+              className="border-white/30 text-security-dark hover:bg-white hover:text-white"
             >
               <a href="mailto:info@sentinel-technologies.net">
                 <Mail className="w-4 h-4 mr-2" />

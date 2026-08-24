@@ -32,6 +32,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Automotive Manufacturing",
     image: automotiveManufacturingRobotics,
     imageAlt: "Robotic arms welding a car body on an automotive manufacturing line (representative image)",
+    scale: "100+ Cameras",
     solutionTags: ["CCTV Surveillance", "Boom Barriers", "Gate Automation"],
     relatedSolutionSlugs: ["cctv", "access-control"],
     summary:
@@ -234,9 +235,9 @@ export const caseStudies: CaseStudy[] = [
 export const getCaseStudyBySlug = (slug: string) => caseStudies.find((c) => c.slug === slug);
 
 export const enterpriseScaleStats = [
-  { value: "4,800+", label: "Cameras Across Featured Deployments" },
+  { value: "10,000+", label: "Cameras Across Featured Deployments" },
   { value: "10M+", label: "Metres of CAT6 Infrastructure" },
-  { value: "8", label: "Enterprise-Scale Projects Featured" },
+  { value: "15", label: "Enterprise-Scale Projects Featured" },
 ];
 
 export const technologyStrip = [
