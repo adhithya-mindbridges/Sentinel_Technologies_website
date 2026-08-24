@@ -155,6 +155,7 @@ const categories: SolutionCategory[] = [
       "Web & Mobile Accessibility",
     ],
     note: "VMS provides the foundation for building a truly intelligent surveillance ecosystem - including Design View (visualize camera positions on facility layouts) and Infrastructure View (monitor cameras, servers, storage and network from one place).",
+    path: "/solutions/vms",
   },
   {
     number: "04",
@@ -206,6 +207,7 @@ const categories: SolutionCategory[] = [
       "Central Gate Monitoring",
     ],
     note: "By integrating RFID + ANPR + Access Control + Physical Barriers + Enterprise Software, conventional gates become intelligent automated checkpoints.",
+    path: "/solutions/gate-automation",
   },
   {
     number: "06",

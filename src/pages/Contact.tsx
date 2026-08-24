@@ -32,7 +32,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 98409 06522", "24/7 Emergency Support"],
+    details: ["+91 98409 06522", "24/7 Operational Support"],
     color: "text-primary",
     bg: "bg-primary/10",
     href: "tel:+919840906522",
@@ -56,7 +56,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Business Hours",
-    details: ["Mon - Fri: 8:00 AM - 6:00 PM", "24/7 Emergency Support"],
+    details: ["Mon - Fri: 8:00 AM - 6:00 PM", "24/7 Operational Support"],
     color: "text-security-accent",
     bg: "bg-security-accent/10",
   },
@@ -73,12 +73,12 @@ const whyChooseUs = [
   { icon: Boxes, title: "Vendor-Neutral, Best-Fit Technology", desc: "We recommend the right technology ecosystem for your requirement, not a single brand." },
   { icon: Handshake, title: "End-to-End Lifecycle Partner", desc: "From consultation and design through implementation, commissioning and long-term support." },
   { icon: BrainCircuit, title: "AI-Driven & Future-Ready", desc: "Continuously investing in AI, computer vision and intelligent automation." },
-  { icon: Clock, title: "24/7 Emergency Support", desc: "Round-the-clock support so critical issues get a rapid response." },
+  { icon: Clock, title: "24/7 Operational Support", desc: "Round-the-clock support so critical issues get a rapid response." },
   { icon: ShieldCheck, title: "Triple ISO Certified", desc: "ISO 9001:2015 · ISO/IEC 27001:2022 · ISO/IEC 42001:2023 — certified for quality, information security and AI management." },
 ];
 
 const trustStats = [
-  { value: "24/7", label: "Emergency Support", color: "text-primary" },
+  { value: "24/7", label: "Operational Support", color: "text-primary" },
   { value: "3×", label: "ISO Certifications", color: "text-security-accent" },
   { value: "14+", label: "Years Experience", color: "text-primary" },
   { value: "500+", label: "Projects Completed", color: "text-security-accent" },

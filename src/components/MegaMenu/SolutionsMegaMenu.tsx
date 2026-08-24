@@ -53,7 +53,7 @@ const columns = [
     features: [
       { icon: Camera, label: "CCTV & Video Surveillance", href: "/solutions/cctv" },
       { icon: BrainCircuit, label: "A.I - Video Analytics", href: "/solutions#solution-02" },
-      { icon: Boxes, label: "VMS - Video Management", href: "/solutions#solution-03" },
+      { icon: Boxes, label: "VMS - Video Management", href: "/solutions/vms" },
     ],
   },
   {
@@ -61,7 +61,7 @@ const columns = [
     banner: { gradient: "from-violet-600 via-indigo-500 to-blue-500", label: "Access & Perimeter", sublabel: "Every entry, controlled" },
     features: [
       { icon: Fingerprint, label: "Access Control & Identity", href: "/solutions/access-control" },
-      { icon: ScanLine, label: "RFID & ANPR Gate Automation", href: "/solutions#solution-05" },
+      { icon: ScanLine, label: "RFID & ANPR Gate Automation", href: "/solutions/gate-automation" },
       { icon: ShieldCheck, label: "Physical & Perimeter Security", href: "/solutions#solution-06" },
       { icon: Flame, label: "Fire Detection & Life Safety", href: "/solutions/fire-alarm" },
     ],
