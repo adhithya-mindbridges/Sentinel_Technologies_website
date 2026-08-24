@@ -50,6 +50,10 @@ All colors MUST be HSL.
     /* True logo red - reserved for brand-adjacent moments (large numerals, logo lockups, motif) */
     --primary-deep: 360 97% 28%;
 
+    /* Lighter red for text/emphasis ON dark backgrounds - the base --primary
+       fails WCAG contrast when used as text over --gradient-hero (2.7:1 / 1.9:1). */
+    --primary-glow: 358 85% 64%;
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(358 78% 39%), hsl(358 79% 32%));
     --gradient-hero: linear-gradient(135deg, hsl(40 8% 7%) 0%, hsl(358 60% 22% / 0.92) 100%);
@@ -117,6 +121,7 @@ All colors MUST be HSL.
     --security-light: 40 8% 22%;
     --security-accent: 35 70% 55%;
     --primary-deep: 360 90% 45%;
+    --primary-glow: 358 85% 68%;
 
     /* Gradients - dark mode */
     --gradient-primary: linear-gradient(135deg, hsl(358 70% 55%), hsl(358 78% 39%));

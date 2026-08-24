@@ -72,7 +72,7 @@ const CustomerLogos = () => {
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll">
+          <div className="flex animate-scroll w-max">
             {[...customers, ...customers].map((customer, index) => (
               <Card
                 key={`${customer.name}-${index}`}
@@ -92,12 +92,14 @@ const CustomerLogos = () => {
       </div>
 
       <style>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: marquee 30s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
         }
         .animate-scroll:hover {
           animation-play-state: paused;

@@ -10,10 +10,11 @@ import yamahaLogo from "@/assets/partners/logos/yamaha.png";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SolutionHero from "@/components/solutions/SolutionHero";
 import { Volume2, Mic, Radio, Speaker, Settings, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeUp, iconSpring, staggerContainer, staggerItem, revealOnce, revealOnceTight } from "@/lib/motion";
+import { fadeUp, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
 
 const PublicAddressPage = () => {
   const features = [
@@ -80,48 +81,14 @@ const PublicAddressPage = () => {
         ]}
       />
       <Breadcrumbs items={[{ name: "Solutions" }, { name: "Public Address Systems" }]} />
-      {/* Hero Section */}
-      <section className="relative bg-gradient-hero py-20 text-white overflow-hidden">
-        <motion.div
-          className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="pointer-events-none absolute -bottom-24 -right-16 w-96 h-96 rounded-full bg-security-accent/20 blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <div className="container relative mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.div variants={staggerItem} className="flex justify-center mb-6">
-              <div className="p-4 rounded-full bg-white/10 backdrop-blur-sm">
-                <Volume2 className="w-12 h-12" />
-              </div>
-            </motion.div>
-            <motion.h1 variants={staggerItem} className="text-4xl md:text-5xl font-bold mb-6">
-              Public Address Systems
-            </motion.h1>
-            <motion.p variants={staggerItem} className="text-xl mb-8 opacity-90 leading-relaxed">
-              Clear communication solutions for emergency announcements, background music, 
-              and general facility-wide communications with professional audio quality.
-            </motion.p>
-            <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
-                <Link to="/contact">Get Audio Consultation</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                <Link to="/contact">Request Quote</Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <SolutionHero
+        icon={Volume2}
+        title="Public Address Systems"
+        description="Clear communication solutions for emergency announcements, background music, and general facility-wide communications with professional audio quality."
+        primaryLabel="Get Audio Consultation"
+        secondaryLabel="Request Quote"
+        highlights={features.slice(0, 4).map((f) => f.title)}
+      />
 
       {/* Features Section */}
       <section className="py-20 bg-white">

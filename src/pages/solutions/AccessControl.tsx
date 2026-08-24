@@ -13,10 +13,11 @@ import controlRoomImg from "@/assets/control-room.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SolutionHero from "@/components/solutions/SolutionHero";
 import { Lock, Fingerprint, Smartphone, Users, Clock, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeUp, iconSpring, staggerContainer, staggerItem, revealOnce, revealOnceTight } from "@/lib/motion";
+import { fadeUp, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
 
 const AccessControlPage = () => {
   const features = [
@@ -83,48 +84,14 @@ const AccessControlPage = () => {
         ]}
       />
       <Breadcrumbs items={[{ name: "Solutions" }, { name: "Access Control" }]} />
-      {/* Hero Section */}
-      <section className="relative bg-gradient-hero py-20 text-white overflow-hidden">
-        <motion.div
-          className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="pointer-events-none absolute -bottom-24 -right-16 w-96 h-96 rounded-full bg-security-accent/20 blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <div className="container relative mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.div variants={staggerItem} className="flex justify-center mb-6">
-              <div className="p-4 rounded-full bg-white/10 backdrop-blur-sm">
-                <Lock className="w-12 h-12" />
-              </div>
-            </motion.div>
-            <motion.h1 variants={staggerItem} className="text-4xl md:text-5xl font-bold mb-6">
-              Access Control Systems
-            </motion.h1>
-            <motion.p variants={staggerItem} className="text-xl mb-8 opacity-90 leading-relaxed">
-              Sophisticated entry management solutions with biometric authentication, 
-              mobile integration, and comprehensive user management capabilities.
-            </motion.p>
-            <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
-                <Link to="/contact">Get Free Consultation</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
-                <Link to="/contact">Request Quote</Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <SolutionHero
+        icon={Lock}
+        title="Access Control Systems"
+        description="Sophisticated entry management solutions with biometric authentication, mobile integration, and comprehensive user management capabilities."
+        primaryLabel="Get Free Consultation"
+        secondaryLabel="Request Quote"
+        highlights={features.slice(0, 4).map((f) => f.title)}
+      />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
