@@ -6,7 +6,7 @@ import boschLogo from "@/assets/partners/logos/bosch.png";
 import honeywellLogo from "@/assets/partners/logos/honeywell.png";
 import yamahaLogo from "@/assets/partners/logos/yamaha.png";
 import mAudioLogo from "@/assets/partners/logos/m-audio.png";
-import paSystemApplications from "@/assets/pa system applications.png";
+import paSystemApplications from "@/assets/pa system applications.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";

@@ -9,7 +9,7 @@ import johnsonControlsLogo from "@/assets/partners/logos/johnson controls.png";
 import notifierLogo from "@/assets/partners/logos/notifier.png";
 import edwardsLogo from "@/assets/partners/logos/edwards.png";
 
-import fireAlarmImg from "@/assets/fire alarm.png";
+import fireAlarmImg from "@/assets/fire alarm.jpg";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";

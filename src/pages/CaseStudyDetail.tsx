@@ -6,6 +6,7 @@ import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getSolutionBySlug } from "@/data/solutions";
+import LogoMotif from "@/components/graphics/LogoMotif";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -53,8 +54,20 @@ const CaseStudyDetail = () => {
       <Breadcrumbs items={[{ name: "Case Studies", path: "/case-studies" }, { name: caseStudy.client }]} />
 
       {/* Hero */}
-      <section className="bg-gradient-hero py-16 lg:py-20 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-hero py-16 lg:py-20 text-white overflow-hidden">
+        <motion.div
+          className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="pointer-events-none absolute -bottom-24 -right-16 w-96 h-96 rounded-full bg-security-accent/20 blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <LogoMotif className="pointer-events-none absolute -bottom-20 -right-10 w-72 h-72 text-white/[0.05] hidden lg:block" />
+
+        <div className="container relative mx-auto px-4">
           <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }} className="mb-8">
             <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors">
               <ArrowLeft className="w-4 h-4" />
@@ -68,9 +81,10 @@ const CaseStudyDetail = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+                className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white/70 mb-5"
               >
-                {caseStudy.industry}
+                <span className="w-6 h-px bg-primary-glow" />
+                <span className="text-primary-glow">{caseStudy.industry}</span>
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 16 }}
@@ -115,14 +129,34 @@ const CaseStudyDetail = () => {
               </motion.div>
             </div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }}>
-              <img
-                src={caseStudy.image}
-                alt={caseStudy.imageAlt}
-                width={800}
-                height={450}
-                className="w-full h-72 rounded-2xl object-cover shadow-security"
-              />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-security">
+                <img
+                  src={caseStudy.image}
+                  alt={caseStudy.imageAlt}
+                  width={800}
+                  height={450}
+                  className="w-full h-72 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-security-dark/50 via-transparent to-transparent" />
+              </div>
+
+              {caseStudy.scale && (
+                <motion.div
+                  className="absolute -bottom-5 -left-5 bg-white text-security-dark px-4 py-3 rounded-xl shadow-security animate-float"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55, duration: 0.5 }}
+                >
+                  <div className="text-xl font-bold text-primary tabular-nums leading-tight">{caseStudy.scale}</div>
+                  <div className="text-xs text-muted-foreground">Deployment Scale</div>
+                </motion.div>
+              )}
             </motion.div>
           </div>
         </div>

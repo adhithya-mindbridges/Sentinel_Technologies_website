@@ -12,7 +12,7 @@ import heroSecurityImg from "@/assets/hero-security.jpg";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
-import { Camera, Eye, Shield, Smartphone, Monitor, AlertTriangle } from "lucide-react";
+import { Camera, Eye, Shield, Smartphone, Monitor, AlertTriangle, Cctv } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeUp, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
@@ -83,7 +83,7 @@ const CCTVPage = () => {
       />
       <Breadcrumbs items={[{ name: "Solutions" }, { name: "CCTV Surveillance" }]} />
       <SolutionHero
-        icon={Camera}
+        icon={Cctv}
         title="Video Surveillance (CCTV) Systems"
         description="Comprehensive video surveillance solutions with advanced analytics, remote monitoring, and intelligent security features to protect what matters most."
         primaryLabel="Get Free Consultation"

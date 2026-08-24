@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -12,6 +12,7 @@ import {
   Boxes,
   Handshake,
   BrainCircuit,
+  ArrowDown,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -85,6 +86,8 @@ const trustStats = [
 ];
 
 const Contact = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
     <div className="min-h-screen">
       <SEO
@@ -149,6 +152,29 @@ const Contact = () => {
               </a>
             </Button>
           </motion.div>
+
+          {/* Animated scroll cue to the form */}
+          <motion.button
+            type="button"
+            onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="group inline-flex flex-col items-center gap-2 mt-10 text-white/70 hover:text-white transition-colors"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
+              Or Fill Out the Form Below
+            </span>
+            <motion.span
+              animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center justify-center w-9 h-9 rounded-full border border-white/30 group-hover:border-primary group-hover:bg-primary/10 transition-colors"
+            >
+              <ArrowDown className="w-4 h-4" />
+            </motion.span>
+          </motion.button>
         </div>
       </section>
 
@@ -240,11 +266,12 @@ const Contact = () => {
 
             {/* Form Section */}
             <motion.div
+              id="contact-form"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="lg:col-span-3 relative rounded-2xl border border-border shadow-card-custom overflow-hidden"
+              className="lg:col-span-3 relative rounded-2xl border border-border shadow-card-custom overflow-hidden scroll-mt-24"
             >
               <div className="h-1.5 w-full bg-gradient-primary" />
               <div className="bg-security-light p-8 md:p-10">

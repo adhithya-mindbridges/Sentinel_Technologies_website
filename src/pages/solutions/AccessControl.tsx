@@ -8,13 +8,12 @@ import hidGlobalLogo from "@/assets/partners/logos/hid Global.png";
 import supremaLogo from "@/assets/partners/logos/suprema.png";
 
 
-import controlRoomImg from "@/assets/control-room.jpg";
-import accessControl from "@/assets/access control.png";
+import accessControl from "@/assets/access control.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
-import { Lock, Fingerprint, Smartphone, Users, Clock, Shield } from "lucide-react";
+import { Lock, Fingerprint, Smartphone, Users, Clock, Shield, ScanEye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeUp, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
@@ -85,7 +84,7 @@ const AccessControlPage = () => {
       />
       <Breadcrumbs items={[{ name: "Solutions" }, { name: "Access Control" }]} />
       <SolutionHero
-        icon={Lock}
+        icon={ScanEye}
         title="Access Control Systems"
         description="Sophisticated entry management solutions with biometric authentication, mobile integration, and comprehensive user management capabilities."
         primaryLabel="Get Free Consultation"

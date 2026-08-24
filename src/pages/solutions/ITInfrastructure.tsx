@@ -6,7 +6,7 @@ import ciscoLogo from "@/assets/partners/logos/cisco.png";
 import dellLogo from "@/assets/partners/logos/dell.png";
 import juniperLogo from "@/assets/partners/logos/juniper.png";
 
-import serverRoomImg from "@/assets/server room.png";
+import serverRoomImg from "@/assets/server room.jpg";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
