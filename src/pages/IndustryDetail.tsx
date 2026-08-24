@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getIndustryBySlug, industries } from "@/data/industries";
-import { getSolutionBySlug } from "@/data/solutions";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
 
 const fadeUp = {
@@ -22,10 +21,6 @@ const IndustryDetail = () => {
   const industry = slug ? getIndustryBySlug(slug) : undefined;
 
   if (!industry) return <Navigate to="/industries" replace />;
-
-  const relevantSolutions = industry.relatedSolutionSlugs
-    .map((s) => getSolutionBySlug(s))
-    .filter(Boolean);
 
   const relatedCaseStudies = (industry.caseStudySlugs ?? [])
     .map((s) => getCaseStudyBySlug(s))
@@ -142,59 +137,6 @@ const IndustryDetail = () => {
           </div>
         </div>
       </section>
-
-      {/* Core solution pages */}
-      {relevantSolutions.length > 0 && (
-        <section className="py-20 bg-security-light">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="text-center mb-12 max-w-2xl mx-auto"
-            >
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">
-                Explore Our Core Solutions
-              </p>
-              <h2 className="text-3xl font-bold text-security-dark">
-                Built from our ELV &amp; security systems
-              </h2>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relevantSolutions.map((solution, i) => {
-                if (!solution) return null;
-                const Icon = solution.icon;
-                return (
-                  <motion.div
-                    key={solution.slug}
-                    custom={i}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeUp}
-                  >
-                    <Link
-                      to={solution.path}
-                      className="group flex flex-col h-full p-6 rounded-2xl bg-white border border-border hover:border-primary/40 hover:shadow-security transition-all duration-300"
-                    >
-                      <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="font-semibold text-security-dark mb-2">{solution.title}</h3>
-                      <p className="text-sm text-muted-foreground flex-1">{solution.description}</p>
-                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-4 group-hover:gap-2 transition-all">
-                        Learn more <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Related case studies */}
       {relatedCaseStudies.length > 0 && (
