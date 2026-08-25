@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
-import portContainerTerminal from "@/assets/case-studies/port-container-terminal.jpg";
+import portContainerTerminal from "@/assets/case-studies/port-container-terminal.webp";
 import dormakabaLogo from "@/assets/partners/logos/dormakaba.png";
 import smithsDetectionLogo from "@/assets/partners/logos/smiths detection.png";
 import gunneboLogo from "@/assets/partners/logos/gunnebo.png";

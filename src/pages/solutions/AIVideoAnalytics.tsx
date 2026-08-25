@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PartnerLogos from "@/components/PartnerLogos";
-import securityCameraInstallation from "@/assets/case-studies/security-camera-installation.jpg";
+import securityCameraInstallation from "@/assets/case-studies/security-camera-installation.webp";
 import aiDetectionImg from "@/assets/xlabs/xlabs-ai-detection.jpg";
 import axisLogo from "@/assets/partners/logos/axis.png";
 import SEO, { SITE_URL } from "@/components/SEO";

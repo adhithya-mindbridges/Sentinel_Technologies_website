@@ -11,8 +11,10 @@ import { Menu, Phone, ChevronDown } from "lucide-react";
 import sentinelLogo from "@/assets/sentinel-logo.png";
 import MobileMenu from "@/components/MobileMenu";
 
-const SolutionsMegaMenu = lazy(() => import("@/components/MegaMenu/SolutionsMegaMenu"));
-const IndustriesMegaMenu = lazy(() => import("@/components/MegaMenu/IndustriesMegaMenu"));
+const loadSolutionsMegaMenu = () => import("@/components/MegaMenu/SolutionsMegaMenu");
+const loadIndustriesMegaMenu = () => import("@/components/MegaMenu/IndustriesMegaMenu");
+const SolutionsMegaMenu = lazy(loadSolutionsMegaMenu);
+const IndustriesMegaMenu = lazy(loadIndustriesMegaMenu);
 
 type MenuId = "solutions" | "industries" | null;
 
@@ -28,6 +30,19 @@ const Header = () => {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const prefetch = () => {
+      loadSolutionsMegaMenu();
+      loadIndustriesMegaMenu();
+    };
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(prefetch);
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(prefetch, 200);
+    return () => window.clearTimeout(id);
   }, []);
 
   const openMenu = useCallback((id: MenuId) => {

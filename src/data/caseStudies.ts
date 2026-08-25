@@ -1,10 +1,10 @@
-import automotiveManufacturingRobotics from "@/assets/case-studies/automotive-manufacturing-robotics.jpg";
-import networkServerCabling from "@/assets/case-studies/network-server-cabling.jpg";
-import portContainerTerminal from "@/assets/case-studies/port-container-terminal.jpg";
-import industrialAutomationFactory from "@/assets/case-studies/industrial-automation-factory.jpg";
-import accessControlKeypad from "@/assets/case-studies/access-control-keypad.jpg";
-import securityCameraInstallation from "@/assets/case-studies/security-camera-installation.jpg";
-import electronicsCleanroomManufacturing from "@/assets/case-studies/electronics-cleanroom-manufacturing.jpg";
+import automotiveManufacturingRobotics from "@/assets/case-studies/automotive-manufacturing-robotics.webp";
+import networkServerCabling from "@/assets/case-studies/network-server-cabling.webp";
+import portContainerTerminal from "@/assets/case-studies/port-container-terminal.webp";
+import industrialAutomationFactory from "@/assets/case-studies/industrial-automation-factory.webp";
+import accessControlKeypad from "@/assets/case-studies/access-control-keypad.webp";
+import securityCameraInstallation from "@/assets/case-studies/security-camera-installation.webp";
+import electronicsCleanroomManufacturing from "@/assets/case-studies/electronics-cleanroom-manufacturing.webp";
 
 export interface CaseStudy {
   slug: string;

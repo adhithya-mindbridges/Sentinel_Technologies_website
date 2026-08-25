@@ -109,6 +109,9 @@ const HeroNetworkGraphic = ({ className }: { className?: string }) => {
           <motion.circle
             r="3.5"
             fill="hsl(var(--primary))"
+            cx={nodes[0].x}
+            cy={nodes[0].y}
+            initial={{ cx: nodes[0].x, cy: nodes[0].y, opacity: 0 }}
             animate={{
               cx: [nodes[0].x, nodes[1].x, nodes[2].x, nodes[3].x, nodes[0].x],
               cy: [nodes[0].y, nodes[1].y, nodes[2].y, nodes[3].y, nodes[0].y],
@@ -119,6 +122,9 @@ const HeroNetworkGraphic = ({ className }: { className?: string }) => {
           <motion.circle
             r="3"
             fill="white"
+            cx={nodes[3].x}
+            cy={nodes[3].y}
+            initial={{ cx: nodes[3].x, cy: nodes[3].y, opacity: 0 }}
             animate={{
               cx: [nodes[3].x, nodes[6].x, nodes[5].x, nodes[3].x],
               cy: [nodes[3].y, nodes[6].y, nodes[5].y, nodes[3].y],

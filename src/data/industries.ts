@@ -16,12 +16,12 @@ import {
   GraduationCap,
   type LucideIcon,
 } from "lucide-react";
-import automotiveManufacturingRobotics from "@/assets/case-studies/automotive-manufacturing-robotics.jpg";
-import industrialAutomationFactory from "@/assets/case-studies/industrial-automation-factory.jpg";
-import electronicsCleanroomManufacturing from "@/assets/case-studies/electronics-cleanroom-manufacturing.jpg";
-import portContainerTerminal from "@/assets/case-studies/port-container-terminal.jpg";
-import accessControlKeypad from "@/assets/case-studies/access-control-keypad.jpg";
-import networkServerCabling from "@/assets/case-studies/network-server-cabling.jpg";
+import automotiveManufacturingRobotics from "@/assets/case-studies/automotive-manufacturing-robotics.webp";
+import industrialAutomationFactory from "@/assets/case-studies/industrial-automation-factory.webp";
+import electronicsCleanroomManufacturing from "@/assets/case-studies/electronics-cleanroom-manufacturing.webp";
+import portContainerTerminal from "@/assets/case-studies/port-container-terminal.webp";
+import accessControlKeypad from "@/assets/case-studies/access-control-keypad.webp";
+import networkServerCabling from "@/assets/case-studies/network-server-cabling.webp";
 import airportTerminal from "@/assets/industries/airport-terminal.jpg";
 import metroTrainPlatform from "@/assets/industries/metro-train-platform.jpg";
 import warehouseForklift from "@/assets/industries/warehouse-forklift.jpg";
