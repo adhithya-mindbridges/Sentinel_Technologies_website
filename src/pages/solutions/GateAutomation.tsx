@@ -176,7 +176,7 @@ const GateAutomationPage = () => {
             variants={fadeUp}
             className="text-center mb-16"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Proven in the Field</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Proven in the Field</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark mb-4">
               Deployed at Critical Infrastructure Scale
             </h2>

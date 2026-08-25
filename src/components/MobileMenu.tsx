@@ -1,14 +1,13 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { X, Phone, Mail, ArrowRight, type LucideIcon } from "lucide-react";
+import { X, Phone, Mail, ArrowRight, type LucideIcon, Cctv } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import sentinelLogo from "@/assets/sentinel-logo.png";
 import xlabsIcon from "@/assets/xlabs/xlabs-icon.png";
 import LogoMotif from "@/components/graphics/LogoMotif";
 import { industries } from "@/data/industries";
 import {
-  Camera,
   BrainCircuit,
   Boxes,
   Fingerprint,
@@ -35,7 +34,7 @@ const solutionGroups: { label: string; features: Feature[] }[] = [
   {
     label: "Video & Intelligence",
     features: [
-      { icon: Camera, label: "CCTV & Video Surveillance", href: "/solutions/cctv" },
+      { icon: Cctv, label: "CCTV & Video Surveillance", href: "/solutions/cctv" },
       { icon: BrainCircuit, label: "A.I - Video Analytics", href: "/solutions/ai-video-analytics" },
       { icon: Boxes, label: "VMS - Video Management", href: "/solutions/vms" },
     ],

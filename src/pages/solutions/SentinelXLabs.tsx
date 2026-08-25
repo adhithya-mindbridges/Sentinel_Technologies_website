@@ -318,7 +318,7 @@ const SentinelXLabsPage = () => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.04 }}
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4"
+              className="inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-4"
             >
               <Sparkles className="w-3.5 h-3.5" />
               An Autonomous Intelligence &amp; Robotics Company
@@ -397,7 +397,7 @@ const SentinelXLabsPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">What Is Sentinel X-Labs?</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">What Is Sentinel X-Labs?</p>
               <h2 className="text-3xl md:text-4xl font-bold text-security-dark mb-5 text-balance">
                 Purpose-built to develop next-generation autonomous systems
               </h2>
@@ -445,7 +445,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">The Future Is Autonomous</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">The Future Is Autonomous</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
               Most drones simply fly. Sentinel X-Labs drones understand.
             </h2>
@@ -487,7 +487,7 @@ const SentinelXLabsPage = () => {
             custom={2}
             className="max-w-4xl mx-auto mb-14"
           >
-            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6">
+            <p className="text-center text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-6">
               In Real Time
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
@@ -553,7 +553,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Platform Overview</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Platform Overview</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">Core Technology Stack</h2>
             <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
               A deeply integrated stack of enabling technologies - each engineered to work in concert,
@@ -596,7 +596,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Platforms</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Platforms</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
               Intelligence Across Every Domain
             </h2>
@@ -636,7 +636,7 @@ const SentinelXLabsPage = () => {
 
                     <div className="space-y-5">
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-wide text-security-dark mb-2.5">Mission Applications</p>
+                        <p className="text-[13px] font-bold uppercase tracking-wide text-security-dark mb-2.5">Mission Applications</p>
                         <div className="flex flex-wrap gap-2">
                           {platform.applications.map((a) => (
                             <Badge key={a} variant="secondary" className="font-normal text-xs px-2.5 py-1">
@@ -646,7 +646,7 @@ const SentinelXLabsPage = () => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-wide text-security-dark mb-2.5">Platform Capabilities</p>
+                        <p className="text-[13px] font-bold uppercase tracking-wide text-security-dark mb-2.5">Platform Capabilities</p>
                         <div className="flex flex-wrap gap-2">
                           {platform.capabilities.map((c) => (
                             <Badge key={c} variant="secondary" className="font-normal text-xs px-2.5 py-1">
@@ -659,7 +659,7 @@ const SentinelXLabsPage = () => {
 
                     {platform.specs && (
                       <div className="mt-6 pt-6 border-t border-border">
-                        <p className="text-xs font-bold uppercase tracking-wide text-security-dark mb-3">Specifications</p>
+                        <p className="text-[13px] font-bold uppercase tracking-wide text-security-dark mb-3">Specifications</p>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
                           {platform.specs.map((s) => (
                             <div key={s.label} className="text-sm">
@@ -682,7 +682,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">How It Works</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">How It Works</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">The Sentinel AI Engine</h2>
             <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
               At the core of every Sentinel X-Labs platform is a proprietary AI engine that continuously
@@ -736,7 +736,7 @@ const SentinelXLabsPage = () => {
 
           {/* Visual demonstration */}
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={scaleIn} className="max-w-3xl mx-auto text-center mb-6">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Visual Demonstration</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-2">Visual Demonstration</p>
             <h3 className="text-2xl font-bold text-security-dark">AI Detection, Live</h3>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={scaleIn} custom={1} className="max-w-3xl mx-auto">
@@ -778,7 +778,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Industries We Serve</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Industries We Serve</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
               Deployed wherever autonomous intelligence creates an advantage
             </h2>
@@ -814,7 +814,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">At a Glance</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">At a Glance</p>
             <h2 className="text-3xl md:text-4xl font-bold text-balance">Technology Differentiators</h2>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -833,7 +833,7 @@ const SentinelXLabsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Why Sentinel X-Labs?</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Why Sentinel X-Labs?</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
               Not a hardware vendor - an autonomous intelligence company
             </h2>
@@ -866,7 +866,7 @@ const SentinelXLabsPage = () => {
               <img src={rdTeamImg} alt="Sentinel X-Labs multidisciplinary research and development team" className="w-full h-[360px] object-cover" loading="lazy" />
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} custom={1}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Innovation & Research</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Innovation & Research</p>
               <h3 className="text-2xl md:text-3xl font-bold text-security-dark mb-4 text-balance">
                 A multidisciplinary team across the full autonomy stack
               </h3>

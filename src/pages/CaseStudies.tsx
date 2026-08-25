@@ -33,7 +33,7 @@ const CaseStudiesPage = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-5"
           >
             Our Success Stories
           </motion.span>
@@ -84,7 +84,7 @@ const CaseStudiesPage = () => {
                     </div>
                   </div>
                   <div className="flex flex-col flex-1 p-6">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
+                    <span className="text-[13px] font-semibold uppercase tracking-wide text-primary mb-2">
                       {cs.industry}
                     </span>
                     <h3 className="text-lg font-bold text-security-dark mb-1 group-hover:text-primary transition-colors">
@@ -116,7 +116,7 @@ const CaseStudiesPage = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Proven at Enterprise Scale</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Proven at Enterprise Scale</p>
             <h2 className="text-3xl font-bold text-balance">
               Our project experience demonstrates our ability to execute complex technology
               deployments across some of the most demanding operating environments

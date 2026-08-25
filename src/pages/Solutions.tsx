@@ -20,6 +20,7 @@ import {
   Eye,
   Zap,
   TrendingUp,
+  Cctv,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -30,7 +31,7 @@ import { industries } from "@/data/industries";
 
 interface SolutionCategory {
   number: string;
-  icon: typeof Camera;
+  icon: typeof Cctv;
   title: string;
   tagline: string;
   intro: string;
@@ -43,7 +44,7 @@ interface SolutionCategory {
 const categories: SolutionCategory[] = [
   {
     number: "01",
-    icon: Camera,
+    icon: Cctv,
     title: "CCTV & Video Surveillance",
     tagline: "See More. Know More. Respond Faster.",
     intro:
@@ -521,7 +522,7 @@ const CategoryCard = ({ category, index }: { category: SolutionCategory; index: 
                   <div className="grid sm:grid-cols-2 gap-6 pt-2">
                     {category.groups.map((group) => (
                       <div key={group.label}>
-                        <p className="text-xs font-bold uppercase tracking-wide text-security-dark mb-2">{group.label}</p>
+                        <p className="text-[13px] font-bold uppercase tracking-wide text-security-dark mb-2">{group.label}</p>
                         <ul className="space-y-1.5">
                           {group.items.map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -598,7 +599,7 @@ const SolutionsPage = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-5"
           >
             Products &amp; Solutions
           </motion.span>
@@ -674,7 +675,7 @@ const SolutionsPage = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Integration Philosophy</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Integration Philosophy</p>
             <h2 className="text-3xl font-bold text-balance">Don't Build Technology Silos. Build Intelligence.</h2>
             <p className="text-white/70 mt-4 leading-relaxed">
               Modern enterprises operate hundreds or thousands of cameras, sensors, doors, network
@@ -704,7 +705,7 @@ const SolutionsPage = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-2xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">The Transformation</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">The Transformation</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">
               From Conventional Infrastructure to Intelligent Infrastructure
             </h2>
@@ -736,7 +737,7 @@ const SolutionsPage = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">One Technology Partner</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">One Technology Partner</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">End-to-End Responsibility</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -754,7 +755,7 @@ const SolutionsPage = () => {
                 <span className="absolute top-2 right-3 text-3xl font-bold text-primary/10 select-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-2">{step}</p>
+                <p className="text-[13px] font-bold uppercase tracking-wide text-primary mb-2">{step}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </motion.div>
             ))}
@@ -766,7 +767,7 @@ const SolutionsPage = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Industries We Serve</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Industries We Serve</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">
               Engineered for demanding enterprise environments
             </h2>

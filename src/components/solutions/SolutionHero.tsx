@@ -65,7 +65,7 @@ const SolutionHero = ({
           <motion.div variants={staggerContainer} initial="hidden" animate="visible">
             <motion.p
               variants={staggerItem}
-              className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white/70 mb-5"
+              className="flex items-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.2em] text-white/70 mb-5"
             >
               <span className="w-6 h-px bg-primary-glow" />
               {eyebrow}

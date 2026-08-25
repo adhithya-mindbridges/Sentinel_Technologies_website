@@ -83,6 +83,35 @@ const SolutionsSection = () => {
               </motion.div>
             );
           })}
+
+          <motion.div
+            custom={solutions.length}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={revealOnceTight}
+            whileHover={{ y: -4 }}
+          >
+            <Link to="/solutions" className="block h-full">
+              <Card className="group relative h-full overflow-hidden transition-shadow duration-300 hover:shadow-security bg-primary/5 border-2 border-dashed border-primary/30 hover:border-primary/50">
+                <CardContent className="p-6 relative h-full flex flex-col items-start justify-center min-h-[220px]">
+                  <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-4">
+                    <ArrowRight className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-security-dark mb-2">
+                    Explore All Our Solutions
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    See the complete range of ELV, security and automation categories we deliver.
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                    View All Solutions
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          </motion.div>
         </div>
 
         {/* Approach Section */}

@@ -107,7 +107,7 @@ const IndustriesMegaMenu = ({ onClose }: IndustriesMegaMenuProps) => (
       {/* Top bar */}
       <div className="flex items-center justify-between max-w-7xl mx-auto px-6 pt-4 pb-3 border-b border-white/10">
         <div>
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wider">Industries We Serve</p>
+          <p className="text-[13px] font-semibold text-white/50 uppercase tracking-wider">Industries We Serve</p>
           <h3 className="text-sm font-bold text-white mt-0.5">Intelligent Technology for Mission-Critical Industries</h3>
         </div>
         <Link

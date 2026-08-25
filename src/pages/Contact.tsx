@@ -105,7 +105,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-5"
           >
             Contact Our Team
           </motion.span>
@@ -164,7 +164,7 @@ const Contact = () => {
             whileTap={{ scale: 0.97 }}
             className="group inline-flex flex-col items-center gap-2 mt-10 text-white/70 hover:text-white transition-colors"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
+            <span className="text-[13px] font-semibold uppercase tracking-[0.2em]">
               Or Fill Out the Form Below
             </span>
             <motion.span
@@ -188,7 +188,7 @@ const Contact = () => {
             variants={fadeUp}
             className="text-center max-w-2xl mx-auto mb-14"
           >
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Why Choose Us</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Why Choose Us</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">Why Choose Sentinel Technologies</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -294,7 +294,7 @@ const Contact = () => {
           {/* What happens next */}
           <div className="mt-24">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-xl mx-auto mb-12">
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">What Happens Next</p>
+              <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">What Happens Next</p>
               <h2 className="text-3xl font-bold text-security-dark">From enquiry to installation</h2>
             </motion.div>
             <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">

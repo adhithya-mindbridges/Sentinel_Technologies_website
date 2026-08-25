@@ -205,7 +205,7 @@ const AIVideoAnalyticsPage = () => {
             variants={fadeUp}
             className="max-w-2xl mx-auto text-center mb-10"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">See It In Action</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">See It In Action</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
               Detection, Classification and Tracking - In Real Time
             </h2>
@@ -242,7 +242,7 @@ const AIVideoAnalyticsPage = () => {
             variants={fadeUp}
             className="text-center mb-16"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Proven in the Field</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-3">Proven in the Field</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark mb-4">
               Deployed at Manufacturing Scale
             </h2>

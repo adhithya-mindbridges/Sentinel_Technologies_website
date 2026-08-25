@@ -20,7 +20,7 @@ const CaseStudiesPreview = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Success Stories</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Success Stories</p>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
               Engineering complex infrastructure, delivering at scale
             </h2>
@@ -54,7 +54,7 @@ const CaseStudiesPreview = () => {
                   </div>
                 </div>
                 <div className="flex flex-col flex-1 p-6">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">{cs.industry}</span>
+                  <span className="text-[13px] font-semibold uppercase tracking-wide text-primary mb-2">{cs.industry}</span>
                   <h3 className="font-bold text-security-dark mb-1 group-hover:text-primary transition-colors">{cs.client}</h3>
                   <p className="text-sm text-muted-foreground flex-1">{cs.title}</p>
                   <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-4">

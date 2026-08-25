@@ -81,7 +81,7 @@ const CaseStudyDetail = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.2em] text-white/70 mb-5"
+                className="inline-flex items-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.2em] text-white/70 mb-5"
               >
                 <span className="w-6 h-px bg-primary-glow" />
                 <span className="text-primary-glow">{caseStudy.industry}</span>
@@ -191,7 +191,7 @@ const CaseStudyDetail = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Overview</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Overview</p>
             <p className="text-lg text-muted-foreground leading-relaxed">{caseStudy.summary}</p>
             {caseStudy.scale && (
               <p className="text-security-dark font-semibold mt-4">Scale: {caseStudy.scale}</p>
@@ -199,7 +199,7 @@ const CaseStudyDetail = () => {
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Scope of Work</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Scope of Work</p>
             <h2 className="text-2xl font-bold text-security-dark mb-6">What we delivered</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               {caseStudy.scope.map((item) => (
@@ -217,7 +217,7 @@ const CaseStudyDetail = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4 max-w-2xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Impact</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Impact</p>
             <p className="text-xl font-semibold leading-relaxed text-balance">{caseStudy.impact}</p>
           </motion.div>
         </div>
@@ -274,7 +274,7 @@ const CaseStudyDetail = () => {
                 to={`/case-studies/${other.slug}`}
                 className="p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors"
               >
-                <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-1">{other.industry}</p>
+                <p className="text-[13px] font-semibold uppercase tracking-wide text-primary mb-1">{other.industry}</p>
                 <p className="text-sm font-medium text-security-dark">{other.client}</p>
               </Link>
             ))}

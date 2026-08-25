@@ -75,7 +75,7 @@ const Header = () => {
 
   return (
     <header
-      className={`bg-white sticky top-0 z-50 border-b transition-shadow duration-300 ${
+      className={`bg-white fixed right-0 left-0 top-0 z-50 border-b transition-shadow duration-300 ${
         scrolled ? "shadow-security border-border/60" : "shadow-none border-transparent"
       }`}
     >
@@ -96,7 +96,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/"
-                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                    className={`inline-flex items-center h-10 px-4 text-[15px] font-medium transition-colors relative ${
                       isActive("/")
                         ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
                         : "text-muted-foreground hover:text-primary"
@@ -120,7 +120,7 @@ const Header = () => {
                   aria-expanded={activeMenu === id}
                   aria-haspopup="true"
                   onClick={() => (activeMenu === id ? setActiveMenu(null) : openMenu(id))}
-                  className={`inline-flex items-center gap-1 h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors relative ${
+                  className={`inline-flex items-center gap-1 h-10 px-4 py-2 rounded-md text-[15px] font-medium transition-colors relative ${
                     activeMenu === id
                       ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
                       : "text-foreground hover:text-primary"
@@ -153,7 +153,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/case-studies"
-                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                    className={`inline-flex items-center h-10 px-4 text-[15px] font-medium transition-colors relative ${
                       isActive("/case-studies")
                         ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
                         : "text-muted-foreground hover:text-primary"
@@ -166,7 +166,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/partners"
-                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                    className={`inline-flex items-center h-10 px-4 text-[15px] font-medium transition-colors relative ${
                       isActive("/partners")
                         ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
                         : "text-muted-foreground hover:text-primary"
@@ -179,7 +179,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/about"
-                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                    className={`inline-flex items-center h-10 px-4 text-[15px] font-medium transition-colors relative ${
                       isActive("/about")
                         ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
                         : "text-muted-foreground hover:text-primary"
@@ -192,7 +192,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link
                     to="/contact"
-                    className={`inline-flex items-center h-10 px-4 text-sm font-medium transition-colors relative ${
+                    className={`inline-flex items-center h-10 px-4 text-[15px] font-medium transition-colors relative ${
                       isActive("/contact")
                         ? "text-primary after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:rounded-full after:bg-primary"
                         : "text-muted-foreground hover:text-primary"

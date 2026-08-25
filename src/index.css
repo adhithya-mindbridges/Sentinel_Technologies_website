@@ -217,3 +217,50 @@ All colors MUST be HSL.
     transform: translateX(-50%);
   }
 }
+
+/*
+ * Hero video scene sequencing - a single 18.2s clock shared by four
+ * overlay layers (VMS / Drone / ANPR / Connected) so the UI chrome stays in
+ * sync with the baked crossfades in sentinel-hero.mp4 without any JS timer.
+ * Percentages map to that video's scene boundaries.
+ */
+@keyframes hero-scene-vms {
+  0%, 22% { opacity: 1; }
+  26%, 97% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hero-scene-drone {
+  0%, 22% { opacity: 0; }
+  26%, 46% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes hero-scene-anpr {
+  0%, 46% { opacity: 0; }
+  50%, 71% { opacity: 1; }
+  75%, 100% { opacity: 0; }
+}
+@keyframes hero-scene-connected {
+  0%, 71% { opacity: 0; }
+  75%, 97% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.hero-scene-vms { animation: hero-scene-vms 18.2s infinite; }
+.hero-scene-drone { animation: hero-scene-drone 18.2s infinite; }
+.hero-scene-anpr { animation: hero-scene-anpr 18.2s infinite; }
+.hero-scene-connected { animation: hero-scene-connected 18.2s infinite; }
+
+@keyframes hero-anpr-sweep {
+  0%, 50% { transform: translateX(-6%); opacity: 0; }
+  56% { opacity: 1; }
+  70% { transform: translateX(106%); opacity: 1; }
+  74%, 100% { transform: translateX(106%); opacity: 0; }
+}
+.hero-anpr-sweep { animation: hero-anpr-sweep 18.2s infinite; }
+
+@keyframes hero-drone-drift {
+  0%, 24% { transform: translate(4%, 6%); }
+  38% { transform: translate(-6%, -4%); }
+  50%, 100% { transform: translate(4%, 6%); }
+}
+.hero-drone-drift { animation: hero-drone-drift 18.2s infinite; }

@@ -30,7 +30,7 @@ const IndustriesPage = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-5"
           >
             Industries We Serve
           </motion.span>

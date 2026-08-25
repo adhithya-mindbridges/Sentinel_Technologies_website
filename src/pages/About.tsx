@@ -120,7 +120,7 @@ const About = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-6"
           >
             About Sentinel &middot; Founded 2012
           </motion.span>
@@ -164,7 +164,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Who We Are</p>
+              <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Who We Are</p>
               <h2 className="text-3xl md:text-4xl font-bold text-security-dark mb-6 text-balance">
                 Security infrastructure should understand, predict, alert and enable action
               </h2>
@@ -198,7 +198,7 @@ const About = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">From Integration to Intelligent Infrastructure</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">From Integration to Intelligent Infrastructure</p>
             <h2 className="text-3xl font-bold text-balance">How we transform conventional infrastructure</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -219,7 +219,7 @@ const About = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-2xl mx-auto text-center">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Solutions</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Solutions</p>
             <h2 className="text-3xl font-bold text-security-dark mb-5 text-balance">
               14 integrated technology categories, one architecture
             </h2>
@@ -253,7 +253,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-security-dark/30 to-transparent rounded-2xl" />
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="order-1 lg:order-2">
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Beyond System Integration</p>
+              <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Beyond System Integration</p>
               <h2 className="text-3xl font-bold text-security-dark mb-5 text-balance">
                 We don't deploy isolated technologies. We build integrated ecosystems.
               </h2>
@@ -278,7 +278,7 @@ const About = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Industries We Serve</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Industries We Serve</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">
               Built for complex, mission-critical environments
             </h2>
@@ -338,7 +338,7 @@ const About = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Core Values</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Core Values</p>
             <h2 className="text-3xl font-bold text-security-dark">Principles that guide every project</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -359,7 +359,7 @@ const About = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Why Sentinel?</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Why Sentinel?</p>
             <h2 className="text-3xl font-bold text-security-dark">One partner, the full lifecycle</h2>
           </motion.div>
 
@@ -399,7 +399,7 @@ const About = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Technology Ecosystem</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Technology Ecosystem</p>
             <h2 className="text-3xl font-bold text-balance">
               Bridging physical infrastructure and digital intelligence
             </h2>
@@ -453,7 +453,7 @@ const About = () => {
               variants={fadeUp}
               className="flex items-center justify-center gap-3 mb-6"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-security-dark/70">
+              <span className="text-[13px] font-bold uppercase tracking-[0.2em] text-security-dark/70">
                 Since
               </span>
               <motion.span
@@ -548,7 +548,7 @@ const About = () => {
             variants={fadeUp}
             className="text-center mb-12"
           >
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">
+            <span className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-4">
               Quality &amp; Compliance
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-security-dark mb-3">
@@ -589,7 +589,7 @@ const About = () => {
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 mb-4">
                     <ShieldCheck className="w-5 h-5 text-primary" />
                   </div>
-                  <p className="text-xs font-bold font-mono tracking-wider text-primary mb-1 uppercase">{cert.code}</p>
+                  <p className="text-[13px] font-bold font-mono tracking-wider text-primary mb-1 uppercase">{cert.code}</p>
                   <h3 className="text-lg font-bold text-security-dark mb-2 leading-snug">{cert.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{cert.desc}</p>
                 </div>

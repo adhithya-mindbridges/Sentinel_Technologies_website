@@ -156,7 +156,7 @@ const CategorySection = ({ category, index }: { category: EcosystemCategory; ind
 
       {category.brands.length > 0 && (
         <div className="mb-5">
-          <p className="text-xs font-bold uppercase tracking-wide text-primary mb-2">Technology Ecosystem</p>
+          <p className="text-[13px] font-bold uppercase tracking-wide text-primary mb-2">Technology Ecosystem</p>
           <div className="flex flex-wrap gap-2">
             {category.brands.map((brand) => (
               <span key={brand} className="text-xs font-medium bg-security-light text-security-dark px-3 py-1.5 rounded-full border border-border">
@@ -201,7 +201,7 @@ const PartnersPage = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-5"
           >
             Our Partnerships
           </motion.span>
@@ -231,7 +231,7 @@ const PartnersPage = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Partnership Philosophy</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Partnership Philosophy</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">Customer First. Technology Next. Brand Neutral.</h2>
             <p className="text-muted-foreground mt-4 leading-relaxed">
               Every customer's environment is different. Rather than designing solutions around a
@@ -258,7 +258,7 @@ const PartnersPage = () => {
       <section className="py-20 bg-security-light">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Technology Ecosystem</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Technology Ecosystem</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">
               Best-fit technologies across every layer
             </h2>
@@ -279,7 +279,7 @@ const PartnersPage = () => {
       <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">From Products to Complete Solutions</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">From Products to Complete Solutions</p>
             <h2 className="text-3xl font-bold text-balance">
               Multiple Technologies. Multiple OEMs. One Integrated Solution.
             </h2>
@@ -304,7 +304,7 @@ const PartnersPage = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Partner With Sentinel</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Partner With Sentinel</p>
             <h2 className="text-3xl font-bold text-security-dark mb-5 text-balance">Building Opportunities Together</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We continuously explore partnerships with innovative technology companies that

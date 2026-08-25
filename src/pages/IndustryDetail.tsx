@@ -78,7 +78,7 @@ const IndustryDetail = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5"
+            className="inline-block text-[13px] font-bold uppercase tracking-[0.2em] text-primary mb-5"
           >
             Industry &middot; {industry.name}
           </motion.span>
@@ -113,7 +113,7 @@ const IndustryDetail = () => {
             variants={fadeUp}
             className="text-center mb-12 max-w-2xl mx-auto"
           >
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Solutions</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Solutions</p>
             <h2 className="text-3xl font-bold text-security-dark text-balance">
               What we deploy for {industry.name.toLowerCase()}
             </h2>
@@ -149,7 +149,7 @@ const IndustryDetail = () => {
               variants={fadeUp}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Experience</p>
+              <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Our Experience</p>
               <h2 className="text-3xl font-bold text-security-dark">
                 Real deployments in {industry.name.toLowerCase()}
               </h2>
