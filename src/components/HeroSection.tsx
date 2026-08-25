@@ -18,7 +18,7 @@ const serviceChips = [
 
 const HeroSection = () => {
   return (
-    <section className="relative flex items-center text-white overflow-hidden py-24 sm:py-28 lg:py-0 lg:min-h-screen">
+    <section className="relative flex items-center text-white overflow-hidden py-28 sm:py-28 md:py-26 lg:py-28 2xl:py-0 2xl:min-h-screen">
       <HeroVideoBackground />
 
       {/* Capability list - fills the open right-hand edge of the frame on
