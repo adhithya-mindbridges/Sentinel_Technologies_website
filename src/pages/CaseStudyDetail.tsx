@@ -141,6 +141,8 @@ const CaseStudyDetail = () => {
                   alt={caseStudy.imageAlt}
                   width={800}
                   height={450}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-72 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-security-dark/50 via-transparent to-transparent" />

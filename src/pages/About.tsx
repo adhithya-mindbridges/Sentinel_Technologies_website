@@ -105,7 +105,15 @@ const About = () => {
 
       {/* Hero */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden">
-        <img src={heroImage} alt="Sentinel Technologies security operations" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={heroImage}
+          alt="Sentinel Technologies security operations"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-hero opacity-95" />
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <motion.span
@@ -179,7 +187,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <img src={controlRoomImage} alt="Sentinel command and control centre" className="rounded-2xl shadow-security w-full h-96 object-cover" />
+              <img src={controlRoomImage} alt="Sentinel command and control centre" loading="lazy" className="rounded-2xl shadow-security w-full h-96 object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-security-dark/30 to-transparent rounded-2xl" />
             </motion.div>
           </div>
@@ -241,7 +249,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="relative order-2 lg:order-1"
             >
-              <img src={teamWorkImage} alt="Sentinel engineers integrating systems" className="rounded-2xl shadow-security w-full h-96 object-cover" />
+              <img src={teamWorkImage} alt="Sentinel engineers integrating systems" loading="lazy" className="rounded-2xl shadow-security w-full h-96 object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-security-dark/30 to-transparent rounded-2xl" />
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="order-1 lg:order-2">
