@@ -6,7 +6,7 @@ declare global {
 }
 
 // const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
-const MEASUREMENT_ID = "JSC3CHSK7M";
+const MEASUREMENT_ID = 'G-JSC3CHSK7M';
 
 let initialized = false;
 
