@@ -172,6 +172,7 @@ const VMSPage = () => {
                 src={controlRoomImg}
                 alt="Sentinel Technologies video management control room with multi-camera video wall (representative image)"
                 className="rounded-lg shadow-security w-full h-80 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="space-y-6">

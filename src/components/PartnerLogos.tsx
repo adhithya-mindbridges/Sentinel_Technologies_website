@@ -38,6 +38,7 @@ const PartnerLogos = ({
                   src={partner.logo}
                   alt={partner.name}
                   className="max-h-10 max-w-[120px] w-auto h-auto object-contain mb-2"
+                  loading="lazy"
                 />
               ) : (
                 <span className="text-sm font-semibold text-security-dark mb-2 leading-tight">

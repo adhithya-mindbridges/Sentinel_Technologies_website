@@ -194,6 +194,7 @@ const GateAutomationPage = () => {
                 src={portContainerTerminal}
                 alt="Shipping containers at a port terminal (representative image)"
                 className="w-full h-80 lg:h-[420px] object-cover"
+                loading="lazy"
               />
             </div>
             <div>

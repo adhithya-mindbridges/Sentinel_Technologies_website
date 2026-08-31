@@ -167,6 +167,7 @@ const AccessControlPage = () => {
                 src={accessControl}
                 alt="Sentinel Technologies access control system installation (representative image)"
                 className="rounded-lg shadow-security w-full h-80 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="space-y-6">

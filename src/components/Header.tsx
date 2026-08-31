@@ -83,8 +83,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src={sentinelLogo} alt="Sentinel Technologies" className="h-12 w-12" />
-            <span className="text-[1.7rem] font-display font-bold text-security-dark tracking-tight">
+            <img src={sentinelLogo} alt="Sentinel Technologies" className="h-9 w-9 sm:h-12 sm:w-12" />
+            <span className="text-lg sm:text-[1.7rem] font-display font-bold text-security-dark tracking-tight">
               Sentinel Technologies
             </span>
           </Link>

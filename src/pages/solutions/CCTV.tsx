@@ -166,6 +166,7 @@ const CCTVPage = () => {
                 src={heroSecurityImg}
                 alt="Sentinel Technologies CCTV surveillance installation (representative image)"
                 className="rounded-lg shadow-security w-full h-80 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="space-y-6">

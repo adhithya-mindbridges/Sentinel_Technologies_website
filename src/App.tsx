@@ -44,9 +44,6 @@ const RouteTracker = () => {
 
   useEffect(() => {
     initAnalytics();
-  }, []);
-
-  useEffect(() => {
     trackPageView(location.pathname + location.search);
   }, [location]);
 

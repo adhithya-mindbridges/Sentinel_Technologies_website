@@ -85,6 +85,7 @@ const CustomerLogos = () => {
                     src={customer.logo}
                     alt={customer.name}
                     className="max-h-12 max-w-32 w-auto h-auto object-contain"
+                    loading="lazy"
                   />
                 </div>
               </Card>

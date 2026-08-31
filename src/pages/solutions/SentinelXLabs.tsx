@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, scaleIn, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
 import {
   ArrowRight,
@@ -270,6 +271,18 @@ const ctaOptions = [
 ];
 
 const SentinelXLabsPage = () => {
+  const reduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <div className="min-h-screen overflow-x-clip bg-white">
       <SEO
@@ -296,7 +309,21 @@ const SentinelXLabsPage = () => {
 
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center text-white overflow-hidden">
-        <img src={heroSwarm} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-top" />
+        {reduceMotion ? (
+          <img src={heroSwarm} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-top" />
+        ) : (
+          <video
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            src={isMobile ? "/videos/xlabs/xlabs-hero-mobile.mp4" : "/videos/xlabs/xlabs-hero.mp4"}
+            poster="/images/xlabs/xlabs-hero-poster.webp"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-security-dark" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
 
@@ -901,7 +928,7 @@ const SentinelXLabsPage = () => {
 
         <div className="container relative mx-auto px-4">
           <motion.div initial="hidden" whileInView="visible" viewport={revealOnce} variants={fadeUp} className="max-w-2xl mx-auto text-center mb-14">
-            <img src={xlabsWordmark} alt="Sentinel X-Labs - Smarter Decisions, Powered by Innovation" className="h-8 w-auto mx-auto mb-6 brightness-0 invert" />
+            {/* <img src={xlabsWordmark} alt="Sentinel X-Labs - Smarter Decisions, Powered by Innovation" className="h-8 w-auto mx-auto mb-6 rounded" /> */}
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
               Let&apos;s Build the Future of Autonomous Intelligence
             </h2>
@@ -916,9 +943,9 @@ const SentinelXLabsPage = () => {
             {ctaOptions.map((c, i) => (
               <motion.div key={c.title} custom={i} initial="hidden" whileInView="visible" viewport={revealOnceTight} variants={fadeUp}>
                 <Link to="/contact" className="block h-full">
-                  <Card className="h-full bg-white/5 border-white/15 hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
+                  <Card className="h-full bg-white/5 border-white/15 text-white hover:bg-white/10 hover:border-primary/50 transition-all duration-300">
                     <CardContent className="p-6">
-                      <h3 className="font-semibold mb-2">{c.title}</h3>
+                      <h3 className="font-semibold mb-2 text-white">{c.title}</h3>
                       <p className="text-sm text-white/60 leading-relaxed mb-4">{c.desc}</p>
                       <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
                         Get Started <ArrowRight className="w-3.5 h-3.5" />

@@ -10,6 +10,16 @@ const MEASUREMENT_ID = 'G-JSC3CHSK7M';
 
 let initialized = false;
 
+const ensureGtag = () => {
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== "function") {
+    window.gtag = function gtag(...args: unknown[]) {
+      window.dataLayer.push(args);
+    };
+  }
+  return window.gtag;
+};
+
 export const initAnalytics = () => {
   if (initialized || !MEASUREMENT_ID) return;
   initialized = true;
@@ -19,15 +29,17 @@ export const initAnalytics = () => {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
   document.head.appendChild(script);
 
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
-  };
-  window.gtag("js", new Date());
-  window.gtag("config", MEASUREMENT_ID, { send_page_view: false });
+  const gtag = ensureGtag();
+  gtag("js", new Date());
+  gtag("config", MEASUREMENT_ID, { send_page_view: false });
 };
 
 export const trackPageView = (path: string) => {
-  if (!MEASUREMENT_ID || typeof window.gtag !== "function") return;
-  window.gtag("event", "page_view", { page_path: path });
+  if (!MEASUREMENT_ID) return;
+  const gtag = ensureGtag();
+  gtag("event", "page_view", {
+    page_path: path,
+    page_location: window.location.origin + path,
+    page_title: document.title,
+  });
 };
