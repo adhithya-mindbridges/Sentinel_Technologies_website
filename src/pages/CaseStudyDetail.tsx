@@ -32,7 +32,7 @@ const CaseStudyDetail = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={`${caseStudy.client} - ${caseStudy.title} | Sentinel Technologies`}
+        title={`${caseStudy.headline} | Sentinel Technologies`}
         description={caseStudy.summary.slice(0, 160)}
         canonical={`${SITE_URL}/case-studies/${caseStudy.slug}`}
         ogType="article"
@@ -40,10 +40,19 @@ const CaseStudyDetail = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
-            headline: `${caseStudy.client} - ${caseStudy.title}`,
+            headline: caseStudy.headline,
             about: caseStudy.client,
             description: caseStudy.summary,
             publisher: { "@id": `${SITE_URL}/#organization` },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: caseStudy.faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
           },
         ]}
         breadcrumbs={[
@@ -85,6 +94,8 @@ const CaseStudyDetail = () => {
               >
                 <span className="w-6 h-px bg-primary-glow" />
                 <span className="text-primary-glow">{caseStudy.industry}</span>
+                <span className="text-white/40">&middot;</span>
+                <span>{caseStudy.client}</span>
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 16 }}
@@ -92,7 +103,7 @@ const CaseStudyDetail = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-3xl md:text-4xl font-bold mb-3 text-balance"
               >
-                {caseStudy.client}
+                {caseStudy.headline}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -164,11 +175,27 @@ const CaseStudyDetail = () => {
         </div>
       </section>
 
-      {/* Highlights */}
-      {caseStudy.highlights && caseStudy.highlights.length > 0 && (
-        <section className="py-14 bg-security-light border-b border-border">
-          <div className="container mx-auto px-4">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Metrics grid - proof before the reader commits to reading */}
+      <section className="py-14 bg-security-light border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className={`grid sm:grid-cols-2 gap-6 ${caseStudy.metrics.length >= 3 ? "lg:grid-cols-3" : "lg:grid-cols-2 max-w-2xl mx-auto"}`}>
+            {caseStudy.metrics.map((metric, i) => (
+              <motion.div
+                key={metric.label}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="text-center p-5 rounded-xl bg-white border border-border"
+              >
+                <p className="text-2xl font-bold text-primary tabular-nums mb-1">{metric.value}</p>
+                <p className="text-sm text-muted-foreground leading-snug">{metric.label}</p>
+              </motion.div>
+            ))}
+          </div>
+          {caseStudy.highlights && caseStudy.highlights.length > 0 && (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
               {caseStudy.highlights.map((highlight, i) => (
                 <motion.div
                   key={highlight}
@@ -177,21 +204,39 @@ const CaseStudyDetail = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  className="text-center p-5 rounded-xl bg-white border border-border"
+                  className="text-center p-4 rounded-xl bg-white/60 border border-border"
                 >
-                  <p className="font-bold text-security-dark leading-snug">{highlight}</p>
+                  <p className="text-sm font-semibold text-security-dark leading-snug">{highlight}</p>
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
 
-      {/* Summary + Scope */}
+      {/* The Challenge */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
-            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Overview</p>
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">The Challenge</p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">{caseStudy.challenge.intro}</p>
+            <div className="space-y-3">
+              {caseStudy.challenge.points.map((point) => (
+                <div key={point} className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground leading-relaxed">{point}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Summary + Scope */}
+      <section className="py-20 bg-security-light">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">The Sentinel Solution</p>
             <p className="text-lg text-muted-foreground leading-relaxed">{caseStudy.summary}</p>
             {caseStudy.scale && (
               <p className="text-security-dark font-semibold mt-4">Scale: {caseStudy.scale}</p>
@@ -250,12 +295,56 @@ const CaseStudyDetail = () => {
         </section>
       )}
 
+      {/* Who this is for */}
+      <section className="py-16 bg-security-light border-t border-border">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-6">Is This Relevant to You?</p>
+          <div className="grid sm:grid-cols-2 gap-10">
+            <div>
+              <h3 className="text-sm font-bold text-security-dark mb-3 uppercase tracking-wide">Facility types</h3>
+              <div className="flex flex-wrap gap-2">
+                {caseStudy.targetFacilities.map((facility) => (
+                  <span key={facility} className="px-3 py-1.5 rounded-full text-xs font-medium bg-security-light border border-border text-security-dark">
+                    {facility}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-security-dark mb-3 uppercase tracking-wide">Written for</h3>
+              <div className="flex flex-wrap gap-2">
+                {caseStudy.targetRoles.map((role) => (
+                  <span key={role} className="px-3 py-1.5 rounded-full text-xs font-medium bg-security-light border border-border text-security-dark">
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-background border-t border-border">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-6">Frequently Asked Questions</p>
+          <div className="space-y-4">
+            {caseStudy.faqs.map((faq) => (
+              <div key={faq.question} className="p-5 rounded-xl bg-white border border-border">
+                <p className="font-bold text-security-dark mb-2">{faq.question}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-security-light border-t border-border">
         <div className="container mx-auto px-4 text-center max-w-xl">
-          <h2 className="text-2xl font-bold text-security-dark mb-3">Planning a similar deployment?</h2>
+          <h2 className="text-2xl font-bold text-security-dark mb-3">Still running on manual processes or disconnected systems?</h2>
           <p className="text-muted-foreground mb-8">
-            Talk to our team about scoping a security or infrastructure project for your facility.
+            This is the exact problem Sentinel solves. Talk to our team about scoping a similar deployment for your facility.
           </p>
           <Button asChild size="lg">
             <Link to="/contact">Talk to Our Team</Link>
@@ -266,7 +355,7 @@ const CaseStudyDetail = () => {
       {/* Other case studies */}
       <section className="py-16 bg-background border-t border-border">
         <div className="container mx-auto px-4">
-          <h3 className="text-xl font-bold text-security-dark mb-6">Other Case Studies</h3>
+          <h3 className="text-xl font-bold text-security-dark mb-6">See how other facilities solved this</h3>
           <div className="grid sm:grid-cols-3 gap-4">
             {otherCaseStudies.map((other) => (
               <Link

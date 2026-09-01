@@ -85,10 +85,10 @@ const CaseStudiesPage = () => {
                   </div>
                   <div className="flex flex-col flex-1 p-6">
                     <span className="text-[13px] font-semibold uppercase tracking-wide text-primary mb-2">
-                      {cs.industry}
+                      {cs.industry} &middot; {cs.client}
                     </span>
-                    <h3 className="text-lg font-bold text-security-dark mb-1 group-hover:text-primary transition-colors">
-                      {cs.client}
+                    <h3 className="text-lg font-bold text-security-dark mb-1 group-hover:text-primary transition-colors line-clamp-3">
+                      {cs.headline}
                     </h3>
                     <p className="text-sm text-muted-foreground mb-4 flex-1">{cs.title}</p>
                     {cs.scale && (
@@ -163,11 +163,11 @@ const CaseStudiesPage = () => {
       <section className="py-16 bg-background border-t border-border">
         <div className="container mx-auto px-4 text-center max-w-xl">
           <h2 className="text-2xl md:text-3xl font-bold text-security-dark mb-3">
-            Want to be our next success story?
+            Still running on manual gate logs or disconnected camera systems?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Talk to our team about deploying Sentinel's security and infrastructure solutions at
-            your facility.
+            That's the exact problem Sentinel solves. Talk to our team about deploying security and
+            infrastructure solutions at your facility.
           </p>
           <Button asChild size="lg">
             <Link to="/contact">
