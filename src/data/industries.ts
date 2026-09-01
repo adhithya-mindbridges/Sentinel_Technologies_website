@@ -204,6 +204,7 @@ export const industries: Industry[] = [
     description: "Intelligent technologies for passenger safety and operational visibility",
     intro:
       "Intelligent technologies help transportation operators improve passenger safety, security and operational visibility.",
+    caseStudySlugs: ["cmrl-traqops-platform"],
     solutions: [
       "CCTV Surveillance",
       "Crowd Analytics",
@@ -316,6 +317,13 @@ export const industries: Industry[] = [
       "Structured Cabling",
     ],
     relatedSolutionSlugs: ["cctv", "access-control", "fire-alarm", "public-address", "building-automation"],
+    caseStudySlugs: [
+      "cisb-traqops-platform",
+      "firstman-traqops-platform",
+      "voltas-traqops-platform",
+      "sagtaur-traqops-platform",
+      "kcic-traqops-platform",
+    ],
     image: officeBuilding,
     imageAlt: "Glass facade of a modern corporate office building (representative image)",
   },

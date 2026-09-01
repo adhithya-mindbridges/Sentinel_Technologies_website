@@ -5,6 +5,12 @@ import industrialAutomationFactory from "@/assets/case-studies/industrial-automa
 import accessControlKeypad from "@/assets/case-studies/access-control-keypad.webp";
 import securityCameraInstallation from "@/assets/case-studies/security-camera-installation.webp";
 import electronicsCleanroomManufacturing from "@/assets/case-studies/electronics-cleanroom-manufacturing.webp";
+import metroTrainPlatform from "@/assets/industries/metro-train-platform.jpg";
+import facilityStaffDigitalCheckin from "@/assets/case-studies/facility-staff-digital-checkin.webp";
+import facilityKpiDashboardReview from "@/assets/case-studies/facility-kpi-dashboard-review.webp";
+import hvacMepTechnicianMaintenance from "@/assets/case-studies/hvac-mep-technician-maintenance.webp";
+import fireSafetyBmsPanel from "@/assets/case-studies/fire-safety-bms-panel.webp";
+import facilityAssetManagementTechnician from "@/assets/case-studies/facility-asset-management-technician.webp";
 
 export interface CaseStudyMetric {
   value: string;
@@ -31,20 +37,24 @@ export interface CaseStudy {
   location?: string;
   scale?: string;
   highlights?: string[];
-  /** At-a-glance proof tiles shown as a metrics grid. */
-  metrics: CaseStudyMetric[];
-  challenge: CaseStudyChallenge;
+  /**
+   * At-a-glance proof tiles shown as a metrics grid. Omit (or leave empty) rather than
+   * populate with unverified numbers - the detail page hides this section when absent.
+   */
+  metrics?: CaseStudyMetric[];
+  /** Omit until the specific pre-deployment problem is confirmed - do not generalize into a narrative that wasn't verified for this client. */
+  challenge?: CaseStudyChallenge;
   solutionTags: string[];
   relatedSolutionSlugs: string[];
   summary: string;
   scope: string[];
   impact: string;
   /** Facility types this project is relevant to - lets a reader in a similar environment self-identify. */
-  targetFacilities: string[];
+  targetFacilities?: string[];
   /** Buyer roles this case study is written for. */
-  targetRoles: string[];
-  /** Objection-handling FAQ, also rendered as FAQPage schema. */
-  faqs: CaseStudyFAQ[];
+  targetRoles?: string[];
+  /** Objection-handling FAQ, also rendered as FAQPage schema. Omit until real integration/deployment specifics are confirmed. */
+  faqs?: CaseStudyFAQ[];
   /** Representative imagery (not an actual photo of this client's site - see alt text). */
   image: string;
   imageAlt: string;
@@ -520,6 +530,182 @@ export const caseStudies: CaseStudy[] = [
           "Yes. The same combined security-and-infrastructure build applies to any manufacturing facility that needs CCTV, access control and network cabling delivered as one coordinated project.",
       },
     ],
+  },
+  {
+    // Fact-safe entry: only confirmed information is included. Scope, metrics, timeline and a
+    // named "challenge" narrative are intentionally omitted until confirmed with the CMRL
+    // account team - do not add them back in without a verified source.
+    slug: "cmrl-traqops-platform",
+    client: "Chennai Metro Rail Limited (CMRL)",
+    headline: "The Full TraqOPS Platform, Deployed for Chennai Metro Rail",
+    title: "Operations, Facility, Field Services, Preventive Maintenance & Asset Management Platform",
+    industry: "Transportation, Metro & Rail",
+    location: "Chennai, Tamil Nadu",
+    image: metroTrainPlatform,
+    imageAlt: "Passengers waiting on a train station platform (representative image)",
+    solutionTags: [
+      "Operations & Maintenance",
+      "Facility Management",
+      "Field Services Management",
+      "Preventive Maintenance",
+      "Asset Management",
+    ],
+    relatedSolutionSlugs: ["building-automation"],
+    summary:
+      "Sentinel Technologies' TraqOPS platform is deployed at Chennai Metro Rail Limited (CMRL) across its full module set - Operations & Maintenance, Facility Management, Field Services Management, Preventive Maintenance and Asset Management - bringing CMRL's maintenance, facility and field operations onto one connected platform rather than five disconnected tools.",
+    scope: [
+      "Operations & Maintenance - work order, service and vendor management in one workflow",
+      "Facility Management - centralized, real-time visibility across facility operations and assets",
+      "Field Services Management - scheduling, monitoring and reporting for field operations",
+      "Preventive Maintenance - usage-based, time-based and predictive maintenance scheduling",
+      "Asset Management - real-time tracking of physical and digital assets",
+    ],
+    impact:
+      "TraqOPS's full operations-and-maintenance suite is live at CMRL as part of Sentinel Technologies' ongoing technology partnership with Chennai Metro Rail. A fuller account of the deployment's scope - by module, by location, and by measured result - will be published as further details are confirmed.",
+  },
+  {
+    // Fact-safe entry, same convention as the CMRL entry above: only confirmed information
+    // is included. Scope, metrics, timeline and a named "challenge" narrative are intentionally
+    // omitted until confirmed with the CISB account team - do not add them back in without a
+    // verified source.
+    slug: "cisb-traqops-platform",
+    client: "CISB (CIS Bureaus Facility Services Pvt Ltd)",
+    headline: "TraqOPS Attendance, Invoicing & KPI Reporting, Deployed for CISB",
+    title: "Attendance, Invoicing & KPI Reporting",
+    industry: "Facility & Security Management Services",
+    location: "Mumbai, Maharashtra",
+    image: facilityStaffDigitalCheckin,
+    imageAlt: "Facility staff member checking in attendance digitally on a mobile device (representative image)",
+    solutionTags: ["Attendance Management", "Invoicing & Billing", "KPI Reporting"],
+    relatedSolutionSlugs: ["building-automation"],
+    summary:
+      "Sentinel Technologies' TraqOPS platform is deployed at CISB, a security and facility management services provider, for attendance management, automated invoicing and KPI/performance reporting - not the full TraqOPS module suite.",
+    scope: [
+      "Attendance Management - digital tracking of personnel attendance",
+      "Invoicing & Billing - automated invoice generation",
+      "KPI Reporting - performance dashboards and reporting",
+    ],
+    impact:
+      "TraqOPS's attendance, invoicing and KPI reporting capabilities are live at CISB as part of Sentinel Technologies' ongoing technology partnership. A fuller account of the deployment's scope and results will be published as further details are confirmed.",
+  },
+  {
+    // Fact-safe entry, same convention as CMRL/CISB above: only confirmed information is
+    // included. Scope, metrics, timeline and a named "challenge" narrative are intentionally
+    // omitted until confirmed with the Firstman account team - do not add them back in without
+    // a verified source.
+    slug: "firstman-traqops-platform",
+    client: "Firstman Management Services (P) Ltd",
+    headline: "TraqOPS Attendance, Invoicing & KPI Reporting, Deployed for Firstman Management Services",
+    title: "Attendance, Invoicing & KPI Reporting",
+    industry: "Facility & Security Management Services",
+    location: "Chennai, Tamil Nadu",
+    image: facilityKpiDashboardReview,
+    imageAlt: "Facility management team reviewing a KPI dashboard (representative image)",
+    solutionTags: ["Attendance Management", "Invoicing & Billing", "KPI Reporting"],
+    relatedSolutionSlugs: ["building-automation"],
+    summary:
+      "Sentinel Technologies' TraqOPS platform is deployed at Firstman Management Services, a pan-India facility and security management services provider, for attendance management, automated invoicing and KPI/performance reporting - not the full TraqOPS module suite.",
+    scope: [
+      "Attendance Management - digital tracking of personnel attendance",
+      "Invoicing & Billing - automated invoice generation",
+      "KPI Reporting - performance dashboards and reporting",
+    ],
+    impact:
+      "TraqOPS's attendance, invoicing and KPI reporting capabilities are live at Firstman Management Services as part of Sentinel Technologies' ongoing technology partnership. A fuller account of the deployment's scope and results will be published as further details are confirmed.",
+  },
+  {
+    // Fact-safe entry, same convention as CMRL above: full 5-module TraqOPS suite, confirmed
+    // by Sentinel's account team. Scope, metrics, timeline and a named "challenge" narrative
+    // are intentionally omitted until confirmed - do not add them back in without a verified source.
+    slug: "voltas-traqops-platform",
+    client: "Voltas Limited",
+    headline: "The Full TraqOPS Platform, Deployed for Voltas",
+    title: "Operations, Facility, Field Services, Preventive Maintenance & Asset Management Platform",
+    industry: "HVAC, MEP & Engineering Services",
+    location: "Mumbai, Maharashtra",
+    image: hvacMepTechnicianMaintenance,
+    imageAlt: "HVAC/MEP technician performing maintenance on mechanical plant equipment (representative image)",
+    solutionTags: [
+      "Operations & Maintenance",
+      "Facility Management",
+      "Field Services Management",
+      "Preventive Maintenance",
+      "Asset Management",
+    ],
+    relatedSolutionSlugs: ["building-automation"],
+    summary:
+      "Sentinel Technologies' TraqOPS platform is deployed at Voltas Limited across its full module set - Operations & Maintenance, Facility Management, Field Services Management, Preventive Maintenance and Asset Management - bringing Voltas's own maintenance, facility and field operations onto one connected platform rather than five disconnected tools.",
+    scope: [
+      "Operations & Maintenance - work order, service and vendor management in one workflow",
+      "Facility Management - centralized, real-time visibility across facility operations and assets",
+      "Field Services Management - scheduling, monitoring and reporting for field operations",
+      "Preventive Maintenance - usage-based, time-based and predictive maintenance scheduling",
+      "Asset Management - real-time tracking of physical and digital assets",
+    ],
+    impact:
+      "TraqOPS's full operations-and-maintenance suite is live at Voltas as part of Sentinel Technologies' ongoing technology partnership. A fuller account of the deployment's scope - by module, by location, and by measured result - will be published as further details are confirmed.",
+  },
+  {
+    // Fact-safe entry, same convention as CMRL above.
+    slug: "sagtaur-traqops-platform",
+    client: "SagTaur Systems Pvt Ltd",
+    headline: "The Full TraqOPS Platform, Deployed for SagTaur Systems",
+    title: "Operations, Facility, Field Services, Preventive Maintenance & Asset Management Platform",
+    industry: "Fire Safety, Security & Building Management Systems Integration",
+    location: "Chennai, Tamil Nadu",
+    image: fireSafetyBmsPanel,
+    imageAlt: "Fire safety and building management system control panel (representative image)",
+    solutionTags: [
+      "Operations & Maintenance",
+      "Facility Management",
+      "Field Services Management",
+      "Preventive Maintenance",
+      "Asset Management",
+    ],
+    relatedSolutionSlugs: ["building-automation"],
+    summary:
+      "Sentinel Technologies' TraqOPS platform is deployed at SagTaur Systems across its full module set - Operations & Maintenance, Facility Management, Field Services Management, Preventive Maintenance and Asset Management - bringing SagTaur's own maintenance, facility and field operations onto one connected platform rather than five disconnected tools.",
+    scope: [
+      "Operations & Maintenance - work order, service and vendor management in one workflow",
+      "Facility Management - centralized, real-time visibility across facility operations and assets",
+      "Field Services Management - scheduling, monitoring and reporting for field operations",
+      "Preventive Maintenance - usage-based, time-based and predictive maintenance scheduling",
+      "Asset Management - real-time tracking of physical and digital assets",
+    ],
+    impact:
+      "TraqOPS's full operations-and-maintenance suite is live at SagTaur Systems as part of Sentinel Technologies' ongoing technology partnership. A fuller account of the deployment's scope - by module, by location, and by measured result - will be published as further details are confirmed.",
+  },
+  {
+    // Fact-safe entry. Industry/location for KCIC could not be independently verified -
+    // classified alongside its peer facility/security-services clients (CISB, Firstman) per
+    // Sentinel's own customer-logo grouping. Confirm and correct with the account team before
+    // treating the industry label below as verified.
+    slug: "kcic-traqops-platform",
+    client: "KCIC",
+    headline: "The Full TraqOPS Platform, Deployed for KCIC",
+    title: "Operations, Facility, Field Services, Preventive Maintenance & Asset Management Platform",
+    industry: "Facility & Security Management Services",
+    image: facilityAssetManagementTechnician,
+    imageAlt: "Field technician tracking assets during preventive maintenance (representative image)",
+    solutionTags: [
+      "Operations & Maintenance",
+      "Facility Management",
+      "Field Services Management",
+      "Preventive Maintenance",
+      "Asset Management",
+    ],
+    relatedSolutionSlugs: ["building-automation"],
+    summary:
+      "Sentinel Technologies' TraqOPS platform is deployed at KCIC across its full module set - Operations & Maintenance, Facility Management, Field Services Management, Preventive Maintenance and Asset Management - bringing KCIC's own maintenance, facility and field operations onto one connected platform rather than five disconnected tools.",
+    scope: [
+      "Operations & Maintenance - work order, service and vendor management in one workflow",
+      "Facility Management - centralized, real-time visibility across facility operations and assets",
+      "Field Services Management - scheduling, monitoring and reporting for field operations",
+      "Preventive Maintenance - usage-based, time-based and predictive maintenance scheduling",
+      "Asset Management - real-time tracking of physical and digital assets",
+    ],
+    impact:
+      "TraqOPS's full operations-and-maintenance suite is live at KCIC as part of Sentinel Technologies' ongoing technology partnership. A fuller account of the deployment's scope - by module, by location, and by measured result - will be published as further details are confirmed.",
   },
 ];
 
