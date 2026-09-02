@@ -12,6 +12,7 @@ import heroSecurityImg from "@/assets/hero-security.jpg";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
+import PTZExplodedView from "@/components/solutions/PTZExplodedView";
 import { Camera, Eye, Shield, Smartphone, Monitor, AlertTriangle, Cctv } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -150,6 +151,20 @@ const CCTVPage = () => {
           </div>
         </div>
       </section>
+
+      {/* PTZ / Intelligent Surveillance - scroll-driven exploded-view engineering showcase */}
+      {/* <section className="bg-security-dark py-16 sm:py-20 text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Engineered for Intelligent Surveillance
+          </h2>
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
+            Explore the precision engineering behind Sentinel&apos;s professional PTZ surveillance
+            technology.
+          </p>
+        </div>
+      </section>
+      <PTZExplodedView /> */}
 
       {/* Solutions Types */}
       <section className="py-20 bg-security-light">
