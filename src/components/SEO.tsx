@@ -17,6 +17,14 @@ interface SEOProps {
   schema?: Record<string, unknown>[];
 }
 
+/** Truncates to at most maxLength chars, breaking at the last word boundary. */
+const truncateDescription = (text: string, maxLength = 160) => {
+  if (text.length <= maxLength) return text;
+  const clipped = text.slice(0, maxLength);
+  const lastSpace = clipped.lastIndexOf(" ");
+  return `${clipped.slice(0, lastSpace > 0 ? lastSpace : maxLength).trimEnd()}...`;
+};
+
 const SITE_URL = "https://sentinel-technologies.net";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
@@ -107,4 +115,4 @@ const SEO = ({
 };
 
 export default SEO;
-export { SITE_URL };
+export { SITE_URL, truncateDescription };

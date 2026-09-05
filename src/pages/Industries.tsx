@@ -19,7 +19,7 @@ const IndustriesPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Industries We Serve | Sentinel Technologies"
-        description="Sentinel Technologies delivers integrated Security, ELV, AI, Video Management, Access Control, Automation, IoT and Digital Infrastructure solutions across automotive, manufacturing, ports, aviation, defence, data centres and more."
+        description="Sentinel Technologies delivers integrated security, AI, video management and automation solutions across automotive, ports, aviation, defence and data centres."
         canonical={`${SITE_URL}/industries`}
         breadcrumbs={[{ name: "Industries", url: `${SITE_URL}/industries` }]}
       />

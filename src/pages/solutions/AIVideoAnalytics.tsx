@@ -98,8 +98,8 @@ const AIVideoAnalyticsPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="A.I - Intelligent Video Analytics | Sentinel Technologies"
-        description="AI transforms conventional CCTV infrastructure into an intelligent platform - Industrial Safety AI, Security AI, People Intelligence and Vehicle Intelligence that detect, analyse and respond to events in real time."
+        title="AI Video Analytics | Sentinel Technologies"
+        description="AI transforms CCTV into an intelligent platform - Industrial Safety AI, Security AI, People and Vehicle Intelligence that detect and respond in real time."
         canonical={`${SITE_URL}/solutions/ai-video-analytics`}
         schema={[
           {

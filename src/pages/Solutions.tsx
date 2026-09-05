@@ -575,7 +575,7 @@ const SolutionsPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Products & Solutions | Sentinel Technologies"
-        description="Sentinel Technologies' complete portfolio - CCTV, AI video analytics, VMS, access control, gate automation, fire safety, command centres, TraqOPS building intelligence, IT infrastructure and structured cabling."
+        description="Explore Sentinel Technologies' full portfolio - CCTV, AI video analytics, VMS, access control, fire safety, TraqOPS building intelligence and IT infrastructure."
         canonical={`${SITE_URL}/solutions`}
         breadcrumbs={[{ name: "Products & Solutions", url: `${SITE_URL}/solutions` }]}
       />

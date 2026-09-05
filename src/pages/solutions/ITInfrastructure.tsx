@@ -61,7 +61,7 @@ const ITInfrastructurePage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="IT & Network Infrastructure Solutions | Sentinel Technologies"
+        title="IT & Network Infrastructure | Sentinel Technologies"
         description="Structured cabling, network setup, server installation and data-centre infrastructure - the IT backbone that supports modern security and automation systems."
         canonical={`${SITE_URL}/solutions/it-infrastructure`}
         schema={[

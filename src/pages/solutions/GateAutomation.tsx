@@ -76,7 +76,7 @@ const GateAutomationPage = () => {
     <div className="min-h-screen">
       <SEO
         title="RFID & ANPR Gate Automation | Sentinel Technologies"
-        description="Automated vehicle and gate-management solutions for ports, factories, logistics facilities, warehouses and campuses. RFID identification, ANPR recognition, boom barriers and enterprise integration from Sentinel Technologies."
+        description="Automated vehicle and gate-management solutions for ports, factories, logistics facilities and campuses - RFID, ANPR and boom barrier integration."
         canonical={`${SITE_URL}/solutions/gate-automation`}
         schema={[
           {

@@ -69,7 +69,7 @@ const VMSPage = () => {
     <div className="min-h-screen">
       <SEO
         title="VMS - Intelligent Video Management | Sentinel Technologies"
-        description="An open, scalable Video Management System with centralized camera management, multi-site architecture, AI analytics integration and command centre connectivity. Sentinel designs VMS platforms for enterprise surveillance."
+        description="An open, scalable Video Management System with centralized camera control, multi-site architecture and AI analytics integration for enterprise surveillance."
         canonical={`${SITE_URL}/solutions/vms`}
         schema={[
           {

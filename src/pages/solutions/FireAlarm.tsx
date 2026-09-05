@@ -65,7 +65,7 @@ const FireAlarmPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Fire Alarm & Life Safety Systems | Sentinel Technologies"
-        description="Smoke detection, heat sensors, emergency alerts and central monitoring. Sentinel designs and installs fire alarm systems for commercial, industrial and residential buildings."
+        description="Smoke detection, heat sensors, emergency alerts and central monitoring for commercial, industrial and residential fire alarm systems."
         canonical={`${SITE_URL}/solutions/fire-alarm`}
         schema={[
           {

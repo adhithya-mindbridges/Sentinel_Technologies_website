@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SEO, { SITE_URL } from "@/components/SEO";
+import SEO, { SITE_URL, truncateDescription } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getSolutionBySlug } from "@/data/solutions";
@@ -32,8 +32,8 @@ const CaseStudyDetail = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={`${caseStudy.headline} | Sentinel Technologies`}
-        description={caseStudy.summary.slice(0, 160)}
+        title={`${caseStudy.client} Case Study | Sentinel Technologies`}
+        description={truncateDescription(caseStudy.summary)}
         canonical={`${SITE_URL}/case-studies/${caseStudy.slug}`}
         ogType="article"
         schema={[

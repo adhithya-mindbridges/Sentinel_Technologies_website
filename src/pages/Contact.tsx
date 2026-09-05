@@ -92,7 +92,7 @@ const Contact = () => {
     <div className="min-h-screen">
       <SEO
         title="Contact Us | Sentinel Technologies"
-        description="Get in touch with Sentinel Technologies' security and automation experts. Contact us for custom CCTV, access control, fire safety, and building automation solutions."
+        description="Get in touch with Sentinel Technologies' security and automation experts for custom CCTV, access control, fire safety and building automation solutions."
         canonical={`${SITE_URL}/contact`}
         breadcrumbs={[{ name: "Contact", url: `${SITE_URL}/contact` }]}
       />

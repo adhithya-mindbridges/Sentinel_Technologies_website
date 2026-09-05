@@ -65,7 +65,7 @@ const CCTVPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Video Surveillance & CCTV Systems | Sentinel Technologies"
-        description="HD/4K CCTV cameras with night vision, motion detection, remote monitoring and video analytics. Sentinel designs and installs indoor and outdoor surveillance systems across India."
+        description="HD/4K CCTV cameras with night vision, motion detection, remote monitoring and video analytics, designed and installed across India."
         canonical={`${SITE_URL}/solutions/cctv`}
         schema={[
           {

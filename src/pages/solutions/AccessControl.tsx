@@ -65,7 +65,7 @@ const AccessControlPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Access Control Systems | Sentinel Technologies"
-        description="Biometric, card-reader and mobile access control with audit trails and role-based permissions. Sentinel designs identity management systems for offices, campuses and facilities."
+        description="Biometric, card-reader and mobile access control with audit trails and role-based permissions for offices, campuses and facilities."
         canonical={`${SITE_URL}/solutions/access-control`}
         schema={[
           {

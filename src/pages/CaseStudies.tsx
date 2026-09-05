@@ -20,7 +20,7 @@ const CaseStudiesPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Case Studies | Sentinel Technologies"
-        description="Sentinel Technologies' project deployments across automotive, electronics, defence and port infrastructure - large-scale CCTV, access control, gate automation and network infrastructure delivered at enterprise scale."
+        description="Sentinel Technologies delivers project deployments across automotive, electronics, defence and port infrastructure - CCTV, access control and network solutions."
         canonical={`${SITE_URL}/case-studies`}
         breadcrumbs={[{ name: "Case Studies", url: `${SITE_URL}/case-studies` }]}
       />

@@ -98,8 +98,8 @@ const About = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <SEO
-        title="About Sentinel Technologies - Intelligent Security, AI & Automation"
-        description="Founded in 2012, Sentinel Technologies engineers intelligent security, AI-powered surveillance, automation and digital infrastructure for enterprises, industries, transportation and government."
+        title="About Sentinel Technologies | Security & AI Automation"
+        description="Founded in 2012, Sentinel Technologies engineers intelligent security, AI surveillance and automation solutions for enterprises, industry and government."
         canonical="https://sentinel-technologies.net/about"
       />
 

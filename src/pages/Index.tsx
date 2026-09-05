@@ -10,8 +10,8 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Sentinel Technologies - Security, ELV & AI Automation Solutions"
-        description="Sentinel Technologies engineers CCTV, access control, fire alarm, public address, building automation, IT infrastructure and AI-powered security solutions for enterprises across India."
+        title="Sentinel Technologies | Security, ELV & AI Automation"
+        description="Sentinel Technologies designs and installs CCTV, access control, fire alarm, building automation and AI-powered security systems for enterprises across India."
         canonical={SITE_URL + "/"}
       />
       <HeroSection />

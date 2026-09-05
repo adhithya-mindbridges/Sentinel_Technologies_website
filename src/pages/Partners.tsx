@@ -188,7 +188,7 @@ const PartnersPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Our Partnerships | Sentinel Technologies"
-        description="Sentinel Technologies' ecosystem of global technology manufacturers, OEMs and software providers across video surveillance, access control, fire safety, networking, storage and AI."
+        description="Sentinel Technologies' ecosystem of global technology manufacturers and OEMs across video surveillance, access control, fire safety, networking and AI."
         canonical={`${SITE_URL}/partners`}
         breadcrumbs={[{ name: "Partners", url: `${SITE_URL}/partners` }]}
       />

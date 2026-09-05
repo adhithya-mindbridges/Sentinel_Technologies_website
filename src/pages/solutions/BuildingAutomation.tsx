@@ -138,8 +138,8 @@ const BuildingAutomationPage = () => {
   return (
     <div className="min-h-screen overflow-x-clip">
       <SEO
-        title="TraqOPS | Intelligent Building Management Solution | Sentinel Technologies"
-        description="TraqOPS is Sentinel Technologies' cloud-enabled Building Management Solution - centralized control, predictive maintenance, energy management and AI-driven insights for smart, sustainable buildings."
+        title="TraqOPS Building Management | Sentinel Technologies"
+        description="TraqOPS is Sentinel Technologies' cloud-enabled Building Management Solution - centralized control, predictive maintenance and energy management."
         canonical={`${SITE_URL}/solutions/building-automation`}
         schema={[
           {

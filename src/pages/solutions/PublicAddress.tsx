@@ -63,8 +63,8 @@ const PublicAddressPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Public Address & Voice Alarm Systems | Sentinel Technologies"
-        description="Zone-controlled public address systems for emergency announcements, evacuation and facility-wide communication across factories, campuses and commercial buildings."
+        title="Public Address & Voice Alarm | Sentinel Technologies"
+        description="Zone-controlled public address systems for emergency announcements, evacuation and facility-wide communication across factories and campuses."
         canonical={`${SITE_URL}/solutions/public-address`}
         schema={[
           {

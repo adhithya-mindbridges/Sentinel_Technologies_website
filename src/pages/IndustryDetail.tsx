@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SEO, { SITE_URL } from "@/components/SEO";
+import SEO, { SITE_URL, truncateDescription } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getIndustryBySlug, industries } from "@/data/industries";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
@@ -31,8 +31,8 @@ const IndustryDetail = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={`${industry.name} Security Solutions | Sentinel Technologies`}
-        description={`${industry.tagline}. ${industry.intro}`.slice(0, 160)}
+        title={`${industry.name} Solutions | Sentinel Technologies`}
+        description={truncateDescription(`${industry.tagline}. ${industry.intro}`)}
         canonical={`${SITE_URL}/industries/${industry.slug}`}
         schema={[
           {

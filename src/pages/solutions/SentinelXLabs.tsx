@@ -286,8 +286,8 @@ const SentinelXLabsPage = () => {
   return (
     <div className="min-h-screen overflow-x-clip bg-white">
       <SEO
-        title="Sentinel X-Labs | Autonomous AI Drones, Robotics & Underwater Intelligence"
-        description="Sentinel X-Labs engineers autonomous intelligence platforms - AI-powered fixed wing, multi-rotor and underwater drones with edge AI, swarm intelligence and a unified digital command center."
+        title="Sentinel X-Labs | AI Drones & Robotics"
+        description="Sentinel X-Labs engineers autonomous intelligence platforms - AI-powered drones, robotics and underwater vehicles with edge AI and swarm intelligence."
         canonical={`${SITE_URL}/solutions/sentinel-x-labs`}
         schema={[
           {
