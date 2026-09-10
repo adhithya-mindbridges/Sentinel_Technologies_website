@@ -409,6 +409,7 @@ const categories: SolutionCategory[] = [
       "Building Management",
       "Command Centres",
     ],
+    path: "/solutions/elv-systems-integration",
   },
   {
     number: "14",
@@ -787,6 +788,30 @@ const SolutionsPage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Planning guide */}
+      <section className="py-14 bg-white border-t border-border">
+        <div className="container mx-auto px-4">
+          <Link
+            to="/resources/enterprise-security-systems-procurement-checklist"
+            className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-3xl mx-auto p-6 rounded-2xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors"
+          >
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5">Planning Checklist</p>
+              <h3 className="font-bold text-security-dark group-hover:text-primary transition-colors">
+                Enterprise Security Systems Procurement Checklist
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                Requirements by system category, questions to ask an integrator, and how to phase implementation.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary flex-shrink-0">
+              Read the Checklist
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </span>
+          </Link>
         </div>
       </section>
 

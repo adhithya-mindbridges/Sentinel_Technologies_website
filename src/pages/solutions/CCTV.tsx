@@ -10,6 +10,9 @@ import boschLogo from "@/assets/partners/logos/bosch.png";
 import heroSecurityImg from "@/assets/hero-security.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import PTZExplodedView from "@/components/solutions/PTZExplodedView";
@@ -91,6 +94,8 @@ const CCTVPage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="cctv" heading="video surveillance" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -222,6 +227,10 @@ const CCTVPage = () => {
         title="CCTV Technology Partners"
         partners={cctvPartners}
       />
+
+      <SolutionConsiderations solutionSlug="cctv" />
+
+      <SolutionCrossLinks solutionSlug="cctv" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

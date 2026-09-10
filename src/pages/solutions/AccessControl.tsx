@@ -11,6 +11,9 @@ import supremaLogo from "@/assets/partners/logos/suprema.png";
 import accessControl from "@/assets/access control.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import { Lock, Fingerprint, Smartphone, Users, Clock, Shield, ScanEye } from "lucide-react";
@@ -91,6 +94,8 @@ const AccessControlPage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="access-control" heading="access control" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -208,6 +213,10 @@ const AccessControlPage = () => {
         title="Access Control Technology Partners"
         partners={accessPartners}
       />
+
+      <SolutionConsiderations solutionSlug="access-control" />
+
+      <SolutionCrossLinks solutionSlug="access-control" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

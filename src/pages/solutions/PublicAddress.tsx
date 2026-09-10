@@ -9,6 +9,9 @@ import mAudioLogo from "@/assets/partners/logos/m-audio.png";
 import paSystemApplications from "@/assets/pa system applications.jpg";
 
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import { Volume2, Mic, Radio, Speaker, Settings, Shield } from "lucide-react";
@@ -90,6 +93,8 @@ const PublicAddressPage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="public-address" heading="public address systems" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -207,6 +212,10 @@ const PublicAddressPage = () => {
         title="Audio Technology Partners"
         partners={paPartners}
       />
+
+      <SolutionConsiderations solutionSlug="public-address" />
+
+      <SolutionCrossLinks solutionSlug="public-address" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

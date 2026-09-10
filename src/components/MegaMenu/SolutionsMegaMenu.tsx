@@ -80,7 +80,7 @@ const columns = [
       { icon: Volume2, label: "Public Address & Voice Alarm", href: "/solutions/public-address" },
       { icon: Activity, label: "TraqOPS - Building & Operations", href: "/solutions/building-automation" },
       { icon: LayoutDashboard, label: "Command & Control Centres", href: "/solutions#solution-10" },
-      { icon: Layers, label: "ELV Systems Integration", href: "/solutions#solution-13" },
+      { icon: Layers, label: "ELV Systems Integration", href: "/solutions/elv-systems-integration" },
     ],
   },
   {

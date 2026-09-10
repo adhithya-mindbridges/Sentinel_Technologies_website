@@ -1,11 +1,9 @@
 import { useEffect, lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PageLoader from "./components/PageLoader";
 import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 import Index from "./pages/Index";
@@ -21,6 +19,10 @@ const SentinelXLabsPage = lazy(() => import("./pages/solutions/SentinelXLabs"));
 const VMSPage = lazy(() => import("./pages/solutions/VMS"));
 const GateAutomationPage = lazy(() => import("./pages/solutions/GateAutomation"));
 const AIVideoAnalyticsPage = lazy(() => import("./pages/solutions/AIVideoAnalytics"));
+const ELVSystemsIntegrationPage = lazy(() => import("./pages/solutions/ELVSystemsIntegration"));
+const RFIDANPRGateAutomationPage = lazy(() => import("./pages/solutions/RFIDANPRGateAutomation"));
+const AIVideoAnalyticsSecurityPlanningPage = lazy(() => import("./pages/resources/AIVideoAnalyticsSecurityPlanning"));
+const EnterpriseSecurityProcurementChecklistPage = lazy(() => import("./pages/resources/EnterpriseSecurityProcurementChecklist"));
 const IndustriesPage = lazy(() => import("./pages/Industries"));
 const IndustryDetail = lazy(() => import("./pages/IndustryDetail"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudies"));
@@ -29,8 +31,6 @@ const AboutPage = lazy(() => import("./pages/About"));
 const SolutionsPage = lazy(() => import("./pages/Solutions"));
 const PartnersPage = lazy(() => import("./pages/Partners"));
 const ContactPage = lazy(() => import("./pages/Contact"));
-
-const queryClient = new QueryClient();
 
 if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
   // Take control of scroll position ourselves - otherwise the browser's
@@ -67,46 +67,47 @@ const RouteTracker = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <RouteTracker />
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">
-            <Suspense fallback={null}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/solutions/cctv" element={<CCTVPage />} />
-                <Route path="/solutions/access-control" element={<AccessControlPage />} />
-                <Route path="/solutions/fire-alarm" element={<FireAlarmPage />} />
-                <Route path="/solutions/public-address" element={<PublicAddressPage />} />
-                <Route path="/solutions/building-automation" element={<BuildingAutomationPage />} />
-                <Route path="/solutions/it-infrastructure" element={<ITInfrastructurePage />} />
-                <Route path="/solutions/sentinel-x-labs" element={<SentinelXLabsPage />} />
-                <Route path="/solutions/vms" element={<VMSPage />} />
-                <Route path="/solutions/gate-automation" element={<GateAutomationPage />} />
-                <Route path="/solutions/ai-video-analytics" element={<AIVideoAnalyticsPage />} />
-                <Route path="/solutions" element={<SolutionsPage />} />
-                <Route path="/industries" element={<IndustriesPage />} />
-                <Route path="/industries/:slug" element={<IndustryDetail />} />
-                <Route path="/case-studies" element={<CaseStudiesPage />} />
-                <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/partners" element={<PartnersPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <>
+    <Toaster />
+    <BrowserRouter>
+      <RouteTracker />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/solutions/cctv" element={<CCTVPage />} />
+              <Route path="/solutions/access-control" element={<AccessControlPage />} />
+              <Route path="/solutions/fire-alarm" element={<FireAlarmPage />} />
+              <Route path="/solutions/public-address" element={<PublicAddressPage />} />
+              <Route path="/solutions/building-automation" element={<BuildingAutomationPage />} />
+              <Route path="/solutions/it-infrastructure" element={<ITInfrastructurePage />} />
+              <Route path="/solutions/sentinel-x-labs" element={<SentinelXLabsPage />} />
+              <Route path="/solutions/vms" element={<VMSPage />} />
+              <Route path="/solutions/gate-automation" element={<GateAutomationPage />} />
+              <Route path="/solutions/ai-video-analytics" element={<AIVideoAnalyticsPage />} />
+              <Route path="/solutions/elv-systems-integration" element={<ELVSystemsIntegrationPage />} />
+              <Route path="/solutions/rfid-anpr-gate-automation" element={<RFIDANPRGateAutomationPage />} />
+              <Route path="/resources/ai-video-analytics-security-planning" element={<AIVideoAnalyticsSecurityPlanningPage />} />
+              <Route path="/resources/enterprise-security-systems-procurement-checklist" element={<EnterpriseSecurityProcurementChecklistPage />} />
+              <Route path="/solutions" element={<SolutionsPage />} />
+              <Route path="/industries" element={<IndustriesPage />} />
+              <Route path="/industries/:slug" element={<IndustryDetail />} />
+              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/partners" element={<PartnersPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  </>
 );
 
 export default App;

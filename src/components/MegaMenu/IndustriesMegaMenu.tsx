@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Camera, BrainCircuit, Radio } from "lucide-react";
 import IndustryCard from "./IndustryCard";
 import { industries } from "@/data/industries";
-import { enterpriseScaleStats } from "@/data/caseStudies";
+import { enterpriseScaleStats } from "@/data/caseStudyStats";
 
 const menuVariants = {
   hidden: { opacity: 0, y: -12, scaleY: 0.97, transformOrigin: "top" as const },

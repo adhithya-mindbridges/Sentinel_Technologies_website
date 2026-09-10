@@ -1,11 +1,13 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle2, Building2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Building2, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEO, { SITE_URL, truncateDescription } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getIndustryBySlug, industries } from "@/data/industries";
+import { industryChallenges } from "@/data/industryChallenges";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
+import { getSolutionBySlug } from "@/data/solutions";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -26,7 +28,12 @@ const IndustryDetail = () => {
     .map((s) => getCaseStudyBySlug(s))
     .filter(Boolean);
 
+  const relatedSolutions = industry.relatedSolutionSlugs
+    .map((s) => getSolutionBySlug(s))
+    .filter(Boolean);
+
   const otherIndustries = industries.filter((i) => i.slug !== industry.slug).slice(0, 6);
+  const challenges = industryChallenges[industry.slug] ?? [];
 
   return (
     <div className="min-h-screen">
@@ -103,6 +110,59 @@ const IndustryDetail = () => {
         </div>
       </section>
 
+      {/* Operational requirements - the "problem" band that sets up the Solutions
+          section below. Dark and editorial (numbered, glass cards) so it reads as
+          the stakes being named, not another checklist that blurs into Solutions. */}
+      {challenges.length > 0 && (
+        <section className="relative py-20 md:py-24 bg-security-dark text-white overflow-hidden">
+          <div
+            className="pointer-events-none absolute -top-32 right-0 w-[28rem] h-[28rem] rounded-full bg-primary/10 blur-3xl"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute -bottom-40 -left-24 w-[24rem] h-[24rem] rounded-full bg-security-accent/10 blur-3xl"
+            aria-hidden="true"
+          />
+
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="text-center mb-12 max-w-2xl mx-auto"
+            >
+              <p className="inline-flex items-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.2em] text-primary-glow mb-4">
+                <AlertTriangle className="w-4 h-4" />
+                Operational Requirements
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white text-balance">
+                What {industry.name.toLowerCase()} facilities are up against
+              </h2>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
+              {challenges.map((item, i) => (
+                <motion.div
+                  key={item}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="flex items-start gap-4 p-5 rounded-2xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] hover:border-white/20 transition-colors"
+                >
+                  <span className="text-2xl font-bold text-white/15 tabular-nums leading-none pt-0.5" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm text-white/75 leading-relaxed">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Solutions */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
@@ -135,6 +195,25 @@ const IndustryDetail = () => {
               </motion.div>
             ))}
           </div>
+
+          {relatedSolutions.length > 0 && (
+            <div className="max-w-4xl mx-auto mt-8 flex flex-wrap items-center justify-center gap-3">
+              <span className="text-sm text-muted-foreground">Explore the systems:</span>
+              {relatedSolutions.map((solution) => {
+                if (!solution) return null;
+                return (
+                  <Link
+                    key={solution.slug}
+                    to={solution.path}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark hover:underline underline-offset-4"
+                  >
+                    {solution.title}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -213,19 +292,50 @@ const IndustryDetail = () => {
       </section>
 
       {/* Other industries */}
-      <section className="py-16 bg-background border-t border-border">
+      <section className="py-20 bg-background border-t border-border">
         <div className="container mx-auto px-4">
-          <h3 className="text-xl font-bold text-security-dark mb-6">Other Industries</h3>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {otherIndustries.map((other) => (
-              <Link
-                key={other.slug}
-                to={`/industries/${other.slug}`}
-                className="p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors text-sm font-medium text-security-dark"
-              >
-                {other.name}
-              </Link>
-            ))}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center mb-12 max-w-2xl mx-auto"
+          >
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">
+              More Industries
+            </p>
+            <h2 className="text-3xl font-bold text-security-dark text-balance">
+              Other sectors we secure
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {otherIndustries.map((other, i) => {
+              const OtherIcon = other.icon;
+              return (
+                <motion.div key={other.slug} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+                  <Link
+                    to={`/industries/${other.slug}`}
+                    className="group relative flex h-40 flex-col justify-end overflow-hidden rounded-2xl border border-border hover:border-primary/40 hover:shadow-security transition-all duration-300"
+                  >
+                    <img
+                      src={other.image}
+                      alt=""
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-security-dark/90 via-security-dark/40 to-security-dark/10" />
+                    <div className="absolute top-3 left-3 p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15">
+                      <OtherIcon className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="relative z-10 p-4 flex items-center justify-between gap-2">
+                      <span className="font-semibold text-white leading-tight">{other.name}</span>
+                      <ArrowRight className="w-4 h-4 text-white/70 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

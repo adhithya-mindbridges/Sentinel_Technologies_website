@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { motion } from "framer-motion";
 import { useCountUp } from "@/hooks/use-count-up";
@@ -27,6 +30,14 @@ import {
   ShoppingBag,
   Sparkles,
   ArrowRight,
+  Users,
+  ClipboardList,
+  Search,
+  ListChecks,
+  LayoutDashboard,
+  Video,
+  Terminal,
+  Database,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -113,6 +124,84 @@ const industries = [
   { icon: GraduationCap, label: "Campuses & Institutions" },
   { icon: HeartPulse, label: "Hospitals & Healthcare Centers" },
   { icon: ShoppingBag, label: "Malls & Mixed-Use Complexes" },
+];
+
+const operationsModules = [
+  {
+    icon: Wrench,
+    title: "Operations & Maintenance",
+    description: "Work orders, service requests and vendor management handled in one workflow instead of separate logs.",
+  },
+  {
+    icon: Building2,
+    title: "Facility Management",
+    description: "Centralized, real-time visibility across facility operations and the assets inside them.",
+  },
+  {
+    icon: Users,
+    title: "Field Services Management",
+    description: "Scheduling, monitoring and reporting for field teams and on-site service operations.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Preventive Maintenance",
+    description: "Usage-based, time-based and predictive maintenance scheduling instead of run-to-failure upkeep.",
+  },
+  {
+    icon: Boxes,
+    title: "Asset Management",
+    description: "Real-time tracking of physical and digital assets across a facility or portfolio of sites.",
+  },
+];
+
+const positioningCards = [
+  {
+    icon: Video,
+    title: "Video Surveillance & VMS",
+    description:
+      "Where a facility runs Sentinel's Video Management System, TraqOPS can bring camera-estate and surveillance operations into the same operational picture as maintenance and assets.",
+    path: "/solutions/vms",
+    linkLabel: "Explore VMS",
+  },
+  {
+    icon: Terminal,
+    title: "Command & Control Centres",
+    description:
+      "For facilities operating a central command centre, TraqOPS is the operational layer that feeds it - consolidating maintenance, facility and field data alongside security systems.",
+    path: "/solutions#solution-10",
+    linkLabel: "Explore Command & Control",
+  },
+  {
+    icon: Database,
+    title: "Data Centre Operations",
+    description:
+      "Uptime-critical environments where facility and asset visibility need to sit alongside, not separate from, physical security monitoring.",
+    path: "/industries/data-centres",
+    linkLabel: "Explore Data Centre Operations",
+  },
+];
+
+const planningSteps = [
+  {
+    icon: Search,
+    title: "Stakeholder Requirements",
+    description: "Who needs visibility into what - facility managers, operations leads, field teams - and what decisions they need the platform to support.",
+  },
+  {
+    icon: ListChecks,
+    title: "Current Systems Review",
+    description: "What building-automation, security and operational tools already exist, and what data they can realistically contribute.",
+  },
+  {
+    icon: Users,
+    title: "Workflow Mapping",
+    description: "How maintenance, facility and field operations actually run today, so the platform reflects real workflows rather than a generic template.",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Implementation Planning",
+    description: "Which modules to bring online first, in what sequence, and how the rollout is staged across sites or buildings.",
+  },
 ];
 
 const clientele = [
@@ -265,6 +354,8 @@ const BuildingAutomationPage = () => {
         </div>
       </section>
 
+      <SolutionChallenge solutionSlug="building-automation" heading="a connected building platform" />
+
       {/* Core Capabilities */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -318,6 +409,151 @@ const BuildingAutomationPage = () => {
                       </p>
                     </CardContent>
                   </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Operational visibility across building systems */}
+      <section className="py-20 bg-security-light">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            className="text-center mb-14 max-w-2xl mx-auto"
+          >
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Operational Visibility</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
+              Operational Visibility Across Building Systems
+            </h2>
+            <p className="text-muted-foreground mt-4">
+              A facility manager working from five disconnected tools can&apos;t see the full picture of their own
+              building. TraqOPS brings the following into one management view:
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {operationsModules.map((mod, i) => {
+              const IconComponent = mod.icon;
+              return (
+                <motion.div
+                  key={mod.title}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  variants={fadeUp}
+                  className="p-5 rounded-2xl border border-border bg-white h-full"
+                >
+                  <motion.div className="p-2.5 rounded-lg bg-primary/10 w-fit mb-3" whileHover={{ scale: 1.1, rotate: 6 }} transition={iconSpring}>
+                    <IconComponent className="w-5 h-5 text-primary" />
+                  </motion.div>
+                  <h3 className="font-bold text-security-dark mb-2">{mod.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{mod.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Where TraqOPS fits alongside other systems */}
+      <section className="py-20 bg-security-dark text-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            className="text-center mb-14 max-w-2xl mx-auto"
+          >
+            <p className="text-primary-glow text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Positioning</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-balance">Where TraqOPS Fits</h2>
+            <p className="text-white/70 mt-4">
+              TraqOPS isn&apos;t a replacement for video or command-and-control systems - it&apos;s the operations
+              layer that sits alongside them, relevant wherever a facility runs enough systems, assets or sites that
+              no single team can hold the full picture in their head.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {positioningCards.map((card, i) => {
+              const IconComponent = card.icon;
+              return (
+                <motion.div
+                  key={card.path}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  variants={fadeUp}
+                >
+                  <Link
+                    to={card.path}
+                    className="group flex flex-col h-full p-5 rounded-2xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] hover:border-white/20 transition-colors"
+                  >
+                    <div className="p-2.5 rounded-lg bg-primary/15 w-fit mb-3">
+                      <IconComponent className="w-5 h-5 text-primary-glow" />
+                    </div>
+                    <h3 className="font-bold text-white mb-2 group-hover:text-primary-glow transition-colors">{card.title}</h3>
+                    <p className="text-sm text-white/70 leading-relaxed mb-4 flex-1">{card.description}</p>
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary-glow">
+                      {card.linkLabel}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Planning a building operations platform rollout */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            className="text-center mb-14 max-w-2xl mx-auto"
+          >
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Get Started</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-security-dark text-balance">
+              Planning a Building Operations Platform
+            </h2>
+            <p className="text-muted-foreground mt-4">
+              A platform rollout is scoped around the facility it&apos;s built for - here&apos;s what that scoping
+              covers.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {planningSteps.map((step, i) => {
+              const IconComponent = step.icon;
+              return (
+                <motion.div
+                  key={step.title}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  variants={fadeUp}
+                  className="relative p-5 rounded-2xl border border-border bg-security-light/60 h-full"
+                >
+                  <span className="text-2xl font-bold text-primary/15 tabular-nums leading-none" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="p-2 rounded-lg bg-primary/10 w-fit -mt-1 mb-3">
+                    <IconComponent className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-security-dark mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </motion.div>
               );
             })}
@@ -567,6 +803,10 @@ const BuildingAutomationPage = () => {
           </div>
         </div>
       </section>
+
+      <SolutionConsiderations solutionSlug="building-automation" />
+
+      <SolutionCrossLinks solutionSlug="building-automation" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

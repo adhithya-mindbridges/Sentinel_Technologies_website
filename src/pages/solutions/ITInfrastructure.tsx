@@ -8,6 +8,9 @@ import juniperLogo from "@/assets/partners/logos/juniper.png";
 
 import serverRoomImg from "@/assets/server room.jpg";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import { Network, Server, Cable, Shield, Database, Router } from "lucide-react";
@@ -88,6 +91,8 @@ const ITInfrastructurePage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="it-infrastructure" heading="structured IT infrastructure" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -205,6 +210,10 @@ const ITInfrastructurePage = () => {
         title="IT Infrastructure Partners"
         partners={itPartners}
       />
+
+      <SolutionConsiderations solutionSlug="it-infrastructure" />
+
+      <SolutionCrossLinks solutionSlug="it-infrastructure" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

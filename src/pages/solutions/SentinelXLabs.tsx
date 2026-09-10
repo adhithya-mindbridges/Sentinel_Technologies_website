@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, scaleIn, iconSpring, revealOnce, revealOnceTight } from "@/lib/motion";
@@ -418,6 +420,8 @@ const SentinelXLabsPage = () => {
           </div>
         </div>
       </section>
+
+      <SolutionChallenge solutionSlug="sentinel-x-labs" heading="autonomous coverage" />
 
       {/* WHAT IS SENTINEL X-LABS */}
       <section className="py-20 bg-white">
@@ -920,6 +924,8 @@ const SentinelXLabsPage = () => {
           </div>
         </div>
       </section>
+
+      <SolutionConsiderations solutionSlug="sentinel-x-labs" />
 
       {/* CTA */}
       <section className="relative py-24 text-white overflow-hidden">

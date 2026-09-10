@@ -11,6 +11,9 @@ import boonEdamLogo from "@/assets/partners/logos/boon edam.png";
 import nemtekLogo from "@/assets/partners/logos/nemtek.png";
 import parkZeusLogo from "@/assets/partners/logos/park zeus.png";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import {
@@ -104,6 +107,8 @@ const GateAutomationPage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="gate-automation" heading="automated gate control" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -233,6 +238,34 @@ const GateAutomationPage = () => {
         title="Gate Automation Technology Partners"
         partners={gatePartners}
       />
+
+      <SolutionConsiderations solutionSlug="gate-automation" />
+
+      <SolutionCrossLinks solutionSlug="gate-automation" showCaseStudies={false} />
+
+      {/* Deep-dive guide */}
+      <section className="py-14 bg-white border-t border-border">
+        <div className="container mx-auto px-4">
+          <Link
+            to="/solutions/rfid-anpr-gate-automation"
+            className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-3xl mx-auto p-6 rounded-2xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors"
+          >
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5">In-Depth Guide</p>
+              <h3 className="font-bold text-security-dark group-hover:text-primary transition-colors">
+                RFID vs. ANPR: Planning a Gate Automation System
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                How each technology works, deployment considerations, and where gate automation fits by industry.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary flex-shrink-0">
+              Read the Guide
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </span>
+          </Link>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

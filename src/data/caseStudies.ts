@@ -84,7 +84,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     solutionTags: ["CCTV Surveillance", "Boom Barriers", "Gate Automation"],
-    relatedSolutionSlugs: ["cctv", "access-control"],
+    relatedSolutionSlugs: ["cctv", "access-control", "gate-automation"],
     summary:
       "Sentinel Technologies delivered integrated security and gate-management solutions for Daimler India Commercial Vehicles (DICV), supporting the security requirements of its automotive manufacturing environment.",
     scope: [
@@ -140,7 +140,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     solutionTags: ["CCTV Surveillance", "Industrial AI", "Video Analytics"],
-    relatedSolutionSlugs: ["cctv"],
+    relatedSolutionSlugs: ["cctv", "ai-video-analytics"],
     summary:
       "Sentinel Technologies implemented a large-scale surveillance infrastructure integrated with Industrial AI capabilities for TVS Srichakra's manufacturing environment.",
     scope: [
@@ -254,7 +254,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     solutionTags: ["RFID", "ANPR", "Gate Automation", "Vehicle Management"],
-    relatedSolutionSlugs: ["access-control"],
+    relatedSolutionSlugs: ["access-control", "gate-automation"],
     summary:
       "Sentinel Technologies implemented an integrated RFID and ANPR-based Gate Automation System for Kamarajar Port Limited. The solution brings together vehicle identification and automated gate-control technologies to streamline and secure vehicle movements within the port environment.",
     scope: [
@@ -710,22 +710,3 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const getCaseStudyBySlug = (slug: string) => caseStudies.find((c) => c.slug === slug);
-
-export const enterpriseScaleStats = [
-  { value: "10,000+", label: "Cameras Across Featured Deployments" },
-  { value: "10M+", label: "Metres of CAT6 Infrastructure" },
-  { value: `${caseStudies.length}`, label: "Enterprise-Scale Projects Featured" },
-];
-
-export const technologyStrip = [
-  "CCTV",
-  "AI",
-  "VMS",
-  "Access Control",
-  "Gate Automation",
-  "RFID",
-  "ANPR",
-  "Data Centre",
-  "Structured Cabling",
-  "Command & Control",
-];

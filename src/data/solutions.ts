@@ -1,4 +1,4 @@
-import { Camera, Lock, Flame, Volume2, Building, Network, type LucideIcon } from "lucide-react";
+import { Camera, Lock, Flame, Volume2, Building, Network, ScanLine, BrainCircuit, Boxes, Bot, Layers, type LucideIcon } from "lucide-react";
 
 export interface Solution {
   slug: string;
@@ -63,6 +63,51 @@ export const solutions: Solution[] = [
       "Structured cabling, network infrastructure, and IT solutions that form the backbone of modern security systems.",
     features: ["Structured Cabling", "Network Setup", "Server Installation", "Data Centers"],
     path: "/solutions/it-infrastructure",
+  },
+  {
+    slug: "gate-automation",
+    icon: ScanLine,
+    title: "RFID & ANPR Gate Automation",
+    description:
+      "Automated vehicle and gate-management solutions for ports, factories, logistics facilities, warehouses and campuses.",
+    features: ["RFID Vehicle Identification", "ANPR Recognition", "Boom Barrier Integration", "Automated Entry/Exit"],
+    path: "/solutions/gate-automation",
+  },
+  {
+    slug: "ai-video-analytics",
+    icon: BrainCircuit,
+    title: "AI Video Analytics",
+    description:
+      "AI that transforms conventional CCTV infrastructure into an intelligent platform, detecting, analysing and responding to events in real time.",
+    features: ["Industrial Safety AI", "Security AI", "People Intelligence", "Vehicle Intelligence"],
+    path: "/solutions/ai-video-analytics",
+  },
+  {
+    slug: "vms",
+    icon: Boxes,
+    title: "VMS - Intelligent Video Management",
+    description:
+      "An open, scalable Video Management System with centralized camera control, multi-site architecture and AI analytics integration.",
+    features: ["Camera & Integration", "Live & Recorded Video", "Multi-Site Architecture", "AI Analytics Integration"],
+    path: "/solutions/vms",
+  },
+  {
+    slug: "sentinel-x-labs",
+    icon: Bot,
+    title: "Sentinel X-Labs",
+    description:
+      "Autonomous intelligence platforms - AI-powered drones, robotics and underwater vehicles with edge AI and swarm intelligence.",
+    features: ["Fixed-Wing & Multi-Rotor Drones", "Underwater Intelligence", "Edge AI", "Swarm Intelligence"],
+    path: "/solutions/sentinel-x-labs",
+  },
+  {
+    slug: "elv-systems-integration",
+    icon: Layers,
+    title: "ELV Systems Integration",
+    description:
+      "CCTV, access control, fire alarm, public address, building automation and IT infrastructure integrated into one coordinated ELV architecture.",
+    features: ["Unified Project Management", "Cross-System Triggers", "Structured Integration Process", "Single Point of Accountability"],
+    path: "/solutions/elv-systems-integration",
   },
 ];
 

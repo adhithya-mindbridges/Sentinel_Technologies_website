@@ -1,11 +1,13 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, AlertTriangle, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO, { SITE_URL, truncateDescription } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getSolutionBySlug } from "@/data/solutions";
+import { getIndustryForCaseStudy } from "@/data/crossLinks";
 import LogoMotif from "@/components/graphics/LogoMotif";
 
 const fadeUp = {
@@ -28,6 +30,7 @@ const CaseStudyDetail = () => {
     .filter(Boolean);
 
   const otherCaseStudies = caseStudies.filter((c) => c.slug !== caseStudy.slug).slice(0, 3);
+  const industry = getIndustryForCaseStudy(caseStudy.slug);
 
   return (
     <div className="min-h-screen">
@@ -97,7 +100,13 @@ const CaseStudyDetail = () => {
                 className="inline-flex items-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.2em] text-white/70 mb-5"
               >
                 <span className="w-6 h-px bg-primary-glow" />
-                <span className="text-primary-glow">{caseStudy.industry}</span>
+                {industry ? (
+                  <Link to={`/industries/${industry.slug}`} className="text-primary-glow hover:underline underline-offset-4">
+                    {caseStudy.industry}
+                  </Link>
+                ) : (
+                  <span className="text-primary-glow">{caseStudy.industry}</span>
+                )}
                 <span className="text-white/40">&middot;</span>
                 <span>{caseStudy.client}</span>
               </motion.span>
@@ -195,9 +204,10 @@ const CaseStudyDetail = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={fadeUp}
-                    className="text-center p-5 rounded-xl bg-white border border-border"
+                    className="relative text-center p-6 pt-7 rounded-xl bg-white border border-border overflow-hidden"
                   >
-                    <p className="text-2xl font-bold text-primary tabular-nums mb-1">{metric.value}</p>
+                    <span className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-security-accent" aria-hidden="true" />
+                    <p className="text-3xl font-bold text-primary tabular-nums mb-1.5">{metric.value}</p>
                     <p className="text-sm text-muted-foreground leading-snug">{metric.label}</p>
                   </motion.div>
                 ))}
@@ -229,18 +239,26 @@ const CaseStudyDetail = () => {
       {caseStudy.challenge && (
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-10">
               <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">The Challenge</p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">{caseStudy.challenge.intro}</p>
-              <div className="space-y-3">
-                {caseStudy.challenge.points.map((point) => (
-                  <div key={point} className="flex items-start gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span className="text-sm text-muted-foreground leading-relaxed">{point}</span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-lg text-security-dark leading-relaxed font-medium text-balance">{caseStudy.challenge.intro}</p>
             </motion.div>
+            <div className="space-y-3">
+              {caseStudy.challenge.points.map((point, i) => (
+                <motion.div
+                  key={point}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="flex items-start gap-3 p-4 rounded-xl border border-border bg-security-light/60"
+                >
+                  <AlertTriangle className="w-5 h-5 text-security-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-muted-foreground leading-relaxed">{point}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -272,11 +290,16 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* Impact */}
-      <section className="py-20 bg-security-dark text-white">
-        <div className="container mx-auto px-4 max-w-2xl text-center">
+      <section className="relative py-20 bg-security-dark text-white overflow-hidden">
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full bg-primary/10 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="container relative mx-auto px-4 max-w-2xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <Quote className="w-8 h-8 text-primary-glow/50 mx-auto mb-4" aria-hidden="true" />
             <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Impact</p>
-            <p className="text-xl font-semibold leading-relaxed text-balance">{caseStudy.impact}</p>
+            <p className="text-xl md:text-2xl font-semibold leading-relaxed text-balance">{caseStudy.impact}</p>
           </motion.div>
         </div>
       </section>
@@ -285,8 +308,17 @@ const CaseStudyDetail = () => {
       {relatedSolutions.length > 0 && (
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <h3 className="text-xl font-bold text-security-dark mb-6">Solutions used in this project</h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="text-center mb-10 max-w-2xl mx-auto"
+            >
+              <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">Solutions Deployed</p>
+              <h2 className="text-2xl font-bold text-security-dark">Solutions used in this project</h2>
+            </motion.div>
+            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
               {relatedSolutions.map((solution) => {
                 if (!solution) return null;
                 const Icon = solution.icon;
@@ -294,7 +326,7 @@ const CaseStudyDetail = () => {
                   <Link
                     key={solution.slug}
                     to={solution.path}
-                    className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors"
+                    className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors w-full sm:w-64"
                   >
                     <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
                       <Icon className="w-5 h-5 text-primary" />
@@ -349,45 +381,83 @@ const CaseStudyDetail = () => {
         <section className="py-16 bg-background border-t border-border">
           <div className="container mx-auto px-4 max-w-3xl">
             <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-6">Frequently Asked Questions</p>
-            <div className="space-y-4">
-              {caseStudy.faqs.map((faq) => (
-                <div key={faq.question} className="p-5 rounded-xl bg-white border border-border">
-                  <p className="font-bold text-security-dark mb-2">{faq.question}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
-                </div>
+            <Accordion type="single" collapsible className="rounded-xl border border-border bg-white overflow-hidden">
+              {caseStudy.faqs.map((faq, i) => (
+                <AccordionItem
+                  key={faq.question}
+                  value={`faq-${i}`}
+                  className={i === caseStudy.faqs!.length - 1 ? "border-b-0" : ""}
+                >
+                  <AccordionTrigger className="px-5 font-bold text-security-dark hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 text-sm text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
         </section>
       )}
 
       {/* CTA */}
-      <section className="py-16 bg-security-light border-t border-border">
+      <section className="py-20 bg-security-dark text-white">
         <div className="container mx-auto px-4 text-center max-w-xl">
-          <h2 className="text-2xl font-bold text-security-dark mb-3">Still running on manual processes or disconnected systems?</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-balance">
+            Still running on manual processes or disconnected systems?
+          </h2>
+          <p className="text-white/70 mb-8">
             This is the exact problem Sentinel solves. Talk to our team about scoping a similar deployment for your facility.
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
             <Link to="/contact">Talk to Our Team</Link>
           </Button>
+          {industry && (
+            <p className="mt-5 text-sm text-white/60">
+              Working in {caseStudy.industry.toLowerCase()}?{" "}
+              <Link to={`/industries/${industry.slug}`} className="font-semibold text-primary-glow hover:underline underline-offset-4">
+                See what we deploy for {industry.name.toLowerCase()}
+              </Link>
+            </p>
+          )}
         </div>
       </section>
 
       {/* Other case studies */}
-      <section className="py-16 bg-background border-t border-border">
+      <section className="py-20 bg-background border-t border-border">
         <div className="container mx-auto px-4">
-          <h3 className="text-xl font-bold text-security-dark mb-6">See how other facilities solved this</h3>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {otherCaseStudies.map((other) => (
-              <Link
-                key={other.slug}
-                to={`/case-studies/${other.slug}`}
-                className="p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors"
-              >
-                <p className="text-[13px] font-semibold uppercase tracking-wide text-primary mb-1">{other.industry}</p>
-                <p className="text-sm font-medium text-security-dark">{other.client}</p>
-              </Link>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center mb-12 max-w-2xl mx-auto"
+          >
+            <p className="text-primary text-[13px] font-bold uppercase tracking-[0.2em] mb-3">More Proof</p>
+            <h2 className="text-3xl font-bold text-security-dark text-balance">See how other facilities solved this</h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {otherCaseStudies.map((other, i) => (
+              <motion.div key={other.slug} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+                <Link
+                  to={`/case-studies/${other.slug}`}
+                  className="group flex flex-col h-full rounded-2xl overflow-hidden border border-border hover:border-primary/40 hover:shadow-security transition-all duration-300 bg-white"
+                >
+                  <div className="relative h-40">
+                    <img src={other.image} alt={other.imageAlt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-security-dark/70 via-security-dark/10 to-transparent" />
+                    <p className="absolute bottom-3 left-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/85">
+                      {other.industry}
+                    </p>
+                  </div>
+                  <div className="p-5 flex items-center justify-between gap-2">
+                    <p className="font-bold text-security-dark group-hover:text-primary transition-colors">{other.client}</p>
+                    <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>

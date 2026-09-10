@@ -58,6 +58,28 @@ const PTZExplodedView = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
   const [errored, setErrored] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  // Defer the 3MB+ video fetch until this (very tall, far-down-page) section
+  // is actually approaching the viewport, so it doesn't compete with this
+  // route's initial page load for bandwidth. The generous rootMargin still
+  // gives the video time to buffer before the user scrolls into it.
+  useEffect(() => {
+    if (reduceMotion) return;
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [reduceMotion]);
 
   // Bound 1:1 to scroll, not spring-smoothed: a spring lags behind on fast
   // scrolls, which read as the video falling out of sync. Direct binding
@@ -167,11 +189,11 @@ const PTZExplodedView = () => {
           ) : (
             <video
               ref={videoRef}
-              src={ptzVideo}
+              src={shouldLoadVideo ? ptzVideo : undefined}
               poster={ptzPoster}
               muted
               playsInline
-              preload="auto"
+              preload={shouldLoadVideo ? "auto" : "none"}
               aria-hidden="true"
               className="w-full h-full object-cover"
             />

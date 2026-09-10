@@ -11,6 +11,9 @@ import edwardsLogo from "@/assets/partners/logos/edwards.png";
 
 import fireAlarmImg from "@/assets/fire alarm.jpg";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import { Flame, AlertTriangle, Bell, Shield, Radio, Eye } from "lucide-react";
@@ -91,6 +94,8 @@ const FireAlarmPage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="fire-alarm" heading="fire alarm systems" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -208,6 +213,10 @@ const FireAlarmPage = () => {
         title="Fire Safety Technology Partners"
         partners={firePartners}
       />
+
+      <SolutionConsiderations solutionSlug="fire-alarm" />
+
+      <SolutionCrossLinks solutionSlug="fire-alarm" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

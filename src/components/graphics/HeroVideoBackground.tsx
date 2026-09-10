@@ -18,7 +18,7 @@ import { Camera, ScanLine, Radar, Share2 } from "lucide-react";
  */
 
 const DESKTOP_SRC = "/videos/hero/sentinel-hero.mp4";
-const MOBILE_SRC = "/videos/hero/sentinel-hero.mp4";
+const MOBILE_SRC = "/videos/hero/sentinel-hero-mobile.mp4";
 const DESKTOP_POSTER = "/images/hero/hero-poster.webp";
 const MOBILE_POSTER = "/images/hero/hero-poster-mobile.webp";
 

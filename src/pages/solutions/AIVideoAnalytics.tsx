@@ -6,6 +6,9 @@ import securityCameraInstallation from "@/assets/case-studies/security-camera-in
 import aiDetectionImg from "@/assets/xlabs/xlabs-ai-detection.jpg";
 import axisLogo from "@/assets/partners/logos/axis.png";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import {
@@ -127,6 +130,8 @@ const AIVideoAnalyticsPage = () => {
         secondaryLabel="Request Quote"
         highlights={capabilityGroups.map((g) => g.title)}
       />
+
+      <SolutionChallenge solutionSlug="ai-video-analytics" heading="AI video analytics" />
 
       {/* Capability groups */}
       <section className="py-20 bg-white">
@@ -297,6 +302,34 @@ const AIVideoAnalyticsPage = () => {
         title="AI & Video Analytics Technology Partners"
         partners={aiPartners}
       />
+
+      <SolutionConsiderations solutionSlug="ai-video-analytics" />
+
+      <SolutionCrossLinks solutionSlug="ai-video-analytics" showCaseStudies={false} />
+
+      {/* Planning guide */}
+      <section className="py-14 bg-white border-t border-border">
+        <div className="container mx-auto px-4">
+          <Link
+            to="/resources/ai-video-analytics-security-planning"
+            className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-3xl mx-auto p-6 rounded-2xl border border-border hover:border-primary/40 hover:bg-security-light transition-colors"
+          >
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5">Planning Guide</p>
+              <h3 className="font-bold text-security-dark group-hover:text-primary transition-colors">
+                How to Plan AI Video Analytics for Security
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                Use cases, implementation considerations, and how analytics fits with CCTV, VMS and command-and-control.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary flex-shrink-0">
+              Read the Guide
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </span>
+          </Link>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

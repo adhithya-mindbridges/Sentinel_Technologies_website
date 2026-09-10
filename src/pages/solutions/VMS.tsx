@@ -7,6 +7,9 @@ import hikvisionLogo from "@/assets/partners/logos/hikvision.png";
 import dahuaLogo from "@/assets/partners/logos/dahua.png";
 import axisLogo from "@/assets/partners/logos/axis.png";
 import SEO, { SITE_URL } from "@/components/SEO";
+import SolutionCrossLinks from "@/components/solutions/SolutionCrossLinks";
+import SolutionChallenge from "@/components/solutions/SolutionChallenge";
+import SolutionConsiderations from "@/components/solutions/SolutionConsiderations";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SolutionHero from "@/components/solutions/SolutionHero";
 import {
@@ -96,6 +99,8 @@ const VMSPage = () => {
         secondaryLabel="Request Quote"
         highlights={features.slice(0, 4).map((f) => f.title)}
       />
+
+      <SolutionChallenge solutionSlug="vms" heading="a unified VMS" />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -212,6 +217,10 @@ const VMSPage = () => {
         title="VMS Technology Partners"
         partners={vmsPartners}
       />
+
+      <SolutionConsiderations solutionSlug="vms" />
+
+      <SolutionCrossLinks solutionSlug="vms" />
 
       {/* CTA Section */}
       <section className="py-20 bg-security-dark text-white">

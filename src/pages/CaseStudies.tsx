@@ -4,7 +4,8 @@ import { ArrowRight, ArrowUpRight, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEO, { SITE_URL } from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { caseStudies, enterpriseScaleStats, technologyStrip } from "@/data/caseStudies";
+import { caseStudies } from "@/data/caseStudies";
+import { enterpriseScaleStats, technologyStrip } from "@/data/caseStudyStats";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
